@@ -1,0 +1,21 @@
+// fluid
+@mixin make-container($gutter: $gap) {
+  width: 100%;
+  padding-right: calc($gap / 2);
+  padding-left: calc($gap / 2);
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.container,
+.is-fluid {
+  @include make-container();
+}
+
+.container {
+  @each $grid-breakpoint, $width in $container-max-widths {
+    @include breakepoint-up(#{$grid-breakpoint}) {
+      max-width: $width;
+    }
+  }
+}

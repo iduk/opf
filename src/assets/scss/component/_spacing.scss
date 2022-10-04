@@ -1,0 +1,66 @@
+// p-*, px-*, py-*
+
+$direction: (
+  x: (
+    '-left',
+    '-right',
+  ),
+  y: (
+    '-top',
+    '-bottom',
+  ),
+  t: '-top',
+  b: '-bottom',
+  r: '-right',
+  l: '-left',
+) !default;
+
+$properties: (
+  m: 'margin',
+  p: 'padding',
+);
+
+@for $i from 0 through $space-count {
+  @each $p1, $p2 in $properties {
+    .#{$p1}-#{$i} {
+      #{$p2}: $spacing * $i + rem;
+    }
+    @each $name, $arrow in $direction {
+      .#{$p1}#{$name} {
+        @if $i == 0 {
+          &-0 {
+            @if length($arrow) > 1 {
+              #{$p2}#{nth($arrow, 1)}: 0;
+              #{$p2}#{nth($arrow, 2)}: 0;
+            } @else {
+              #{$p2}#{$arrow}: 0;
+            }
+          }
+        } @else {
+          &-#{$i} {
+            @if length($arrow) > 1 {
+              #{$p2}#{nth($arrow, 1)}: $spacing * $i + rem;
+              #{$p2}#{nth($arrow, 2)}: $spacing * $i + rem;
+            } @else {
+              #{$p2}#{$arrow}: $spacing * $i + rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// mt-auto ...
+@each $p1, $p2 in (m: 'margin') {
+  @each $name, $arrow in $direction {
+    .m#{$name}-auto {
+      @if length($arrow) > 1 {
+        margin#{nth($arrow, 1)}: auto;
+        margin#{nth($arrow, 2)}: auto;
+      } @else {
+        margin#{$arrow}: auto;
+      }
+    }
+  }
+}

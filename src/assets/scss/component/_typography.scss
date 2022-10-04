@@ -1,0 +1,36 @@
+// text-size
+@each $key, $value in $text-sizes {
+  .text-#{$key} {
+    font-size: $value;
+    line-height: normal;
+  }
+}
+
+// headings
+@each $key, $value in $headings {
+  h#{$key},
+  .h#{$key} {
+    font-size: $value;
+    font-weight: bold;
+  }
+}
+
+p {
+  line-height: 1.5;
+}
+// font-weight
+@each $key, $value in $font-weight {
+  .font-#{$key} {
+    font-weight: $value;
+  }
+}
+
+.text-r {
+  text-align: right;
+}
+.text-l {
+  text-align: left;
+}
+.text-c {
+  text-align: center;
+}
