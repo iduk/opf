@@ -5,6 +5,7 @@ import Appbar from './appbar'
 import Seo from './seo'
 import * as styles from './layout.module.scss'
 import classNames from 'classnames/bind'
+import Footer from './footer'
 const cx = classNames.bind(styles)
 
 const Layout = ({ children, className }) => {
@@ -23,16 +24,11 @@ const Layout = ({ children, className }) => {
   const pageTitle = data.site.siteMetadata?.title
   return (
     <div className={cx('layout', `${className}`)}>
-      <header>
-        <Appbar siteTitle={pageTitle} />
-      </header>
+      <Appbar siteTitle={pageTitle} />
 
       <main>{children}</main>
 
-      <footer className={cx('footer')}>
-        © {new Date().getFullYear()} CreateBy.
-        <span>{data.site.siteMetadata.author}</span>
-      </footer>
+      <Footer />
     </div>
   )
 }

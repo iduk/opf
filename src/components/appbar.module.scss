@@ -12,7 +12,14 @@
   display: block;
   font-weight: bolder;
   text-transform: uppercase;
-  color: inherit;
+  display: flex;
+  align-items: center;
+  color: var(--gray-0);
+  fill: currentColor;
+}
+
+.logoSvg img {
+  color: var(--gray-0);
 }
 
 .navTrigger {
@@ -92,6 +99,6 @@
   }
 
   .logo {
-    width: 5vh;
+    width: 8vh;
   }
 }

@@ -20,7 +20,7 @@ p {
 }
 // font-weight
 @each $key, $value in $font-weight {
-  .font-#{$key} {
+  .fw-#{$key} {
     font-weight: $value;
   }
 }

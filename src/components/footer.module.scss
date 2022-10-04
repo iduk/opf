@@ -1,0 +1,38 @@
+/********************* 
+  Footer
+  - 
+*********************/
+.footer {
+  border-top: 1px solid $primary;
+  position: relative;
+  color: inherit;
+  padding: 4vh 0;
+  background-color: $primary;
+
+  > * {
+    color: white;
+  }
+}
+.social-list {
+  li {
+    display: flex;
+    column-gap: 1vw;
+
+    > span {
+      flex-shrink: 0;
+      display: block;
+      font-weight: bold;
+      min-width: max-content;
+    }
+  }
+}
+
+.copyright {
+  font-size: 1rem;
+}
+.address {
+  font-size: 1.125rem;
+  @include breakepoint-down(lg) {
+    padding-top: 2rem;
+  }
+}

@@ -64,21 +64,21 @@ $text-sizes: (
 ) !default;
 
 $headings: (
-  1: 1.25vw * 3.5,
-  2: 1.25vw * 3,
-  3: 1.25vw * 2.5,
-  4: 1.25vw * 2,
-  5: 1.25vw * 1.5,
-  6: 1.25vw * 1,
+  1: $text-base * 3.5,
+  2: $text-base * 3,
+  3: $text-base * 2.5,
+  4: $text-base * 2,
+  5: $text-base * 1.5,
+  6: $text-base * 1,
 ) !default;
 
 $font-weight: (
-  'thin': 100,
+  'lighter': 100,
   'light': 300,
   'normal': 400,
   'medium': 500,
   'bold': 600,
-  'extrabold': 700,
+  'bolder': 800,
 ) !default;
 
 /* ---------------------------------------------------------- 
@@ -102,7 +102,7 @@ $container-max-widths: (
 ) !default;
 
 $col-count: 12 !default;
-$gap: 2rem !default;
+$gap: 24px !default;
 
 $border-width: 1px;
 $border-width-lg: 2px;

@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { graphql, Link } from 'gatsby'
-import { GatsbyImage, StaticImage } from 'gatsby-plugin-image'
+// import { GatsbyImage, StaticImage } from 'gatsby-plugin-image'
 import Layout from '../components/layout'
 import * as styles from './index.module.scss'
 import classNames from 'classnames/bind'
@@ -12,72 +12,72 @@ const IndexPage = ({ data }) => {
 
   return (
     <Layout className={cx('index')}>
-      <section className="is-fluid">
-        <div className="row">
-          <div className="col-12 col-md-4 col-lg-3 pb-5">
-            <article className={cx('intro')}>
-              <h6>Welcome to LetsBy Website.</h6>
-              <p className="my-3">
-                Nulla dolor ante, facilisis ornare mi eget, lobortis pretium
-                dolor. Vestibulum molestie lobortis pellentesque. Nam dictum,
-                lacus sed eleifend consectetur, est nibh placerat tellus, in
-                laoreet neque metus in purus. Aliquam iaculis nunc vel dapibus
-                aliquet. Donec non sapien aliquet, luctus arcu eget, luctus
-                libero. Praesent faucibus accumsan consequat. Ut sit amet
-                viverra urna. Etiam sit amet semper turpis, at vestibulum urna.
-                <br />
-                <br />
-                Cras consectetur, lorem sit amet facilisis accumsan, leo nisi
-                accumsan ex, ut placerat urna arcu quis neque. Curabitur in nunc
-                eget ex facilisis dictum.
+      <div className="is-fluid">
+        <section>
+          <Intro />
+        </section>
+        <section className={cx('section', 'bg-primary', 'mask')}>
+          <div className="row">
+            <div className="col-12 col-lg-6">
+              <h1>We work</h1>
+              <p className="fw-bolder mb-1">커리어의 기회를 만들어주는곳</p>
+              <p>
+                오픈플로어는 수천개의 채용공고 및 아웃소싱 프로젝트 경험을 통해
+                데이터 기반 인공지능 기술을 연구하고, 이를 활용한 응용 서비스 및
+                솔루션을 개발합니다. 기술에 대한 이해를 기반으로, 다양한
+                비즈니스 영역의 데이터를 만나는 것을 환영합니다.
               </p>
-              <div className="text-sm">
-                <p>2022 Letsby Blog Website</p>
-                <p>All Rights Reserved.</p>
-              </div>
-            </article>
+            </div>
           </div>
-          <div className="col-12 col-md-8 col-lg-9">
-            <ul className={cx('indexWrap')}>
-              {indexData.map(item => (
-                <li key={item.id} className={cx('list')}>
-                  <img src={item.thumb} alt="" />
-                  {/* <GatsbyImage image={image} alt={item.id} /> */}
-                  {/* {item.id === 3 && (
-                    <StaticImage
-                      src={'../assets/images/pixelduk.png'}
-                      layout="fullWidth"
-                      aspectRatio={'4/3'}
-                      alt={'image'}
-                      loading={'lazy'}
-                    />
-                  )} */}
-                  <div data={item.id} className={cx('item')}></div>
-                  <div className={cx('content')}>
-                    <h1 className={cx('title')}>{item.id}</h1>
-                    <p>{item.content}</p>
-                  </div>
-                </li>
-              ))}
-            </ul>
+
+          <div className={cx('badges')}>
+            <span className={cx('badge')}>ConsultingDigital</span>
+            <span className={cx('badge')}>Transformation</span>
+            <span className={cx('badge')}>Strategy</span>
+            <span className={cx('badge')}>WebApp</span>
+            <span className={cx('badge')}>Platform</span>
+            <span className={cx('badge')}>ServiceMind</span>
+            <span className={cx('badge')}>technology</span>
           </div>
-        </div>
-      </section>
+        </section>
+
+        <section className={cx('section')}>adsfasdf</section>
+      </div>
     </Layout>
   )
 }
 
 export default IndexPage
 
-// export const allMyNodes = graphql`
-//   query {
-//     allMyNodes {
-//       edges {
-//         node {
-//           id
-//           imageUrl
-//         }
-//       }
-//     }
-//   }
-// `
+function Intro() {
+  return (
+    <div className={cx('feature')}>
+      <div className={cx('feature__header')}>
+        <div className={cx('headline', 'text-uppercase')}>
+          <Link href="/">
+            <a>OPENFLOOR</a>
+          </Link>
+          <Link href="/">
+            <a>Multi-Platform</a>
+          </Link>
+          <Link href="/">
+            <a>Data to Information</a>
+          </Link>
+          <Link href="/">
+            <a>Device Handling</a>
+          </Link>
+          <Link href="/">
+            <a>Everyday Coding</a>
+          </Link>
+        </div>
+        {/* \\ */}
+
+        {/* 2 */}
+        <div className="pt-6">
+          <p>© New OPENFLOOR 2023 </p>
+        </div>
+        {/* \\ */}
+      </div>
+    </div>
+  )
+}

@@ -4,7 +4,8 @@ import { Link, useStaticQuery, graphql } from 'gatsby'
 import * as styles from './appbar.module.scss'
 import classNames from 'classnames/bind'
 import ThemeToggle from './themeToggle'
-import pixelDuk from '../assets/images/pixelduk.svg'
+import Logo from '../assets/images/symbol.svg'
+import { StaticImage } from 'gatsby-plugin-image'
 
 const cx = classNames.bind(styles)
 
@@ -31,7 +32,11 @@ const Appbar = ({ siteTitle }) => {
       <ThemeToggle />
       <div className={cx('navbar')}>
         <Link to={'/'} className={cx('logo')} title={siteTitle}>
-          <img src={pixelDuk} width={'100%'} alt="logo" />
+          <StaticImage
+            src="../assets/images/symbol.svg"
+            alt="logo"
+            className={cx('logoSvg')}
+          />
         </Link>
 
         <button
