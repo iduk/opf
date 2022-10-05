@@ -1,36 +1,95 @@
-// flex
-@mixin flex-direction($direction) {
-  @if $direction == column {
-    flex-direction: column;
-  } @else {
-    flex-direction: row;
+// flexbox
+.flex {
+  display: flex;
+}
+
+$flex: (
+  inline: inline-flex,
+  inherit: inherit,
+  1: 1 1 0%,
+  auto: 1 1 auto,
+  initial: 0 1 auto,
+);
+
+$flex-wrap: (
+  nowrap: nowrap,
+  wrap: nowrap,
+  wrap-reverse: wrap-reverse,
+);
+
+$flex-direction: (
+  row: row,
+  row-reverse: row-reverse,
+  col: column,
+  col-reverse: column-reverse,
+);
+
+$justify-content: (
+  start: flex-start,
+  end: flex-end,
+  center: center,
+  around: space-around,
+  between: space-between,
+  evenly: space-evenly,
+);
+
+$align-items: (
+  start: flex-start,
+  end: flex-end,
+  center: center,
+  stretch: stretch,
+  baseline: baseline,
+);
+
+$flex-grow: (
+  1: 1,
+  0: 0,
+);
+
+$flex-shrink: (
+  1: 1,
+  0: 0,
+);
+
+$flex-gap: (
+  col: column,
+  row: row,
+);
+
+@mixin flex-properties($name, $prop, $arr) {
+  @each $mod, $dir in $arr {
+    .#{$name}-#{$mod} {
+      #{$prop}: #{$dir};
+    }
   }
 }
 
-@mixin flex-basis($value: auto) {
-  -webkit-flex-basis: $value;
-  -moz-flex-basis: $value;
-  -ms-flex-preferred-size: $value;
-  flex-basis: $value;
+// flex properties + gap spacing
+@mixin flex-spacing($name, $prop, $arr) {
+  @each $mod, $dir in $arr {
+    @if $mod == 'col' or 'row' {
+      @for $i from 0 through $space-count {
+        .#{$name}-#{$mod}-#{$i} {
+          #{$dir}-#{$prop}: $spacing * $i + rem !important;
+        }
+      }
+    } @else {
+      @for $i from 0 through $space-count {
+        .#{$name}-#{$i} {
+          #{$prop}: $spacing * $i + rem !important;
+        }
+      }
+    }
+  }
 }
 
-@mixin justify-content($value: flex-start) {
-  @if $value == flex-start {
-    -webkit-box-pack: start;
-    -ms-flex-pack: start;
-  } @else if $value == flex-end {
-    -webkit-box-pack: end;
-    -ms-flex-pack: end;
-  } @else if $value == space-between {
-    -webkit-box-pack: justify;
-    -ms-flex-pack: justify;
-  } @else if $value == space-around {
-    -ms-flex-pack: distribute;
-  } @else {
-    -webkit-box-pack: $value;
-    -ms-flex-pack: $value;
-  }
-  -webkit-justify-content: $value;
-  -moz-justify-content: $value;
-  justify-content: $value;
-}
+@include flex-properties('flex', 'flex', $flex);
+@include flex-properties('flex', 'flex-wrap', $flex-wrap);
+@include flex-properties('flex', 'flex-direction', $flex-direction);
+@include flex-properties('grow', 'flex-grow', $flex-grow);
+@include flex-properties('shrink', 'flex-shrink', $flex-shrink);
+@include flex-properties('justify', 'justify-content', $justify-content);
+@include flex-properties('align', 'align-items', $align-items);
+@include flex-spacing('gap', 'gap', $flex-gap);
+
+// order

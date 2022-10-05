@@ -5,7 +5,7 @@ import classNames from 'classnames/bind'
 const cx = classNames.bind(styles)
 
 const Footer = () => (
-  <section className={cx('footer', 'mask')}>
+  <footer className={cx('footer', 'mask')}>
     <div className="is-fluid">
       {/* content column */}
       <article className="row justify-content-between">
@@ -47,7 +47,7 @@ const Footer = () => (
       </article>
       {/* \\ content column */}
     </div>
-  </section>
+  </footer>
 )
 
 export default Footer

@@ -3,16 +3,11 @@
   - 
 *********************/
 .footer {
-  border-top: 1px solid $primary;
   position: relative;
   color: inherit;
   padding: 4vh 0;
-  background-color: $primary;
-
-  > * {
-    color: white;
-  }
 }
+
 .social-list {
   li {
     display: flex;

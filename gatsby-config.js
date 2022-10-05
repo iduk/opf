@@ -4,10 +4,10 @@ require('dotenv').config({
 
 module.exports = {
   siteMetadata: {
-    title: `letsGetit`,
-    description: `페이지 소개, 테스트페이지`,
+    title: `openfloor`,
+    description: `openfloor Corp.`,
     author: `iduk`,
-    siteUrl: `https://letsby.gatsbyjs.io`,
+    siteUrl: `https://opf.vercel.app`,
     // nav
     menuLinks: [
       {
@@ -22,6 +22,7 @@ module.exports = {
       },
     ],
   },
+
   plugins: [
     `gatsby-plugin-image`,
     `gatsby-transformer-sharp`,
@@ -52,13 +53,7 @@ module.exports = {
         ],
       },
     },
-    {
-      resolve: 'gatsby-source-giphy-random',
-      options: {
-        api_key: process.env.GATSBY_GIPHY_API_KEY,
-        rating: 'G',
-      },
-    },
+    `gatsby-plugin-svgr-svgo`,
     {
       resolve: `gatsby-plugin-remote-images`,
       options: {
@@ -89,11 +84,11 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `letsby blog`,
-        short_name: `letsby`,
+        name: `openfloor`,
+        short_name: `openfloor`,
         start_url: `/`,
         display: `minimal-ui`,
-        icon: `src/assets/images/pixelduk.png`,
+        icon: `src/assets/images/symbol.png`,
         theme_color_in_head: false,
       },
     },

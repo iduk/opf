@@ -1,11 +1,11 @@
 import * as React from 'react'
 import PropTypes from 'prop-types'
+import { StaticImage } from 'gatsby-plugin-image'
 import { Link, useStaticQuery, graphql } from 'gatsby'
 import * as styles from './appbar.module.scss'
 import classNames from 'classnames/bind'
 import ThemeToggle from './themeToggle'
-import Logo from '../assets/images/symbol.svg'
-import { StaticImage } from 'gatsby-plugin-image'
+import Logo from '../assets/images/symbol.inline.svg'
 
 const cx = classNames.bind(styles)
 
@@ -28,15 +28,12 @@ const Appbar = ({ siteTitle }) => {
   const navLinks = data.site.siteMetadata.menuLinks
 
   return (
-    <div className="is-fluid">
+    <header>
       <ThemeToggle />
       <div className={cx('navbar')}>
         <Link to={'/'} className={cx('logo')} title={siteTitle}>
-          <StaticImage
-            src="../assets/images/symbol.svg"
-            alt="logo"
-            className={cx('logoSvg')}
-          />
+          <Logo />
+          {/* <img src={Logo} className={cx('logoSvg')} alt="logo" /> */}
         </Link>
 
         <button
@@ -62,7 +59,7 @@ const Appbar = ({ siteTitle }) => {
           </ul>
         </nav>
       </div>
-    </div>
+    </header>
   )
 }
 
