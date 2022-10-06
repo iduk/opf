@@ -121,7 +121,7 @@
     }
     &::after {
       background-color: var(--primary);
-      mix-blend-mode: multiply;
+      mix-blend-mode: overlay;
     }
     // &::before {
     //   background-image: linear-gradient(

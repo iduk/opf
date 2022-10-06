@@ -26,37 +26,25 @@ const IndexPage = ({ data }) => {
               <ul className={cx('film')}>
                 <li className={cx('film__item')}>
                   <StaticImage
-                    src="https://loremflickr.com/800/640/texture"
+                    src="https://loremflickr.com/800/1200/texture"
                     alt="Project Image"
                   />
                   <StaticImage
-                    src="https://loremflickr.com/800/600/art"
+                    src="https://loremflickr.com/800/1000/art"
                     alt="Project Image"
                   />
                   <StaticImage
-                    src="https://loremflickr.com/800/480/texture"
-                    alt="Project Image"
-                  />
-                  <StaticImage
-                    src="https://loremflickr.com/800/800/texture"
-                    alt="Project Image"
-                  />
-                  <StaticImage
-                    src="https://loremflickr.com/800/500/texture"
-                    alt="Project Image"
-                  />
-                  <StaticImage
-                    src="https://loremflickr.com/800/620/texture"
+                    src="https://loremflickr.com/960/1200/texture"
                     alt="Project Image"
                   />
                 </li>
                 <li className={cx('film__item')}>
                   <StaticImage
-                    src="https://source.unsplash.com/800x800/?art"
+                    src="https://source.unsplash.com/800x1000/?art"
                     alt="Project Image"
                   />
                   <StaticImage
-                    src="https://source.unsplash.com/800x600/?art"
+                    src="https://source.unsplash.com/800x1200/?art"
                     alt="Project Image"
                   />
                   <StaticImage
@@ -65,14 +53,6 @@ const IndexPage = ({ data }) => {
                   />
                   <StaticImage
                     src="https://source.unsplash.com/800x650/?textures"
-                    alt="Project Image"
-                  />
-                  <StaticImage
-                    src="https://loremflickr.com/800/500?random=21"
-                    alt="Project Image"
-                  />
-                  <StaticImage
-                    src="https://loremflickr.com/800/450?random=22"
                     alt="Project Image"
                   />
                 </li>
