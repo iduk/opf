@@ -41,7 +41,7 @@ const IndexPage = () => {
                 </li>
                 <li>
                   <div className="grid-row no-gutters" data-grid="false">
-                    <div className="col-6">
+                    <div className="col-8 col-lg-6">
                       <StaticImage
                         src="https://images.unsplash.com/photo-1585993710444-aad7a0016901?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1636&q=80"
                         // src="https://placeimg.com/1000/1000/any"
@@ -49,8 +49,8 @@ const IndexPage = () => {
                         alt="ProjectImage"
                       />
                     </div>
-                    <div className="col-6">
-                      <p className="p-4">
+                    <div className="col-12 col-lg-6">
+                      <p className="py-4">
                         Lorem ipsum dolor sit, amet consectetur adipisicing
                         elit. Asperiores soluta eligendi ipsum exercitationem
                         saepe obcaecati excepturi harum nostrum! Quam autem
@@ -61,9 +61,9 @@ const IndexPage = () => {
                   </div>
                 </li>
                 <li>
-                  <div className="grid-row  no-gutters" data-grid="false">
-                    <div className="col-6">
-                      <p className="p-4">
+                  <div className="grid-row no-gutters" data-grid="false">
+                    <div className="col-12 col-lg-6">
+                      <p className="py-4">
                         Lorem ipsum dolor sit, amet consectetur adipisicing
                         elit. Asperiores soluta eligendi ipsum exercitationem
                         saepe obcaecati excepturi harum nostrum! Quam autem
@@ -71,7 +71,7 @@ const IndexPage = () => {
                         reiciendis temporibus eius molestiae maxime.
                       </p>
                     </div>
-                    <div className="col-6">
+                    <div className="col-12 col-lg-6">
                       <StaticImage
                         src="https://images.unsplash.com/photo-1623184169148-d872f5f1f034?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3273&q=80"
                         // src="https://placeimg.com/1000/1000/any"
