@@ -5,7 +5,8 @@
 .footer {
   position: relative;
   color: inherit;
-  padding: 4vh 0;
+  padding: 2rem 0;
+  background-color: var(--gray-1);
 }
 
 .social-list {
@@ -22,12 +23,9 @@
   }
 }
 
-.copyright {
-  font-size: 1rem;
-}
 .address {
-  font-size: 1.125rem;
-  @include breakepoint-down(lg) {
+  padding-top: 0;
+  @include breakepoint-down(sm) {
     padding-top: 2rem;
   }
 }

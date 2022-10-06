@@ -23,26 +23,26 @@ $properties: (
 @for $i from 0 through $space-count {
   @each $p1, $p2 in $properties {
     .#{$p1}-#{$i} {
-      #{$p2}: $spacing * $i + rem;
+      #{$p2}: $spacing * $i + rem !important;
     }
     @each $name, $arrow in $direction {
       .#{$p1}#{$name} {
         @if $i == 0 {
           &-0 {
             @if length($arrow) > 1 {
-              #{$p2}#{nth($arrow, 1)}: 0;
-              #{$p2}#{nth($arrow, 2)}: 0;
+              #{$p2}#{nth($arrow, 1)}: 0 !important;
+              #{$p2}#{nth($arrow, 2)}: 0 !important;
             } @else {
-              #{$p2}#{$arrow}: 0;
+              #{$p2}#{$arrow}: 0 !important;
             }
           }
         } @else {
           &-#{$i} {
             @if length($arrow) > 1 {
-              #{$p2}#{nth($arrow, 1)}: $spacing * $i + rem;
-              #{$p2}#{nth($arrow, 2)}: $spacing * $i + rem;
+              #{$p2}#{nth($arrow, 1)}: $spacing * $i + rem !important;
+              #{$p2}#{nth($arrow, 2)}: $spacing * $i + rem !important;
             } @else {
-              #{$p2}#{$arrow}: $spacing * $i + rem;
+              #{$p2}#{$arrow}: $spacing * $i + rem !important;
             }
           }
         }

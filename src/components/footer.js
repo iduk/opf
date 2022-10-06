@@ -1,5 +1,4 @@
 import * as React from 'react'
-import { Link } from 'gatsby'
 import * as styles from './footer.module.scss'
 import classNames from 'classnames/bind'
 const cx = classNames.bind(styles)
@@ -8,12 +7,12 @@ const Footer = () => (
   <footer className={cx('footer', 'mask')}>
     <div className="is-fluid">
       {/* content column */}
-      <article className="row justify-content-between">
+      <article className="grid-row">
         <div className="col-12 col-lg-4">
-          <h5 className="fw-bolder">CONTACT US</h5>
+          <h4 className="fw-bold pb-3">Contact</h4>
         </div>
 
-        <div className="col-12 col-lg-4">
+        <div className="col-12 col-lg-3">
           <p className={cx('copyright')}>
             <div className={cx('socialList')}>
               <li>
@@ -32,17 +31,19 @@ const Footer = () => (
           </p>
         </div>
 
-        <div className="col-12 col-lg-4">
+        <div className="col-12 col-lg-3">
           <address className={cx('address')}>
-            <p>lee@openfloor.kr</p>
+            <a href={'mailto:lee@openfloor.kr'}>lee@openfloor.kr</a>
             <p>82 10-1234-5678</p>
           </address>
-          <p className={cx('copyright')}>
+          <div className={cx('copyright')}>
             <p>
               © <strong>Openfloor, Inc.</strong> ALL RIGHTS RESERVED.
             </p>
-            <p>Grind hard, shine hard.</p>
-          </p>
+            <blockquote className="small pt-2 text-gray-5">
+              - Grind hard, shine hard.
+            </blockquote>
+          </div>
         </div>
       </article>
       {/* \\ content column */}

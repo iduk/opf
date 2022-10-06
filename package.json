@@ -35,7 +35,6 @@
     "gatsby-plugin-purgecss": "^6.1.2",
     "gatsby-plugin-remote-images": "^3.4.0",
     "gatsby-plugin-sass": "^5.21.0",
-    "gatsby-plugin-scroll-reveal": "^0.0.7",
     "gatsby-plugin-sharp": "^4.21.0",
     "gatsby-plugin-styled-components": "^5.21.0",
     "gatsby-plugin-svgr-svgo": "^2.0.0",
@@ -50,6 +49,7 @@
     "prop-types": "^15.8.1",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
+    "react-intersection-observer": "^9.4.0",
     "resolve-url-loader": "^5.0.0",
     "styled-components": "^5.3.5"
   },

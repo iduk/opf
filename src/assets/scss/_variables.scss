@@ -89,20 +89,18 @@ $grid-breakpoints: (
   xs: 0,
   sm: 576px,
   md: 768px,
-  lg: 992px,
-  xl: 1400px,
+  lg: 1400px,
 ) !default;
 
 // Cotainer
 $container-max-widths: (
   sm: 575px,
   md: 767px,
-  lg: 991px,
-  xl: 1399px,
+  lg: 1399px,
 ) !default;
 
-$col-count: 12 !default;
-$gap: 4vw !default;
+$grid-cols: 12 !default;
+$grid-gutter: 4vw !default;
 
 $border-width: 1px;
 $border-width-lg: 2px;

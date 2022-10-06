@@ -12,11 +12,12 @@
   .h#{$key} {
     font-size: $value;
     font-weight: bold;
+    line-height: 1.4;
   }
 }
 
 p {
-  line-height: 1.5;
+  line-height: 1.4;
 }
 // font-weight
 @each $key, $value in $font-weight {
@@ -33,4 +34,9 @@ p {
 }
 .text-c {
   text-align: center;
+}
+
+small,
+.small {
+  font-size: 80%;
 }

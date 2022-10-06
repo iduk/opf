@@ -25,7 +25,7 @@ const ThemeToggle = () => {
   }
 
   return (
-    <Toggler onClick={toggleMode}>
+    <Toggler onClick={toggleMode} tabIndex="-1">
       {theme === 'dark' ? 'Light Mode 🌈' : 'Dark Mode 🌙'}
     </Toggler>
   )

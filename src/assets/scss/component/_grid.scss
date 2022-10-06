@@ -1,70 +1,92 @@
 @use 'sass:math';
+//
+// grid template
+//
+@mixin grid-columns($bp: null) {
+  $infix: if($bp == null, '', '-#{$bp}');
 
-// grid columns
-// @mixin create-selectors($breakpoint: null) {
-//   $infix: if($breakpoint == null, '', '-#{$breakpoint}');
+  @for $i from 1 through $grid-cols {
+    .grid-row {
+      .col#{$infix}-#{$i} {
+        grid-column-end: span $i;
+      }
+      .col-offset#{$infix}-#{$i} {
+        grid-column-start: $i + 1;
+      }
+      .row#{$infix}-#{$i} {
+        grid-row-end: span $i;
+      }
+      .row-offset#{$infix}-#{$i} {
+        grid-row-start: $i + 1;
+      }
+    }
+  }
+}
+.grid-row {
+  display: grid;
+  grid-template-columns: repeat($grid-cols, 1fr);
+  margin-left: calc($grid-gutter / -2);
+  margin-right: calc($grid-gutter / -2);
+}
 
-//   @for $i from 1 through $col-count {
-//     .col#{$infix}-#{$i} {
-//       grid-column-end: span $i;
-//     }
-//     .col-offset#{$infix}-#{$i} {
-//       grid-column-start: $i + 1;
-//     }
-//     .row#{$infix}-#{$i} {
-//       grid-row-end: span $i;
-//     }
-//     .row-offset#{$infix}-#{$i} {
-//       grid-row-start: $i + 1;
-//     }
-//   }
-// }
+.no-gutters {
+  margin-right: 0;
+  margin-left: 0;
+  > .col,
+  > [class*='col-'] {
+    padding-right: 0;
+    padding-left: 0;
+  }
+}
 
-// .grid-row {
-//   display: grid;
-//   grid-template-columns: repeat($col-count, 1fr);
-//   gap: $gap;
-// }
+@include grid-columns;
 
-// @include create-selectors;
+@each $bp, $width in $grid-breakpoints {
+  @media (min-width: $width) {
+    @include grid-columns($bp);
+  }
+}
 
-// @each $breakpoint, $width in $grid-breakpoints {
-//   @media (min-width: $width) {
-//     @include create-selectors($breakpoint);
-//   }
-// }
+//
+// flex grid
+//
+
+// col-lg-*, col-md-*
+@mixin flex-columns($breakpoint: null) {
+  $infix: if($breakpoint == null, '', '-#{$breakpoint}');
+
+  @for $i from 1 through $grid-cols {
+    .col#{$infix}-#{$i} {
+      flex-basis: calc(100 / ($grid-cols / $i)) * 1%;
+    }
+  }
+  .col#{$infix}-auto {
+    flex: 0 0 auto;
+    width: auto;
+    max-width: none;
+  }
+}
 
 .row {
   display: flex;
   flex: 0 1 auto;
   flex-wrap: wrap;
-  margin-left: calc($gap / -2);
-  margin-right: calc($gap / -2);
-}
+  margin-left: calc($grid-gutter / -2);
+  margin-right: calc($grid-gutter / -2);
 
+  @include flex-columns;
+}
 .col,
 [class^='col-'] {
   flex: 0 1 auto;
   box-sizing: border-box;
-  padding-left: calc($gap / 2);
-  padding-right: calc($gap / 2);
+  padding-left: calc($grid-gutter / 2);
+  padding-right: calc($grid-gutter / 2);
 }
-
-// col-lg-*, col-md-*
-@mixin grid-columns($breakpoint: null) {
-  $infix: if($breakpoint == null, '', '-#{$breakpoint}');
-
-  @for $i from 1 through $col-count {
-    .col#{$infix}-#{$i} {
-      flex-basis: calc(100 / ($col-count / $i)) * 1%;
-    }
-  }
-}
-@include grid-columns;
 
 // col-*
 @each $breakpoint, $width in $grid-breakpoints {
   @media (min-width: $width) {
-    @include grid-columns($breakpoint);
+    @include flex-columns($breakpoint);
   }
 }

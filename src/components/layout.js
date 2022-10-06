@@ -22,6 +22,7 @@ const Layout = ({ children, className }) => {
     }
   `)
   const pageTitle = data.site.siteMetadata?.title
+
   return (
     <div className={cx('layout', `${className}`)}>
       <Appbar siteTitle={pageTitle} />

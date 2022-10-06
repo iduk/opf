@@ -1,10 +1,9 @@
 import * as React from 'react'
-import { Link } from 'gatsby'
+import { StaticImage } from 'gatsby-plugin-image'
 import Layout from '../components/layout'
 import * as styles from './about.module.scss'
 import classNames from 'classnames/bind'
 import Seo from '../components/seo'
-import { StaticImage } from 'gatsby-plugin-image'
 const cx = classNames.bind(styles)
 
 const AboutPage = () => {

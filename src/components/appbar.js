@@ -29,8 +29,8 @@ const Appbar = ({ siteTitle }) => {
   return (
     <header>
       <ThemeToggle />
-      <div className={cx('navbar')}>
-        <Link to={'/'} className={cx('logo')} title={siteTitle}>
+      <div className={cx('navbar', 'is-fluid')}>
+        <Link to={'/'} className={cx('logo')} title={siteTitle} tabIndex="0">
           <StaticImage
             src="../assets/images/symbol.svg"
             alt="logo"
@@ -49,12 +49,13 @@ const Appbar = ({ siteTitle }) => {
 
         <nav className={cx('nav', `${menuOpen ? 'open' : ''}`)}>
           <ul className={cx('navList')}>
-            {navLinks.map(link => (
+            {navLinks.map((link, index) => (
               <li key={link.url}>
                 <Link
                   className={cx('navLink')}
                   to={link.url}
                   activeClassName={cx('active')}
+                  tabIndex={index + 1}
                 >
                   {link.name}
                 </Link>

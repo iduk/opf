@@ -5,34 +5,108 @@
 // }
 
 .feature {
-  padding: 4vh 4vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 70vh;
+  padding-top: 4vh;
+  padding-bottom: 4vh;
 
-  &__header {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 50vh;
-  }
-}
+  .keywords {
+    font-size: calc(1vw + 4vh);
+    line-height: 1.1;
+    overflow-wrap: break-word;
+    text-transform: uppercase;
+    font-weight: bold;
 
-.headline {
-  font-size: clamp(2rem, 3.7vw, 5rem);
-  line-height: 1.1;
-  overflow-wrap: break-word;
-  text-transform: uppercase;
-  font-weight: bold;
-
-  > a {
-    display: inline-block;
-    &::after {
-      content: '↖︎';
-      vertical-align: top;
-      font-size: inherit;
-      font-weight: 300;
-      letter-spacing: -1px;
+    > a {
+      display: inline-block;
+      &::after {
+        content: '↖︎';
+        vertical-align: top;
+        font-size: inherit;
+        font-weight: 300;
+        letter-spacing: -1px;
+      }
     }
   }
 }
+
+// Outline grid
+@mixin gridLine($data: false) {
+  @if $data == true {
+    [data-grid='true'] {
+      gap: 1px;
+
+      > [class*='col-'] {
+        outline: 1px solid var(--g-color);
+        padding-top: calc($grid-gutter / 2);
+        padding-bottom: calc($grid-gutter / 2);
+        box-sizing: border-box;
+      }
+    }
+  }
+}
+.section {
+  --g-color: var(--primary);
+  border-top: 1px solid var(--g-color);
+  border-bottom: 1px solid var(--g-color);
+
+  @include gridLine($data: true);
+}
+
+// .textline {
+//   font-size: calc(6vw + 2vh);
+//   line-height: 1;
+//   font-weight: bolder;
+// }
+
+// #outline {
+//   fill: none;
+//   stroke: var(--primary);
+//   stroke-dasharray: 100%;
+//   stroke-dashoffset: 0;
+//   animation-name: outline;
+//   animation-duration: 2.5s;
+//   animation-timing-function: ease-in;
+//   animation-fill-mode: both;
+// }
+
+// #fill {
+//   fill-opacity: 0;
+//   fill: var(--primary);
+//   animation-name: fill;
+//   animation-duration: 0.5s;
+//   animation-timing-function: ease-in;
+//   animation-fill-mode: forwards;
+//   animation-delay: 1s;
+// }
+
+// @keyframes outline {
+//   from {
+//     stroke-dashoffset: 100%;
+//   }
+
+//   to {
+//     stroke-dashoffset: 0;
+//   }
+// }
+
+// @keyframes fill {
+//   from {
+//     fill-opacity: 0;
+//   }
+
+//   to {
+//     fill-opacity: 1;
+//   }
+// }
+
+/***
+*
+* Before Index Design 
+*
+***/
 
 %section {
   display: flex;
@@ -44,10 +118,6 @@
 
   @include breakepoint-down(md) {
     min-height: 70vh;
-  }
-
-  &:has(h1, p) {
-    word-break: keep-all;
   }
 
   h1 {
