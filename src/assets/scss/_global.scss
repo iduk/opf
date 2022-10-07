@@ -23,11 +23,11 @@ body {
   background-color: var(--theme-bg);
   color: var(--theme-text);
   font-size: calc(15px + 0.3125vw); // + 10px
+  line-height: normal;
 }
 
 * :is(a:focus, ::selection) {
-  outline: 0;
-  background-color: rgba($primary, 0.1);
+  outline: 1px solid var(--gray-1);
 }
 
 ul,
@@ -41,6 +41,7 @@ dd {
 
 p {
   word-break: keep-all;
+  line-height: 1.5;
 }
 
 a {

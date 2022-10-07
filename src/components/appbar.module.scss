@@ -17,8 +17,8 @@
   display: flex;
   align-items: center;
   color: var(--gray-9);
-  path {
-    color: inherit;
+  svg #logo-g {
+    color: var(--gray-9);
     fill: currentColor;
   }
 }

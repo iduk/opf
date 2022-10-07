@@ -9,7 +9,7 @@ const cx = classNames.bind(styles)
 const AboutPage = () => {
   return (
     <Layout className={cx('aboutPage')}>
-      <div className="is-fluid">
+      <div className="fluid">
         <h1 className="pb-6">
           Non enim praesent elementum facilisis leo vel fringilla est
           ullamcorper. Nec ultrices dui sapien eget mi. Convallis convallis

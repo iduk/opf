@@ -1,10 +1,62 @@
 @import url('https://fonts.googleapis.com/css2?family=Archivo:wght@100;300;400;700&display=swap');
-/* 
+
 @font-face {
-  font-family: 'HBIOS-SYS';
+  font-family: 'opf_symbol';
+  src: url('./opf_symbol.eot?4217521');
+  src: url('./opf_symbol.eot?4217521#iefix') format('embedded-opentype'),
+    url('./opf_symbol.woff2?4217521') format('woff2'),
+    url('./opf_symbol.woff?4217521') format('woff'),
+    url('./opf_symbol.ttf?4217521') format('truetype'),
+    url('./opf_symbol.svg?4217521#opf_symbol') format('svg');
+  font-weight: normal;
   font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: local('HBIOS-SYS'), url('./HBIOS-SYS.woff2') format('woff2'),
-    url('./HBIOS-SYS.ttf') format('truetype');
-} */
+}
+/* Chrome hack: SVG is rendered more smooth in Windozze. 100% magic, uncomment if you need it. */
+/* Note, that will break hinting! In other OS-es font will be not as sharp as it could be */
+/*
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: 'opf_symbol';
+    src: url('./opf_symbol.svg?4217521#opf_symbol') format('svg');
+  }
+}
+*/
+[class^='icon-']:before,
+[class*=' icon-']:before {
+  font-family: 'opf_symbol';
+  font-style: normal;
+  font-weight: normal;
+  /* speak: never; */
+
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  margin-right: 0.2em;
+  text-align: center;
+  /* opacity: .8; */
+
+  /* For safety - reset parent styles, that can break glyph codes*/
+  font-variant: normal;
+  text-transform: none;
+
+  /* fix buttons height, for twitter bootstrap */
+  line-height: 1em;
+
+  /* Animation center compensation - margins should be symmetric */
+  /* remove if not needed */
+  margin-left: 0.2em;
+
+  /* you can be more comfortable with increased icons size */
+  /* font-size: 120%; */
+
+  /* Font smoothing. That was taken from TWBS */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Uncomment for 3D effect */
+  /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
+}
+
+.icon-symbol:before {
+  content: '\e800';
+} /* '' */

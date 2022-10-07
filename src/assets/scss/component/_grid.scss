@@ -1,34 +1,29 @@
-@use 'sass:math';
 //
 // grid template
 //
-@mixin grid-columns($bp: null) {
-  $infix: if($bp == null, '', '-#{$bp}');
 
-  @for $i from 1 through $grid-cols {
-    .grid-row {
-      .col#{$infix}-#{$i} {
-        grid-column-end: span $i;
-      }
-      .col-offset#{$infix}-#{$i} {
-        grid-column-start: $i + 1;
-      }
-      .row#{$infix}-#{$i} {
-        grid-row-end: span $i;
-      }
-      .row-offset#{$infix}-#{$i} {
-        grid-row-start: $i + 1;
-      }
-    }
-  }
+%grid-col {
+  position: relative;
+  width: 100%;
+  padding-right: calc($grid-gutter / 2);
+  padding-left: calc($grid-gutter / 2);
 }
-.grid-row {
+
+.g-row {
+  width: 100%;
   display: grid;
   grid-template-columns: repeat($grid-cols, 1fr);
   margin-left: calc($grid-gutter / -2);
   margin-right: calc($grid-gutter / -2);
+  // &::after {
+  //   content: '';
+  //   display: block;
+  // }
+  > .col,
+  > [class*='col-'] {
+    @extend %grid-col;
+  }
 }
-
 .no-gutters {
   margin-right: 0;
   margin-left: 0;
@@ -39,15 +34,35 @@
   }
 }
 
+@mixin grid-columns($bp: null) {
+  $infix: if($bp == null, '', '-#{$bp}');
+  @for $i from 1 through $grid-cols {
+    .col#{$infix}-auto {
+      grid-column-end: auto;
+    }
+    .col#{$infix}-#{$i} {
+      grid-column-end: span $i;
+    }
+    .row#{$infix}-#{$i} {
+      grid-row-end: span $i;
+    }
+    // offset
+    .col-offset#{$infix}-#{$i} {
+      grid-column-start: $i + 1;
+    }
+    .row-offset#{$infix}-#{$i} {
+      grid-row-start: $i + 1;
+    }
+  }
+}
 @include grid-columns;
 
-@each $bp, $width in $grid-breakpoints {
-  @media (min-width: $width) {
+@each $bp, $w in $grid-breakpoints {
+  @include breakepoint-up($bp) {
     @include grid-columns($bp);
   }
 }
 
-//
 // flex grid
 //
 

@@ -5,6 +5,7 @@ import { Link, useStaticQuery, graphql } from 'gatsby'
 import * as styles from './appbar.module.scss'
 import classNames from 'classnames/bind'
 import ThemeToggle from './themeToggle'
+import Logo from '../assets/images/symbol.svg'
 
 const cx = classNames.bind(styles)
 
@@ -29,7 +30,7 @@ const Appbar = ({ siteTitle }) => {
   return (
     <header>
       <ThemeToggle />
-      <div className={cx('navbar', 'is-fluid')}>
+      <div className={cx('navbar', 'fluid')}>
         <Link to={'/'} className={cx('logo')} title={siteTitle} tabIndex="0">
           <StaticImage
             src="../assets/images/symbol.svg"

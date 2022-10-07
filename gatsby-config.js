@@ -54,14 +54,11 @@ module.exports = {
       },
     },
     {
-      resolve: 'gatsby-plugin-svgr-svgo',
+      resolve: 'gatsby-plugin-react-svg',
       options: {
-        urlSvgOptions: [
-          {
-            test: /\.svg$/,
-            svgo: false,
-          },
-        ],
+        rule: {
+          include: `/src/assets/`, // See below to configure properly
+        },
       },
     },
     {
