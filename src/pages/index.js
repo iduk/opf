@@ -22,30 +22,30 @@ const IndexPage = () => {
         </div>
         <div className={cx('stage__projects')}>
           <Link to={'/'}>OPENFLOOR</Link>
-          <Link to={'/'}>Multi-Platform</Link>
-          <Link to={'/'}>Data to Information</Link>
+          <Link to={'/'}>Web Experiences</Link>
+          <Link to={'/'}>Data Visualization</Link>
           <Link to={'/'}>Device Handling</Link>
-          <Link to={'/'}>Everyday Coding</Link>
+          <Link to={'/'}>Creative Development</Link>
         </div>
       </main>
 
       <section className={cx('section', 'work')}>
         <article className={cx('g-row', 'no-gutters', 'pt-0')} data-line>
-          <div className={'col-2 col-lg-1'}>
+          <div className={'col-2 col-lg-1 shrink-0 px-0'}>
             <div class={cx('headline')}>
-              <h4 className={cx('title')}>
+              <p className={cx('title')}>
                 Hangul is Vertical Align Not Working
-              </h4>
+              </p>
+              <p className="small">2019-01-15</p>
             </div>
           </div>
           <div className="col-10 col-lg-3">
-            <p className="small pt-1">2019/01/15</p>
-            <p>
+            <h5>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi
               cumque doloribus fuga error dolorem eveniet dolor doloremque, sit
               ipsa quas saepe itaque, qui reprehenderit quisquam voluptate
               perferendis placeat. Vitae, molestias.
-            </p>
+            </h5>
           </div>
           <div className="col-12 col-lg-8">
             <StaticImage
