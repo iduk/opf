@@ -2,106 +2,134 @@
 // grid template
 //
 
+// grid set
 %grid-col {
   position: relative;
+  box-sizing: border-box;
   width: 100%;
+  max-width: 100%;
   padding-right: calc($grid-gutter / 2);
   padding-left: calc($grid-gutter / 2);
+}
+.col,
+[class*='col-'] {
+  @extend %grid-col;
 }
 
 .g-row {
   width: 100%;
   display: grid;
   grid-template-columns: repeat($grid-cols, 1fr);
+
   margin-left: calc($grid-gutter / -2);
   margin-right: calc($grid-gutter / -2);
-  // &::after {
-  //   content: '';
-  //   display: block;
-  // }
-  > .col,
-  > [class*='col-'] {
-    @extend %grid-col;
-  }
-}
-.no-gutters {
-  margin-right: 0;
-  margin-left: 0;
-  > .col,
-  > [class*='col-'] {
-    padding-right: 0;
-    padding-left: 0;
+
+  &.no-gutters {
+    margin-right: 0;
+    margin-left: 0;
+    > .col,
+    > [class*='col-'] {
+      padding-right: 0;
+      padding-left: 0;
+    }
   }
 }
 
 @mixin grid-columns($bp: null) {
   $infix: if($bp == null, '', '-#{$bp}');
+  .col,
+  .col#{$infix}-auto {
+    grid-column: none;
+  }
+
   @for $i from 1 through $grid-cols {
-    .col#{$infix}-auto {
-      grid-column-end: auto;
-    }
     .col#{$infix}-#{$i} {
       grid-column-end: span $i;
     }
+    .offset#{$infix}-#{$i} {
+      grid-column-start: $i + 1;
+    }
     .row#{$infix}-#{$i} {
       grid-row-end: span $i;
-    }
-    // offset
-    .col-offset#{$infix}-#{$i} {
-      grid-column-start: $i + 1;
     }
     .row-offset#{$infix}-#{$i} {
       grid-row-start: $i + 1;
     }
   }
 }
-@include grid-columns;
-
 @each $bp, $w in $grid-breakpoints {
-  @include breakepoint-up($bp) {
-    @include grid-columns($bp);
+  @if $bp == 'xs' {
+    @include grid-columns;
+  } @else {
+    @media (min-width: $w) {
+      @include grid-columns($bp);
+    }
   }
 }
 
 // flex grid
 //
+// .g-row {
+//   display: flex;
+//   flex-wrap: wrap;
+//   box-sizing: border-box;
+//   // margin-right: calc($grid-gutter / -2);
+//   // margin-left: calc($grid-gutter / -2);
+//   margin-left: auto;
+//   margin-right: auto;
+// }
 
-// col-lg-*, col-md-*
-// @mixin flex-columns($breakpoint: null) {
-//   $infix: if($breakpoint == null, '', '-#{$breakpoint}');
-
-//   @for $i from 1 through $grid-cols {
-//     .col#{$infix}-#{$i} {
-//       flex-basis: calc(100 / ($grid-cols / $i)) * 1%;
-//     }
+// .no-gutters {
+//   margin-right: 0;
+//   margin-left: 0;
+//   > [class*='col-'] {
+//     padding-right: 0;
+//     padding-left: 0;
 //   }
+// }
+
+// [class^='col-'] {
+//   position: relative;
+//   box-sizing: border-box;
+//   flex: 0 0 auto;
+//   padding-right: calc($grid-gutter / 2);
+//   padding-left: calc($grid-gutter / 2);
+// }
+
+// @mixin flex-columns($bp: null) {
+//   $infix: if($bp == null, '', '-#{$bp}');
 //   .col#{$infix}-auto {
 //     flex: 0 0 auto;
 //     width: auto;
 //     max-width: none;
 //   }
-// }
-
-// .row {
-//   display: flex;
-//   flex: 0 1 auto;
-//   flex-wrap: wrap;
-//   margin-left: calc($grid-gutter / -2);
-//   margin-right: calc($grid-gutter / -2);
-
-//   @include flex-columns;
-//   .col,
-//   [class^='col-'] {
-//     flex: 0 1 auto;
-//     box-sizing: border-box;
-//     padding-left: calc($grid-gutter / 2);
-//     padding-right: calc($grid-gutter / 2);
+//   .offset#{$infix}-0 {
+//     margin-left: 0;
+//   }
+//   // hidden-[*]
+//   .hidden#{$infix} {
+//     display: none !important;
+//   }
+//   @for $i from 1 through $grid-cols {
+//     .col#{$infix}-#{$i} {
+//       flex-basis: calc(100 / ($grid-cols / $i) * 1%);
+//     }
+//     .offset#{$infix}-#{$i} {
+//       margin-left: calc(100 / ($grid-cols / $i) * 1%);
+//     }
 //   }
 // }
 
-// // col-*
-// @each $breakpoint, $width in $grid-breakpoints {
-//   @media (min-width: $width) {
-//     @include flex-columns($breakpoint);
+// @each $bp, $w in $grid-breakpoints {
+//   @if ($bp != sm) {
+//     @media (min-width: $w) {
+//       @include flex-columns($bp);
+//     }
+//   } @else {
+//     @media (min-width: 0) and (max-width: $w) {
+//       @include flex-columns($bp);
+//     }
 //   }
 // }
+
+// @include flex-columns;

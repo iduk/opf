@@ -9,7 +9,7 @@
 }
 
 .logo {
-  width: 8vh;
+  width: 7vh;
   flex-shrink: 0;
   display: block;
   font-weight: bolder;
@@ -47,26 +47,30 @@
   line-height: 1;
   font-weight: bolder;
   padding: 1rem;
-  text-transform: uppercase;
-  transition: background-position 0.4s, color 0.7s;
-  background-size: 200%;
   outline: none;
 }
-.navLink:hover {
-  color: white;
-  background-position: 100%;
-  background-image: linear-gradient(
-    to right,
-    transparent 50%,
-    var(--primary) 50%
-  );
-}
-.navLink.active {
-  color: white;
-  background-color: var(--primary);
+@include breakpoint-up(sm) {
+  .navLink {
+    text-transform: uppercase;
+    transition: background-position 0.4s, color 0.7s;
+    background-size: 200%;
+    &:hover {
+      color: white;
+      background-position: 100%;
+      background-image: linear-gradient(
+        to right,
+        transparent 50%,
+        var(--primary) 50%
+      );
+    }
+    &.active {
+      color: white;
+      background-color: var(--primary);
+    }
+  }
 }
 
-@include breakepoint-down(sm) {
+@include breakpoint-down(sm) {
   .navTrigger {
     display: block;
     font-size: 1.5rem;
@@ -106,6 +110,6 @@
   }
 
   .logo {
-    width: 8vh;
+    width: 6vh;
   }
 }

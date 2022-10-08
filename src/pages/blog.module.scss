@@ -43,7 +43,7 @@
     }
   }
 
-  @include breakepoint-up(md) {
+  @include breakpoint-up(md) {
     &__item {
       flex-direction: row;
     }

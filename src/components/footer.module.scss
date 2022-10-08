@@ -24,7 +24,7 @@
 
 .address {
   padding-top: 0;
-  @include breakepoint-down(sm) {
+  @include breakpoint-down(sm) {
     padding-top: 2rem;
   }
 }
