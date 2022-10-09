@@ -22,8 +22,8 @@ body {
     'Helvetica Neue', 'Segoe UI';
   background-color: var(--theme-bg);
   color: var(--theme-text);
-  font-size: calc(15px + 0.3125vw); // + 10px
   line-height: normal;
+  font-size: calc($text-base + 0.3125vw); // + 8px
 }
 
 ::selection {

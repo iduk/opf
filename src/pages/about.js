@@ -10,11 +10,10 @@ const AboutPage = () => {
   return (
     <Layout className={cx('aboutPage')}>
       <div className="fluid">
-        <h1 className="pb-6">
+        <h2 className="pb-6">
           Non enim praesent elementum facilisis leo vel fringilla est
-          ullamcorper. Nec ultrices dui sapien eget mi. Convallis convallis
-          tellus id interdum.
-        </h1>
+          ullamcorper.
+        </h2>
         <section className="row">
           <div className="col-12 col-lg-6 text-l">
             <StaticImage

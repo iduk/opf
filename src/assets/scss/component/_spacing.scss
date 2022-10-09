@@ -1,5 +1,4 @@
 // p-*, px-*, py-*
-
 $direction: (
   x: (
     '-left',
@@ -20,29 +19,42 @@ $properties: (
   p: 'padding',
 );
 
-@for $i from 0 through $space-count {
-  @each $p1, $p2 in $properties {
-    .#{$p1}-#{$i} {
-      #{$p2}: $spacing * $i + rem !important;
-    }
-    @each $name, $arrow in $direction {
-      .#{$p1}#{$name} {
-        @if $i == 0 {
-          &-0 {
-            @if length($arrow) > 1 {
-              #{$p2}#{nth($arrow, 1)}: 0 !important;
-              #{$p2}#{nth($arrow, 2)}: 0 !important;
-            } @else {
-              #{$p2}#{$arrow}: 0 !important;
+@mixin space-base($bp: null) {
+  $infix: if($bp == null, '', '-#{$bp}');
+
+  @for $i from 0 through $space-count {
+    @each $p1, $p2 in $properties {
+      //   .#{$p1}-#{$i} {
+      //     #{$p2}: $spacing * $i + rem !important;
+      //   }
+      @each $name, $arrow in $direction {
+        .#{$p1}#{$name}#{$infix} {
+          @if $i == 0 {
+            &-0 {
+              @if length($arrow) > 1 {
+                #{$p2}#{nth($arrow, 1)}: 0 !important;
+                #{$p2}#{nth($arrow, 2)}: 0 !important;
+              } @else {
+                #{$p2}#{$arrow}: 0 !important;
+              }
             }
-          }
-        } @else {
-          &-#{$i} {
-            @if length($arrow) > 1 {
-              #{$p2}#{nth($arrow, 1)}: $spacing * $i + rem !important;
-              #{$p2}#{nth($arrow, 2)}: $spacing * $i + rem !important;
-            } @else {
-              #{$p2}#{$arrow}: $spacing * $i + rem !important;
+          } @else if $p1 == 'm' {
+            &-auto {
+              @if length($arrow) > 1 {
+                #{$p2}#{nth($arrow, 1)}: auto !important;
+                #{$p2}#{nth($arrow, 2)}: auto !important;
+              } @else {
+                #{$p2}#{$arrow}: auto !important;
+              }
+            }
+          } @else {
+            &-#{$i} {
+              @if length($arrow) > 1 {
+                #{$p2}#{nth($arrow, 1)}: $spacing * $i + rem !important;
+                #{$p2}#{nth($arrow, 2)}: $spacing * $i + rem !important;
+              } @else {
+                #{$p2}#{$arrow}: $spacing * $i + rem !important;
+              }
             }
           }
         }
@@ -51,16 +63,26 @@ $properties: (
   }
 }
 
-// mt-auto ...
-@each $p1, $p2 in (m: 'margin') {
-  @each $name, $arrow in $direction {
-    .m#{$name}-auto {
-      @if length($arrow) > 1 {
-        margin#{nth($arrow, 1)}: auto;
-        margin#{nth($arrow, 2)}: auto;
-      } @else {
-        margin#{$arrow}: auto;
-      }
+@each $bp, $w in $grid-breakpoints {
+  @if $bp == 'xs' {
+    @include space-base;
+  } @else {
+    @media (min-width: $w) {
+      @include space-base($bp);
     }
   }
 }
+
+// mt-auto ...
+// @each $p1, $p2 in (m: 'margin') {
+//   @each $name, $arrow in $direction {
+//     .m#{$name}-auto {
+//       @if length($arrow) > 1 {
+//         margin#{nth($arrow, 1)}: auto;
+//         margin#{nth($arrow, 2)}: auto;
+//       } @else {
+//         margin#{$arrow}: auto;
+//       }
+//     }
+//   }
+// }
