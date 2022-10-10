@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { StaticImage } from 'gatsby-plugin-image'
+// import { StaticImage } from 'gatsby-plugin-image'
 import Layout from '../components/layout'
 import * as styles from './work.module.scss'
 import classNames from 'classnames/bind'
