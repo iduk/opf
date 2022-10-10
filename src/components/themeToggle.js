@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 import styled from 'styled-components'
 
 const Toggler = styled.button`
@@ -9,23 +9,27 @@ const Toggler = styled.button`
 `
 
 const ThemeToggle = () => {
-  let websiteTheme
-  if (typeof window !== `undefined`) {
-    websiteTheme = window.__theme
-  }
+  const [theme, setTheme] = useState(null)
+
+  const toggleTheme = useCallback(() => {
+    const nextTheme = theme === 'light' ? 'dark' : 'light'
+    document.body.setAttribute('data-theme', nextTheme)
+
+    setTheme(nextTheme)
+    window.__setPreferredTheme(nextTheme)
+  }, [theme])
+
   useEffect(() => {
-    setTheme(window.__theme)
+    if (typeof window === `undefined`) {
+      setTheme(window.__theme)
+    }
+    window.__onThemeChange = newTheme => {
+      setTheme(newTheme)
+    }
   }, [])
 
-  const [theme, setTheme] = useState(websiteTheme)
-
-  const toggleMode = () => {
-    window.__setPreferredTheme(websiteTheme === 'dark' ? 'light' : 'dark')
-    setTheme(websiteTheme === 'dark' ? 'light' : 'dark')
-  }
-
   return (
-    <Toggler onClick={toggleMode} tabIndex="-1">
+    <Toggler onClick={toggleTheme} tabIndex="-1">
       {theme === 'dark' ? 'Light Mode 🌈' : 'Dark Mode 🌙'}
     </Toggler>
   )
