@@ -2,7 +2,6 @@
 @each $key, $value in $text-sizes {
   .text-#{$key} {
     font-size: $value;
-    line-height: normal;
   }
 }
 

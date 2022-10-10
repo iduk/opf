@@ -10,11 +10,9 @@
 :root {
   color-scheme: dark light;
 }
-// scrollreveal
-html.sr .load-hidden {
-  visibility: hidden;
+html {
+  font-size: calc(1rem + 0.3125vw);
 }
-
 body {
   margin: 0;
   padding: 0;
@@ -23,7 +21,9 @@ body {
   background-color: var(--theme-bg);
   color: var(--theme-text);
   line-height: normal;
-  font-size: calc($text-base + 0.3125vw); // + 8px
+  font-size: $body-font;
+  line-height: 1.35;
+  // font-size: calc($text-base + 0.3125vw); // + 8px
 }
 
 ::selection {
@@ -42,7 +42,6 @@ dd {
 
 p {
   word-break: keep-all;
-  line-height: 1.3;
 }
 
 a {
@@ -99,5 +98,60 @@ svg {
   }
   100% {
     opacity: 0;
+  }
+}
+
+.marquee {
+  --marquee-gap: 2vw;
+  --marquee-duration: 60s;
+
+  position: relative;
+  display: flex;
+  overflow: hidden;
+  user-select: none;
+  gap: var(--marquee-gap);
+  // font-size: xx-large;
+
+  // &:hover .marquee__content {
+  //   animation-play-state: paused;
+  // }
+
+  &.reverse .marquee__content {
+    animation-direction: reverse;
+    // animation-delay: calc(var(--marquee-duration) / -2);
+    // -webkit-text-stroke: unset;
+    // color: var(--primary);
+  }
+
+  &__content {
+    flex-shrink: 0;
+    display: flex;
+    justify-content: space-around;
+    min-width: 100%;
+    gap: var(--marquee-gap);
+    animation: scroll var(--marquee-duration) linear infinite;
+    // Styling
+    font-size: 8ch;
+    line-height: 1;
+    font-weight: bolder;
+    color: black;
+    // Text Shadow
+    // text-shadow: 3px 3px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000,
+    //   -1px 1px 0 #000, 1px 1px 0 #000;
+
+    li:nth-child(2n) {
+      -webkit-text-fill-color: var(--theme-bg);
+      -webkit-text-stroke-width: 1px;
+      -webkit-text-stroke-color: black;
+    }
+  }
+
+  @keyframes scroll {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(calc(-100% - var(--marquee-gap)));
+    }
   }
 }

@@ -3,9 +3,11 @@ import styled from 'styled-components'
 
 const Toggler = styled.button`
   position: fixed;
-  bottom: 2rem;
-  left: 2rem;
+  bottom: 0;
+  right: 0;
   z-index: 10;
+  font-size: 1.5rem;
+  padding: 1rem;
 `
 
 const ThemeToggle = () => {
@@ -30,7 +32,7 @@ const ThemeToggle = () => {
 
   return (
     <Toggler onClick={toggleTheme} tabIndex="-1">
-      {theme === 'dark' ? 'Light Mode 🌈' : 'Dark Mode 🌙'}
+      <span style={{ color: 'var(--gray-9)' }}>✸</span>
     </Toggler>
   )
 }

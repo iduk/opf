@@ -16,8 +16,8 @@ module.exports = {
         subMenu: [],
       },
       {
-        name: `blog`,
-        url: `/blog`,
+        name: `work`,
+        url: `/work`,
         subMenu: [],
       },
     ],

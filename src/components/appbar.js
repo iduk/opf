@@ -4,6 +4,7 @@ import { Link, useStaticQuery, graphql } from 'gatsby'
 import * as styles from './appbar.module.scss'
 import classNames from 'classnames/bind'
 import ThemeToggle from './themeToggle'
+import Burger from '../assets/images/burger.svg'
 
 const cx = classNames.bind(styles)
 
@@ -53,9 +54,13 @@ const Appbar = ({ siteTitle }) => {
 
         <button
           onClick={() => setMenuOpen(!menuOpen)}
-          className={cx('navTrigger', 'btn', 'btn-primary')}
+          className={cx('navTrigger')}
         >
-          menu
+          <div className={cx('hamburger', `${menuOpen ? 'active' : ''}`)}>
+            <span className={cx('hamburger__bar')}></span>
+            <span className={cx('hamburger__bar')}></span>
+            <span className={cx('hamburger__bar')}></span>
+          </div>
         </button>
 
         <nav className={cx('nav', `${menuOpen ? 'open' : ''}`)}>
