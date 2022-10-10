@@ -134,7 +134,7 @@ svg {
     font-size: 8ch;
     line-height: 1;
     font-weight: bolder;
-    color: black;
+    color: var(--gray-9);
     // Text Shadow
     // text-shadow: 3px 3px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000,
     //   -1px 1px 0 #000, 1px 1px 0 #000;
@@ -142,7 +142,7 @@ svg {
     li:nth-child(2n) {
       -webkit-text-fill-color: var(--theme-bg);
       -webkit-text-stroke-width: 1px;
-      -webkit-text-stroke-color: black;
+      -webkit-text-stroke-color: var(--gray-9);
     }
   }
 
