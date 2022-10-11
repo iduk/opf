@@ -12,7 +12,7 @@ const IndexPage = () => {
       <main className={cx('stage', 'fluid')}>
         <div className="g-row">
           <article className="col-12 col-lg-4">
-            <p style={{ fontSize: 'medium' }}>
+            <p>
               오플플로어는 강력한 팀을 기반으로 혁신적인 기술에 대한 열정을
               가지고 있으며 지속가능한 솔루션으로 문제를 해결하는 것을 주력으로
               하고 있습니다. 우리의 목표는 다양한 설계기법을 통해 사용자
