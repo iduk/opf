@@ -4,7 +4,6 @@ import { Link, useStaticQuery, graphql } from 'gatsby'
 import * as styles from './appbar.module.scss'
 import classNames from 'classnames/bind'
 import ThemeToggle from './themeToggle'
-import Burger from '../assets/images/burger.svg'
 
 const cx = classNames.bind(styles)
 

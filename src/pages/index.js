@@ -9,25 +9,35 @@ const cx = classNames.bind(styles)
 const IndexPage = () => {
   return (
     <Layout className={cx('index')}>
-      <main className={cx('stage', 'fluid')}>
+      <section className={cx('stage', 'fluid')}>
         <div className="g-row">
-          <article className="col-12 col-lg-4">
+          <div className="col-12 col-lg-4">
             <p>
               오플플로어는 강력한 팀을 기반으로 혁신적인 기술에 대한 열정을
               가지고 있으며 지속가능한 솔루션으로 문제를 해결하는 것을 주력으로
               하고 있습니다. 우리의 목표는 다양한 설계기법을 통해 사용자
               경험속에서 잠재된 가치를 발굴하고 실현하는 것입니다.
             </p>
-          </article>
+          </div>
+          <div className="col-12 offset-lg-8 col-lg-4">
+            <div className={cx('stage__bg', 'mask')}>
+              {/* <StaticImage
+                src="../assets/images/3d_render.png"
+                aspectRatio={4 / 3}
+                width="600"
+                alt="img"
+              /> */}
+            </div>
+          </div>
         </div>
         <div className={cx('stage__links')}>
-          <Link to={'/'}>Openfloor Histories</Link>
-          <Link to={'/'}>Web Experiences</Link>
-          <Link to={'/'}>Data Visualization</Link>
+          <Link to={'/'}>GreatTeams</Link>
+          <Link to={'/'}>Best Experiences</Link>
           <Link to={'/'}>Device Handling</Link>
-          <Link to={'/'}>Creative Development</Link>
+          <Link to={'/'}>Data Visualization</Link>
+          <Link to={'/'}>Creative Interface</Link>
         </div>
-      </main>
+      </section>
 
       <section className={cx('section', 'work')}>
         <header className={cx('head')}>
@@ -39,36 +49,42 @@ const IndexPage = () => {
 
         <article className={cx('art1')}>
           <div className={cx('art1__wrap')}>
-            <ul className={cx('makingInfo')}>
-              <li>
+            <ul className={cx('makingInfo', 'g-row')}>
+              <li className="col-6">
                 <h6>Client</h6>
                 <p>CJ OliveHyoung</p>
               </li>
-              <li>
+              <li className="col-6">
+                <h6>Direction</h6>
+                <p>openfloor😎</p>
+                <p>Oct. 9, 2019</p>
+              </li>
+              <li className="col-6">
                 <h6>Performance</h6>
                 <p>System Architecture, UI/UX Design</p>
               </li>
-              <li>
-                <h6>Date</h6>
-                <p>Oct. 9, 2016</p>
-              </li>
-              <li>
+
+              <li className="col-6">
                 <h6>Teams</h6>
-                <p>Hildebrant</p>
-                <p>Brett</p>
-                <p>Lenny</p>
-                <p>Street</p>
-              </li>
-              <li>
-                <h6>Direction</h6>
-                <p>openfloor Inc.</p>
+                <p>
+                  <small>PM</small> Hildebrant
+                </p>
+                <p>
+                  <small>PL</small> Brett
+                </p>
+                <p>
+                  <small>B/E</small> Lenny
+                </p>
+                <p>
+                  <small>F/E</small> Wang
+                </p>
               </li>
             </ul>
           </div>
         </article>
 
         <article className={cx('art2')}>
-          <div className="g-row no-gutters" style={{ gap: '1rem' }}>
+          <div className="g-row no-gutters">
             <div className="col-12 col-lg-6 pb-3">
               <StaticImage
                 src="https://images.unsplash.com/photo-1611001716885-b3402558a62b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3270&q=80"
@@ -149,38 +165,56 @@ const IndexPage = () => {
         </article>
       </section>
 
-      <section className={cx('section')}>
-        <div className={'marquee'}>
-          <ul className={'marquee__content'}>
-            <li>Word1</li>
-            <li>Word2</li>
-            <li>Word3</li>
-            <li>Word4</li>
-          </ul>
-          <ul className={'marquee__content'} aria-hidden="true">
-            <li>Word1</li>
-            <li>Word2</li>
-            <li>Word3</li>
-            <li>Word4</li>
-          </ul>
-        </div>
-      </section>
-      <section className={cx('section')}>
-        <div className={'marquee reverse'}>
-          <ul className={'marquee__content'}>
-            <li>Word1</li>
-            <li>Word2</li>
-            <li>Word3</li>
-            <li>Word4</li>
-          </ul>
-          <ul className={'marquee__content'} aria-hidden="true">
-            <li>Word1</li>
-            <li>Word2</li>
-            <li>Word3</li>
-            <li>Word4</li>
-          </ul>
-        </div>
-      </section>
+      <div className="fluid">
+        <section className={cx('section')}>
+          <div className={'marquee'}>
+            <ul className={'marquee__content'}>
+              <li>Word1</li>
+              <li>Word2</li>
+              <li>Word3</li>
+              <li>Word4</li>
+            </ul>
+            <ul className={'marquee__content'} aria-hidden="true">
+              <li>Word1</li>
+              <li>Word2</li>
+              <li>Word3</li>
+              <li>Word4</li>
+            </ul>
+          </div>
+        </section>
+        <section className={cx('section')}>
+          <article className="g-row" data-line>
+            <div className="col-6 col-lg-1">1</div>
+            <div className="col-6 col-lg-1">2</div>
+            <div className="col-6 col-lg-1">3</div>
+            <div className="col-6 col-lg-1">4</div>
+            <div className="col-6 col-lg-1">5</div>
+            <div className="col-6 col-lg-1">6</div>
+            <div className="col-6 col-lg-1">7</div>
+            <div className="col-6 col-lg-1">8</div>
+            <div className="col-6 col-lg-1">9</div>
+            <div className="col-6 col-lg-1">10</div>
+            <div className="col-6 col-lg-1">11</div>
+            <div className="col-6 col-lg-1">12</div>
+          </article>
+        </section>
+        <section className={cx('section')}>
+          <div className={'marquee reverse'}>
+            <ul className={'marquee__content'}>
+              <li>Word1</li>
+              <li>Word2</li>
+              <li>Word3</li>
+              <li>Word4</li>
+            </ul>
+            <ul className={'marquee__content'} aria-hidden="true">
+              <li>Word1</li>
+              <li>Word2</li>
+              <li>Word3</li>
+              <li>Word4</li>
+            </ul>
+          </div>
+        </section>
+      </div>
     </Layout>
   )
 }

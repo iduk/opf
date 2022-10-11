@@ -9,7 +9,7 @@
 
 .container,
 .fluid {
-  @include make-container();
+  @include make-container;
 }
 
 .container {
