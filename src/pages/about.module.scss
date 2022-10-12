@@ -1,10 +1,29 @@
 // aboutPage
-.aboutPage {
-  background-color: var(--gray-2);
-  main {
-    padding-top: 45vh;
+
+.myImgContainer {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+  height: 50vh;
+  overflow: hidden;
+  background-color: var(--primary);
+
+  .imgText {
+    transition: all 0.2s;
+    font-size: 32vw;
+    font-weight: bolder;
+    text-transform: uppercase;
+    letter-spacing: -2px;
+    line-height: 1;
+    mix-blend-mode: luminosity;
+    background: url('https://images.unsplash.com/photo-1480455624313-e29b44bbfde1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3270&q=80')
+      center center / cover;
+    background-attachment: fixed;
+    color: transparent;
+    background-clip: text;
   }
-}
-.article {
-  max-width: 600px;
+  // .myImg {
+  // }
 }

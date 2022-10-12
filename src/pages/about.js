@@ -10,60 +10,65 @@ const AboutPage = () => {
   return (
     <Layout className={cx('aboutPage')}>
       <div className="fluid">
-        <h2 className="pb-6">
-          Non enim praesent elementum facilisis leo vel fringilla est
-          ullamcorper.
-        </h2>
-        <section className="row">
-          <div className="col-12 col-lg-6 text-l">
-            <StaticImage
-              src="https://images.unsplash.com/photo-1661956602153-23384936a1d3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2370&q=80"
-              width={600}
-              layout="constrained"
-              alt="image"
-            />
+        <div className="g-row">
+          <div className="col-12 px-0">
+            <div className={cx('myImgContainer')}>
+              <div className={cx('imgText', 'fw-bolder')}>Xenon</div>
+              {/* <StaticImage
+                src="https://images.unsplash.com/photo-1480455624313-e29b44bbfde1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3270&q=80"
+                alt="author-image"
+                loading="lazy"
+                placeholder="tracedSVG"
+                layout="fullWidth"
+                className={cx('myImg')}
+              /> */}
+            </div>
           </div>
-          <div className="col-12 col-lg-6">
-            <article className={cx('article')}>
-              <p className="mb-4">
-                Non enim praesent elementum facilisis leo vel fringilla est
-                ullamcorper. Nec ultrices dui sapien eget mi. Convallis
-                convallis tellus id interdum. Suspendisse in est ante in nibh
-                mauris cursus mattis. Fermentum iaculis eu non diam. Accumsan
-                sit amet nulla facilisi morbi tempus iaculis urna id. Fermentum
-                et sollicitudin ac orci phasellus. Enim nulla aliquet porttitor
-                lacus luctus accumsan tortor. At varius vel pharetra vel. Amet
-                consectetur adipiscing elit duis tristique sollicitudin nibh.
-                Molestie at elementum eu facilisis sed odio. Egestas erat
-                imperdiet sed euismod nisi. Netus et malesuada fames ac turpis
-                egestas integer eget. Tortor at auctor urna nunc. Et molestie ac
-                feugiat sed lectus vestibulum mattis ullamcorper velit. Lorem
-                ipsum dolor sit amet consectetur adipiscing elit. Malesuada
-                proin libero nunc consequat interdum. Vitae et leo duis ut diam
-                quam nulla porttitor. Congue mauris rhoncus aenean vel elit
-                scelerisque mauris pellentesque pulvinar.
-              </p>
-              <p>
-                Non enim praesent elementum facilisis leo vel fringilla est
-                ullamcorper. Nec ultrices dui sapien eget mi. Convallis
-                convallis tellus id interdum. Suspendisse in est ante in nibh
-                mauris cursus mattis. Fermentum iaculis eu non diam. Accumsan
-                sit amet nulla facilisi morbi tempus iaculis urna id. Fermentum
-                et sollicitudin ac orci phasellus. Enim nulla aliquet porttitor
-                lacus luctus accumsan tortor. At varius vel pharetra vel. Amet
-                consectetur adipiscing elit duis tristique sollicitudin nibh.
-                Molestie at elementum eu facilisis sed odio. Egestas erat
-                imperdiet sed euismod nisi. Netus et malesuada fames ac turpis
-                egestas integer eget. Tortor at auctor urna nunc. Et molestie ac
-                feugiat sed lectus vestibulum mattis ullamcorper velit. Lorem
-                ipsum dolor sit amet consectetur adipiscing elit. Malesuada
-                proin libero nunc consequat interdum. Vitae et leo duis ut diam
-                quam nulla porttitor. Congue mauris rhoncus aenean vel elit
-                scelerisque mauris pellentesque pulvinar.
-              </p>
-            </article>
+        </div>
+      </div>
+      <div className="fluid">
+        <div className="g-row" data-line>
+          <div className="col-12 col-lg-3">
+            <h1>About</h1>
           </div>
-        </section>
+          <div className="col-12 col-lg-9">
+            <p>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+              Inventore voluptas, excepturi consequuntur et voluptatem dolor
+              possimus debitis eveniet fugiat. Soluta dolor a doloremque
+              incidunt nesciunt expedita mollitia, aliquam fugiat. Nesciunt?
+            </p>
+
+            <p>
+              I left the contact animation empty as a playground if you download
+              the repo. Also, all animation can be optimize, changed, you can
+              can make them very complex or very subtle, you can use another
+              animation package and so on. But i think this is a good way to
+              start implementing page transition if you are using Gatsby in your
+              projects 17
+            </p>
+          </div>
+        </div>
+        <div className="g-row" data-line>
+          <div className="col-6 col-lg-6"></div>
+          <div className="col-6 col-lg-6">
+            <p>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+              Inventore voluptas, excepturi consequuntur et voluptatem dolor
+              possimus debitis eveniet fugiat. Soluta dolor a doloremque
+              incidunt nesciunt expedita mollitia, aliquam fugiat. Nesciunt?
+            </p>
+
+            <p>
+              I left the contact animation empty as a playground if you download
+              the repo. Also, all animation can be optimize, changed, you can
+              can make them very complex or very subtle, you can use another
+              animation package and so on. But i think this is a good way to
+              start implementing page transition if you are using Gatsby in your
+              projects 17
+            </p>
+          </div>
+        </div>
       </div>
     </Layout>
   )

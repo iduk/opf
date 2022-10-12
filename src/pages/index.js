@@ -7,6 +7,16 @@ import classNames from 'classnames/bind'
 const cx = classNames.bind(styles)
 
 const IndexPage = () => {
+  const textloop1 = [
+    'openfloor',
+    'Service',
+    'development',
+    'uxui',
+    'troubleshoot',
+    'business',
+    'performance',
+  ]
+
   return (
     <Layout className={cx('index')}>
       <section className={cx('stage', 'fluid')}>
@@ -184,18 +194,35 @@ const IndexPage = () => {
         </section>
         <section className={cx('section')}>
           <article className="g-row" data-line>
-            <div className="col-6 col-lg-1">1</div>
-            <div className="col-6 col-lg-1">2</div>
-            <div className="col-6 col-lg-1">3</div>
-            <div className="col-6 col-lg-1">4</div>
-            <div className="col-6 col-lg-1">5</div>
-            <div className="col-6 col-lg-1">6</div>
-            <div className="col-6 col-lg-1">7</div>
-            <div className="col-6 col-lg-1">8</div>
-            <div className="col-6 col-lg-1">9</div>
-            <div className="col-6 col-lg-1">10</div>
-            <div className="col-6 col-lg-1">11</div>
-            <div className="col-6 col-lg-1">12</div>
+            <div className="col-6 col-lg-12">
+              {/* text effect */}
+              <article className={cx('textSection')}>
+                <ul className={cx('texList')}>
+                  <li className={cx('move1')}>
+                    {textloop1.map((item, index) => (
+                      <span
+                        key={index}
+                        className={cx('textOutline')}
+                        key={index}
+                      >
+                        {item}
+                      </span>
+                    ))}
+                  </li>
+                </ul>
+              </article>
+            </div>
+            {/* <div className="col-6 col-lg-1">2</div> */}
+            <div className="col-12 col-lg-6">3</div>
+            <div className="col-12 col-lg-6">4</div>
+            <div className="col-12 col-lg-6">5</div>
+            <div className="col-12 col-lg-6">6</div>
+            <div className="col-12 col-lg-6">7</div>
+            <div className="col-12 col-lg-6">8</div>
+            <div className="col-12 col-lg-6">9</div>
+            <div className="col-12 col-lg-6">10</div>
+            <div className="col-12 col-lg-6">11</div>
+            <div className="col-12 col-lg-6">12</div>
           </article>
         </section>
         <section className={cx('section')}>

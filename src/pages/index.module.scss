@@ -62,32 +62,6 @@
 //   }
 // }
 
-:root {
-  --g-width: 1px;
-}
-// Outline grid
-@mixin gridLine($data: true) {
-  @if $data {
-    & {
-      border-left: var(--g-width) solid var(--gray-9);
-      border-top: var(--g-width) solid var(--gray-9);
-
-      [class^='col'] {
-        border-right: var(--g-width) solid var(--gray-9);
-        border-bottom: var(--g-width) solid var(--gray-9);
-        padding: calc($grid-gutter / 2);
-      }
-    }
-    & + & {
-      border-top: 0;
-    }
-  }
-}
-
-[data-line] {
-  @include gridLine($data: true);
-}
-
 .section {
   // ???
 }
@@ -178,5 +152,28 @@
   }
   .art2 {
     grid-area: art2;
+  }
+}
+
+// text effect
+.text-section {
+  font-size: 20vw;
+  letter-spacing: -0.25vw;
+  line-height: 1;
+}
+
+.text-list {
+  transition: all 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: center;
+
+  .text-outline {
+    font-size: clamp(72px, 25vw, 200px);
+    line-height: 1;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: -0.5vw;
   }
 }

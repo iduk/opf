@@ -180,3 +180,28 @@ svg {
     }
   }
 }
+
+// Outline Style Grid
+@mixin gridLine($data: true) {
+  --g-width: 1px;
+  @if $data {
+    & {
+      border-left: var(--g-width) solid var(--gray-9);
+      border-top: var(--g-width) solid var(--gray-9);
+
+      [class^='col'] {
+        border-right: var(--g-width) solid var(--gray-9);
+        border-bottom: var(--g-width) solid var(--gray-9);
+        padding: calc($grid-gutter / 2);
+        overflow: hidden;
+      }
+    }
+    & + & {
+      border-top: 0;
+    }
+  }
+}
+
+[data-line] {
+  @include gridLine($data: true);
+}
