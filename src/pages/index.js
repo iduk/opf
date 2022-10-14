@@ -2,14 +2,33 @@ import * as React from 'react'
 import { Link } from 'gatsby'
 import { StaticImage } from 'gatsby-plugin-image'
 import Layout from '../components/layout'
+import { motion, useScroll } from 'framer-motion'
 import * as styles from './index.module.scss'
 import classNames from 'classnames/bind'
 const cx = classNames.bind(styles)
 
 const IndexPage = () => {
+  const { scrollXProgress, scrollYProgress } = useScroll({
+    offset: ['end end', 'start start'],
+  })
+
+  const marqueeVariants = {
+    animate: {
+      x: [0, 1000],
+      transition: {
+        x: {
+          repeat: Infinity,
+          repeatType: 'loop',
+          duration: 10,
+          ease: 'linear',
+        },
+      },
+    },
+  }
+
   const textloop1 = [
     'openfloor',
-    'Service',
+    'team',
     'development',
     'uxui',
     'troubleshoot',
@@ -48,7 +67,6 @@ const IndexPage = () => {
           <Link to={'/'}>Creative Interface</Link>
         </div>
       </section>
-
       <section className={cx('section', 'work')}>
         <header className={cx('head')}>
           <div className={cx('head__wrap')}>
@@ -174,7 +192,6 @@ const IndexPage = () => {
           </div>
         </article>
       </section>
-
       <div className="fluid">
         <section className={cx('section')}>
           <div className={'marquee'}>
@@ -194,22 +211,24 @@ const IndexPage = () => {
         </section>
         <section className={cx('section')}>
           <article className="g-row" data-line>
-            <div className="col-6 col-lg-12">
+            <div className="col-12 col-lg-12">
               {/* text effect */}
               <article className={cx('textSection')}>
-                <ul className={cx('texList')}>
+                <motion.ul
+                  initial="hidden"
+                  whileInView="visible"
+                  style={{ translateX: scrollYProgress }}
+                  animate="animate"
+                  className={cx('textList')}
+                >
                   <li className={cx('move1')}>
                     {textloop1.map((item, index) => (
-                      <span
-                        key={index}
-                        className={cx('textOutline')}
-                        key={index}
-                      >
+                      <span key={index} className={cx('textOutline')}>
                         {item}
                       </span>
                     ))}
                   </li>
-                </ul>
+                </motion.ul>
               </article>
             </div>
             {/* <div className="col-6 col-lg-1">2</div> */}
