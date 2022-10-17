@@ -1,4 +1,5 @@
 .navbar {
+  position: relative;
   display: flex;
   justify-content: space-between;
   color: var(--gray-9);
@@ -110,8 +111,9 @@
 @include breakpoint-down(sm) {
   .navTrigger {
     display: block;
-    padding: 1rem;
-    width: 64px;
+    margin: 0.75rem;
+    width: 48px;
+    height: 48px;
   }
   .nav {
     opacity: 0;
