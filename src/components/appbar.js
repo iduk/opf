@@ -8,19 +8,18 @@ import { motion } from 'framer-motion'
 import useMediaQuery from '../hooks/useMediaQuery'
 const cx = classNames.bind(styles)
 
-const LogoImg = ({ color }) => {
+const LogoImg = () => {
+  const transition = { duration: 4, yoyo: Infinity, ease: 'easeInOut' }
+
   return (
     <svg
-      id={'logoSvg'}
-      width="100%"
-      height={'100%'}
-      fill="none"
-      viewBox="0 0 62 52"
+      className={cx('logoSvg')}
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 139.23 118.35"
     >
       <path
-        d="m31.254 0 30.554 51.865H4.672a2.025 2.025 0 0 1-.535 0H.701l1.75-2.973a2.05 2.05 0 0 1 .251-.426L31.254 0ZM29.11 41.228l-14.462 6.354h14.462v-6.354Zm4.289 0v6.354H47.86l-14.462-6.354Zm0-29.142V36.55l19.443 8.541-19.443-33.005Zm-4.289 20.68-10.523 8.407L29.11 36.55v-3.784Zm0-20.679L12.201 40.789l16.908-13.507V12.087Z"
-        fill-rule="nonzero"
-        fill={color}
+        className={cx('cls-1')}
+        d="M134,110.46l-.18-.3L74.01,8.47l-.25-.42-4.15-7.06-4.15,7.06-.25,.42L5.4,110.16s-.05,.07-.07,.11l-.11,.19-.04,.07-4.31,7.32H138.35l-4.35-7.39Zm-69.39-2.61h-31.22l31.22-13.74v13.74Zm0-24.66l-22.05,9.7,22.05-17.64v7.94Zm0-20.74l-36.94,29.56L64.61,29.21V62.45Zm10,45.4v-13.74l31.22,13.74h-31.22Zm0-24.66V29.21l42.84,72.82-42.84-18.84Z"
       />
     </svg>
   )
@@ -74,7 +73,7 @@ const Appbar = ({ siteTitle }) => {
       <ThemeToggle />
       <div className={cx('navbar', 'fluid')}>
         <Link to={'/'} className={cx('logo')} title={siteTitle} tabIndex="0">
-          <LogoImg color={'var(--gray-9)'} />
+          <LogoImg />
         </Link>
 
         <button

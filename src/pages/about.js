@@ -10,23 +10,6 @@ const AboutPage = () => {
   return (
     <Layout className={cx('aboutPage')}>
       <div className="fluid">
-        <div className="g-row">
-          <div className="col-12 px-0">
-            <div className={cx('myImgContainer')}>
-              <div className={cx('imgText', 'fw-bolder')}>Xenon</div>
-              {/* <StaticImage
-                src="https://images.unsplash.com/photo-1480455624313-e29b44bbfde1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3270&q=80"
-                alt="author-image"
-                loading="lazy"
-                placeholder="tracedSVG"
-                layout="fullWidth"
-                className={cx('myImg')}
-              /> */}
-            </div>
-          </div>
-        </div>
-      </div>
-      <div className="fluid">
         <div className="g-row" data-line>
           <div className="col-12 col-lg-3">
             <h1>About</h1>
@@ -67,6 +50,23 @@ const AboutPage = () => {
               start implementing page transition if you are using Gatsby in your
               projects 17
             </p>
+          </div>
+        </div>
+      </div>
+      <div className="fluid">
+        <div className="g-row">
+          <div className="col-12 px-0">
+            <div className={cx('myImgContainer')}>
+              <div className={cx('imgText', 'fw-bolder')}>Xenon</div>
+              {/* <StaticImage
+                src="https://images.unsplash.com/photo-1480455624313-e29b44bbfde1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3270&q=80"
+                alt="author-image"
+                loading="lazy"
+                placeholder="tracedSVG"
+                layout="fullWidth"
+                className={cx('myImg')}
+              /> */}
+            </div>
           </div>
         </div>
       </div>
