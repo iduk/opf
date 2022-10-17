@@ -169,24 +169,24 @@ const IndexPage = () => {
           </div>
         </article>
       </section>
-      <div className="fluid">
-        <section className={cx('section')}>
-          <div className={'marquee'}>
-            <ul className={'marquee__content'}>
-              <li>Word1</li>
-              <li>Word2</li>
-              <li>Word3</li>
-              <li>Word4</li>
-            </ul>
-            <ul className={'marquee__content'} aria-hidden="true">
-              <li>Word1</li>
-              <li>Word2</li>
-              <li>Word3</li>
-              <li>Word4</li>
-            </ul>
-          </div>
-        </section>
-        <section className={cx('section')}>
+      <section className={cx('section')}>
+        <div className={'marquee'}>
+          <ul className={'marquee__content'}>
+            <li>Word1</li>
+            <li>Word2</li>
+            <li>Word3</li>
+            <li>Word4</li>
+          </ul>
+          <ul className={'marquee__content'} aria-hidden="true">
+            <li>Word1</li>
+            <li>Word2</li>
+            <li>Word3</li>
+            <li>Word4</li>
+          </ul>
+        </div>
+      </section>
+      <section className={cx('section')}>
+        <div className="fluid">
           <article className="g-row" data-line>
             <div className="col-12 col-lg-12">
               {/* text effect */}
@@ -214,24 +214,24 @@ const IndexPage = () => {
             <div className="col-12 col-lg-6">11</div>
             <div className="col-12 col-lg-6">12</div>
           </article>
-        </section>
-        <section className={cx('section')}>
-          <div className={'marquee reverse'}>
-            <ul className={'marquee__content'}>
-              <li>Word1</li>
-              <li>Word2</li>
-              <li>Word3</li>
-              <li>Word4</li>
-            </ul>
-            <ul className={'marquee__content'} aria-hidden="true">
-              <li>Word1</li>
-              <li>Word2</li>
-              <li>Word3</li>
-              <li>Word4</li>
-            </ul>
-          </div>
-        </section>
-      </div>
+        </div>
+      </section>
+      <section className={cx('section')}>
+        <div className={'marquee reverse'}>
+          <ul className={'marquee__content'}>
+            <li>Word1</li>
+            <li>Word2</li>
+            <li>Word3</li>
+            <li>Word4</li>
+          </ul>
+          <ul className={'marquee__content'} aria-hidden="true">
+            <li>Word1</li>
+            <li>Word2</li>
+            <li>Word3</li>
+            <li>Word4</li>
+          </ul>
+        </div>
+      </section>
     </Layout>
   )
 }
