@@ -4,7 +4,8 @@ import { Link, useStaticQuery, graphql } from 'gatsby'
 import * as styles from './appbar.module.scss'
 import classNames from 'classnames/bind'
 import ThemeToggle from './themeToggle'
-
+import { motion } from 'framer-motion'
+import useMediaQuery from '../hooks/useMediaQuery'
 const cx = classNames.bind(styles)
 
 const LogoImg = ({ color }) => {
@@ -26,7 +27,32 @@ const LogoImg = ({ color }) => {
 }
 
 const Appbar = ({ siteTitle }) => {
-  const [menuOpen, setMenuOpen] = React.useState(false)
+  const [isOpen, setIsOpen] = React.useState(false)
+  const isSmall = useMediaQuery('(max-width: 767px)')
+
+  const variants = isSmall
+    ? {
+        open: {
+          x: 0,
+          transition: {
+            type: 'spring',
+            damping: 10,
+          },
+        },
+        closed: {
+          x: '100%',
+          transition: {
+            delay: 0.5,
+            type: 'spring',
+            damping: 40,
+          },
+        },
+      }
+    : {
+        open: null,
+        closed: null,
+      }
+
   const data = useStaticQuery(
     graphql`
       query {
@@ -52,17 +78,22 @@ const Appbar = ({ siteTitle }) => {
         </Link>
 
         <button
-          onClick={() => setMenuOpen(!menuOpen)}
+          onClick={() => setIsOpen(isOpen => !isOpen)}
           className={cx('navTrigger')}
         >
-          <div className={cx('hamburger', `${menuOpen ? 'active' : ''}`)}>
+          <div className={cx('hamburger', `${isOpen ? 'active' : ''}`)}>
             <span className={cx('hamburger__bar')}></span>
             <span className={cx('hamburger__bar')}></span>
             <span className={cx('hamburger__bar')}></span>
           </div>
         </button>
 
-        <nav className={cx('nav', `${menuOpen ? 'open' : ''}`)}>
+        <motion.nav
+          initial="hidden"
+          animate={isOpen ? 'open' : 'closed'}
+          variants={variants}
+          className={cx('nav', `${isOpen ? 'active' : ''}`)}
+        >
           <ul className={cx('navList')}>
             {navLinks.map((link, index) => (
               <li key={link.url}>
@@ -77,7 +108,7 @@ const Appbar = ({ siteTitle }) => {
               </li>
             ))}
           </ul>
-        </nav>
+        </motion.nav>
       </div>
     </header>
   )
