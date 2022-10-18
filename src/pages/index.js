@@ -185,8 +185,8 @@ const IndexPage = () => {
           </ul>
         </div>
       </section>
-      <section className={cx('section')}>
-        <div className="fluid">
+      <div className="fluid">
+        <section className={cx('section')}>
           <article className="g-row" data-line>
             <div className="col-12 col-lg-12">
               {/* text effect */}
@@ -214,8 +214,8 @@ const IndexPage = () => {
             <div className="col-12 col-lg-6">11</div>
             <div className="col-12 col-lg-6">12</div>
           </article>
-        </div>
-      </section>
+        </section>
+      </div>
       <section className={cx('section')}>
         <div className={'marquee reverse'}>
           <ul className={'marquee__content'}>
