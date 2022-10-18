@@ -25,7 +25,7 @@ const Layout = ({ children, className }) => {
   const pageTitle = data.site.siteMetadata?.title
 
   return (
-    <AnimatePresence exitBeforeEnter>
+    <AnimatePresence mode="wait">
       <motion.div
         key={data.site.siteMetadata.siteUrl}
         initial={animate.initial}

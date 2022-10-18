@@ -1,29 +1,57 @@
 // aboutPage
 
+.pageHeader {
+  @include breakpoint-up(lg) {
+    min-height: 30vh;
+    &__title {
+      font-size: 5vw;
+    }
+  }
+
+  &__title {
+    font-weight: normal;
+    line-height: 1.1;
+  }
+}
+
 .myImgContainer {
   display: flex;
   flex-direction: column;
-  flex-wrap: nowrap;
-  align-items: center;
-  justify-content: center;
-  height: 50vh;
+  justify-content: flex-end;
+  height: 40vh;
   overflow: hidden;
-  background-color: var(--primary);
+  background-color: var(--gray-9);
+  position: relative;
+  z-index: 1;
 
-  .imgText {
+  .sign {
+    z-index: 1;
     transition: all 0.2s;
-    font-size: 32vw;
-    font-weight: bolder;
-    text-transform: uppercase;
-    letter-spacing: -2px;
-    line-height: 1;
-    mix-blend-mode: luminosity;
-    background: url('https://images.unsplash.com/photo-1480455624313-e29b44bbfde1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3270&q=80')
-      center center / cover;
-    background-attachment: fixed;
-    color: transparent;
-    background-clip: text;
+    padding: 1rem;
+    font-family: 'Silkscreen';
+    color: var(--gray-9);
+    animation: trackingInExpand 0.7s cubic-bezier(0.215, 0.61, 0.355, 1) both;
   }
-  // .myImg {
-  // }
+  .myImg {
+    z-index: -1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    mix-blend-mode: luminosity;
+  }
+}
+
+@keyframes trackingInExpand {
+  0% {
+    letter-spacing: -0.5em;
+    opacity: 0;
+  }
+  40% {
+    opacity: 0.6;
+  }
+  100% {
+    opacity: 1;
+  }
 }

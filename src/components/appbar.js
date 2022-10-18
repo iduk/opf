@@ -9,8 +9,6 @@ import useMediaQuery from '../hooks/useMediaQuery'
 const cx = classNames.bind(styles)
 
 const LogoImg = () => {
-  const transition = { duration: 4, yoyo: Infinity, ease: 'easeInOut' }
-
   return (
     <svg
       className={cx('logoSvg')}

@@ -11,19 +11,18 @@
   color-scheme: dark light;
 }
 html {
-  font-size: calc(1rem + 0.3125vw);
+  font-size: calc(1rem + 0.15625vw);
 }
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Archivo', -apple-system, BlinkMacSystemFont, system-ui, Roboto,
-    'Helvetica Neue', 'Segoe UI';
+  font-family: 'Inter', 'Noto Sans KR', -apple-system, BlinkMacSystemFont,
+    system-ui, Roboto, 'Helvetica Neue', 'Segoe UI';
   background-color: var(--theme-bg);
   color: var(--theme-text);
   line-height: normal;
   font-size: $body-font;
   line-height: 1.35;
-  // font-size: calc($text-base + 0.3125vw); // + 8px
 }
 
 ::selection {
@@ -200,4 +199,12 @@ a {
 
 [data-line] {
   @include gridLine($data: true);
+}
+
+section.section {
+  border-top: 1px solid var(--gray-9);
+  [class^='col'] {
+    padding: calc($grid-gutter / 2);
+    overflow: hidden;
+  }
 }

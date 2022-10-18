@@ -7,31 +7,29 @@ const Footer = () => (
   <footer className={cx('footer', 'mask')}>
     <div className="fluid">
       {/* content column */}
-      <article className="g-row">
-        <div className="col-12 col-lg-6">
+      <div className="g-row">
+        <div className="col-12 col-lg-4">
           <h4 className="fw-bold pb-3">Contact</h4>
         </div>
 
-        <div className="col-12 col-lg-3">
-          <p className={cx('copyright')}>
-            <div className={cx('socialList')}>
-              <li>
-                <span>Facebook</span>
-                <p>opf.facebook</p>
-              </li>
-              <li>
-                <span>Slack</span>
-                <p>openfloor.dev.slack.com</p>
-              </li>
-              <li>
-                <span>Instagram</span>
-                <p>@openfloor_dev</p>
-              </li>
-            </div>
-          </p>
+        <div className="col-12 col-lg-4">
+          <div className={cx('socialList')}>
+            <li>
+              <span>Facebook</span>
+              <p>opf.facebook</p>
+            </li>
+            <li>
+              <span>Slack</span>
+              <p>openfloor.dev.slack.com</p>
+            </li>
+            <li>
+              <span>Instagram</span>
+              <p>@openfloor_dev</p>
+            </li>
+          </div>
         </div>
 
-        <div className="col-12 col-lg-3">
+        <div className="col-12 col-lg-4">
           <address className={cx('address')}>
             <a href={'mailto:lee@openfloor.kr'}>lee@openfloor.kr</a>
             <p>82 10-1234-5678</p>
@@ -40,12 +38,9 @@ const Footer = () => (
             <p>
               © <strong>Openfloor, Inc.</strong> ALL RIGHTS RESERVED.
             </p>
-            <blockquote className="small pt-2 text-gray-5">
-              - Grind hard, shine hard.
-            </blockquote>
           </div>
         </div>
-      </article>
+      </div>
       {/* \\ content column */}
     </div>
   </footer>

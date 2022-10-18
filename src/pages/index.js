@@ -2,13 +2,13 @@ import * as React from 'react'
 import { Link } from 'gatsby'
 import { StaticImage } from 'gatsby-plugin-image'
 import Layout from '../components/layout'
-import { motion, useTransform, useViewportScroll } from 'framer-motion'
+import { motion, useTransform, useScroll } from 'framer-motion'
 import * as styles from './index.module.scss'
 import classNames from 'classnames/bind'
 const cx = classNames.bind(styles)
 
 const IndexPage = () => {
-  const { scrollYProgress } = useViewportScroll()
+  const { scrollYProgress } = useScroll()
   const x = useTransform(scrollYProgress, [0, 1], ['0', '-100%'])
 
   const textloop1 = ['openfloor', 'team', 'troubleshoot', 'uxui', 'performance']
@@ -16,39 +16,19 @@ const IndexPage = () => {
   return (
     <Layout className={cx('index')}>
       <section className={cx('stage', 'fluid')}>
-        <div className="g-row">
-          <div className="col-12 col-lg-4">
-            <p>
-              오플플로어는 강력한 팀을 기반으로 혁신적인 기술에 대한 열정을
-              가지고 있으며 지속가능한 솔루션으로 문제를 해결하는 것을 주력으로
-              하고 있습니다. 우리의 목표는 다양한 설계기법을 통해 사용자
-              경험속에서 잠재된 가치를 발굴하고 실현하는 것입니다.
-            </p>
-          </div>
-          <div className="col-12 offset-lg-8 col-lg-4">
-            <div className={cx('stage__bg', 'mask')}>
-              {/* <StaticImage
-                src="../assets/images/3d_render.png"
-                aspectRatio={4 / 3}
-                width="600"
-                alt="img"
-              /> */}
-            </div>
-          </div>
-        </div>
         <div className={cx('stage__links')}>
-          <Link to={'/'}>GreatTeams</Link>
-          <Link to={'/'}>Best Experiences</Link>
+          <Link to={'/'}>Team Openfloor</Link>
           <Link to={'/'}>Device Handling</Link>
           <Link to={'/'}>Data Visualization</Link>
           <Link to={'/'}>Creative Interface</Link>
+          <Link to={'/'}>Optimal Code</Link>
+          <Link to={'/'}>User First</Link>
         </div>
       </section>
       <section className={cx('section', 'work')}>
         <header className={cx('head')}>
           <div className={cx('head__wrap')}>
             <h1>Hangul is vertical align not working</h1>
-            {/* <p className="small">NO 16454946</p> */}
           </div>
         </header>
 
@@ -169,6 +149,7 @@ const IndexPage = () => {
           </div>
         </article>
       </section>
+
       <section className={cx('section')}>
         <div className={'marquee'}>
           <ul className={'marquee__content'}>
@@ -185,8 +166,9 @@ const IndexPage = () => {
           </ul>
         </div>
       </section>
-      <div className="fluid">
-        <section className={cx('section')}>
+
+      <section className={cx('section')}>
+        <div className="fluid">
           <article className="g-row" data-line>
             <div className="col-12 col-lg-12">
               {/* text effect */}
@@ -214,8 +196,9 @@ const IndexPage = () => {
             <div className="col-12 col-lg-6">11</div>
             <div className="col-12 col-lg-6">12</div>
           </article>
-        </section>
-      </div>
+        </div>
+      </section>
+
       <section className={cx('section')}>
         <div className={'marquee reverse'}>
           <ul className={'marquee__content'}>

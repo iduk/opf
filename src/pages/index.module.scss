@@ -1,50 +1,28 @@
 .stage {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-end;
   min-height: 65vh;
   padding-top: 4vh;
   padding-bottom: 4vh;
   position: relative;
 
-  p {
-    font-size: 80%;
-    color: var(--gray-7);
-  }
-
   &__links {
     @include breakpoint-up(md) {
-      font-size: calc(1vw + 5vh);
+      font-size: calc(1vw + 4vh);
     }
     @include breakpoint-up(xs) {
       font-size: calc(1vw + 3.5vh);
     }
     line-height: 1.1;
-    letter-spacing: -1px;
-    font-weight: bold;
 
     > a {
       display: inline-block;
       position: relative;
       &::after {
-        content: '⇤';
-        vertical-align: top;
-        font-family: 'Silkscreen';
-        font-size: inherit;
+        content: '✴︎';
         vertical-align: baseline;
-      }
-
-      &:nth-of-type(2)::after {
-        content: '✸';
-      }
-      &:nth-of-type(3)::after {
-        content: '♨︎';
-      }
-      &:nth-of-type(4)::after {
-        content: '✧';
-      }
-      &:nth-of-type(5)::after {
-        content: '☺︎';
+        padding: 0 4px;
       }
     }
   }
