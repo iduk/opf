@@ -61,14 +61,14 @@ module.exports = {
         },
       },
     },
-    {
-      resolve: `gatsby-plugin-remote-images`,
-      options: {
-        nodeType: 'allMyNodes',
-        imagePath: 'nodes[].imageUrl',
-        name: 'remoteImage',
-      },
-    },
+    // {
+    //   resolve: `gatsby-plugin-remote-images`,
+    //   options: {
+    //     nodeType: 'allMyNodes',
+    //     imagePath: 'nodes[].imageUrl',
+    //     name: 'remoteImage',
+    //   },
+    // },
     {
       resolve: `gatsby-plugin-sharp`,
       options: {
@@ -100,8 +100,26 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-plugin-sass`,
+      options: {
+        additionalData: `
+          @import 'src/assets/scss/_variables.scss';
+          @import 'src/assets/scss/_mixins.scss';
+        `,
+        cssLoaderOptions: {
+          modules: {
+            localIdentName: '[local]__[hash:base64:5]',
+          },
+        },
+      },
+    },
+    {
       resolve: `gatsby-plugin-postcss`,
       options: {
+        cssLoaderOptions: {
+          exportLocalsConvention: false,
+          namedExport: false,
+        },
         postCssPlugins: [
           require('postcss-import'),
           require('postcss-preset-env')({
@@ -111,23 +129,9 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-sass`,
+      resolve: `gatsby-plugin-mini-css-class-name`,
       options: {
-        additionalData: `
-          @import 'src/assets/scss/_variables.scss';
-          @import 'src/assets/scss/_mixins.scss';
-        `,
-        // useResolveUrlLoader: {
-        //   options: {
-        //     debug: true,
-        //   },
-        // },
-      },
-    },
-    {
-      resolve: 'gatsby-plugin-minify-classnames',
-      options: {
-        /* gatsby-plugin-minify-classnames options here */
+        prefix: `xo-`,
       },
     },
     {
