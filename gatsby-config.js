@@ -117,13 +117,6 @@ module.exports = {
           @import 'src/assets/scss/_variables.scss';
           @import 'src/assets/scss/_mixins.scss';
         `,
-        cssLoaderOptions: {
-          camelCase: false,
-          modules: {
-            localIdentName: '[local]__[hash:base64:5]',
-            // exportLocalsConvention: 'camelCaseOnly',
-          },
-        },
         // useResolveUrlLoader: {
         //   options: {
         //     debug: true,

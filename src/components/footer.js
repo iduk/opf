@@ -8,7 +8,7 @@ const Footer = () => (
     <div className="fluid">
       {/* content column */}
       <article className="g-row">
-        <div className="col-12 col-lg-4">
+        <div className="col-12 col-lg-6">
           <h4 className="fw-bold pb-3">Contact</h4>
         </div>
 
