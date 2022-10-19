@@ -1,75 +1,5 @@
-//
-// grid template
-//
+// Grid Columns
 
-// grid set
-// %grid-col {
-//   position: relative;
-//   box-sizing: border-box;
-//   width: 100%;
-//   max-width: 100%;
-//   padding-right: calc($grid-gutter / 2);
-//   padding-left: calc($grid-gutter / 2);
-// }
-// .col,
-// [class*='col-'] {
-//   @extend %grid-col;
-// }
-
-// .g-row {
-//   width: 100%;
-//   display: grid;
-//   grid-template-columns: repeat($grid-cols, minmax(0, 1fr));
-
-//   // margin-left: calc($grid-gutter / -2);
-//   // margin-right: calc($grid-gutter / -2);
-
-//   &.no-gutters {
-//     margin-right: 0;
-//     margin-left: 0;
-//     > .col,
-//     > [class*='col-'] {
-//       padding-right: 0;
-//       padding-left: 0;
-//     }
-//   }
-// }
-
-// @mixin grid-columns($bp: null) {
-//   $infix: if($bp == null, '', '-#{$bp}');
-
-//   .col,
-//   .col#{$infix}-auto {
-//     grid-column-end: auto;
-//   }
-
-//   @for $i from 1 through $grid-cols {
-//     .col#{$infix}-#{$i} {
-//       grid-column-end: span $i;
-//     }
-//     .offset#{$infix}-#{$i} {
-//       grid-column-start: $i + 1;
-//     }
-//     .row#{$infix}-#{$i} {
-//       grid-row-end: span $i;
-//     }
-//     .row-offset#{$infix}-#{$i} {
-//       grid-row-start: $i + 1;
-//     }
-//   }
-// }
-// @each $bp, $w in $grid-breakpoints {
-//   @if $bp == 'xs' {
-//     @include grid-columns;
-//   } @else {
-//     @media (min-width: $w) {
-//       @include grid-columns($bp);
-//     }
-//   }
-// }
-
-// flex grid
-//
 .g-row {
   display: flex;
   flex-wrap: wrap;
@@ -112,6 +42,9 @@
     .offset#{$infix}-#{$i} {
       margin-left: calc(100 / ($grid-cols / $i) * 1%);
     }
+    .order#{$infix}-#{$i} {
+      order: calc($grid-cols * $i);
+    }
   }
   .col#{$infix}-auto {
     flex: 1 0 0;
@@ -120,6 +53,7 @@
   .offset#{$infix}-0 {
     margin-left: 0;
   }
+
   // hidden-[*]
   .hidden#{$infix} {
     display: none !important;
