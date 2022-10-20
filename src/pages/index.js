@@ -9,13 +9,44 @@ const cx = classNames.bind(styles)
 
 const IndexPage = () => {
   const { scrollYProgress } = useScroll()
-  const x = useTransform(scrollYProgress, [0, 1], ['0', '-100%'])
+  const yAngle = useTransform(scrollYProgress, [0, 1], [0, 360])
+  const distance = useTransform(scrollYProgress, [0, 1], [10, 3])
 
-  const textloop1 = ['Architecture', 'Security', 'direction', 'performance']
+  const textloop1 = [
+    'Mollitia veritatis perspiciatis.',
+    'tempore nemo nesciunt ipsum harum?',
+  ]
 
   return (
     <Layout className={cx('index')}>
       <section className={cx('stage', 'fluid')}>
+        <div className={cx('motionTrack')}>
+          {/* text effect */}
+          <svg
+            x={0}
+            y={0}
+            width={'100%'}
+            height={'100%'}
+            xmlns="http://www.w3.org/2000/svg"
+            xmlnsXlink="http://www.w3.org/1999/xlink"
+            viewBox="0 0 500 500"
+          >
+            <defs>
+              <path
+                id={cx('textcircle')}
+                d="M243.2, 382.4c-74.8,   
+    0-135.5-60.7-135.5-135.5s60.7-135.5,135.5-135.5s135.5, 60.7, 135.5,
+    135.5 S318, 382.4, 243.2, 382.4z"
+              />
+            </defs>
+            <text text-anchor="middle" dy={'50%'} dx={'50%'}>
+              <textPath startOffset={'50%'} xlinkHref={cx('#textcircle')}>
+                Red Hot Chilli Peppers
+              </textPath>
+            </text>
+          </svg>
+        </div>
+
         <div className="g-row">
           <div className="col-12 col-lg-3 order-2 order-lg-1 mt-lg-0 mt-3">
             <p className={cx('stageText')}>
@@ -35,6 +66,16 @@ const IndexPage = () => {
           </div>
         </div>
       </section>
+
+      {/* <section>
+        <motion.div className={cx('textList')}>
+          {textloop1.map((item, index) => (
+            <span key={index} className={cx('textOutline')}>
+              {item}
+            </span>
+          ))}
+        </motion.div>
+      </section> */}
 
       <section className={cx('section', 'work')}>
         <header className={cx('head')}>
@@ -80,9 +121,9 @@ const IndexPage = () => {
         </article>
 
         <article className={cx('art2')}>
-          <div className="py-4 g-row no-gutters">
+          <h4 className="pb-2">Essentials</h4>
+          <div className="pb-4 g-row">
             <div className="col-12 col-lg-6">
-              <h3 className="pb-2">Essentials</h3>
               <p>
                 Embracing the flexible nature of the web gives us powerful,
                 resilient front-ends, where instead of using specific sizes, we
@@ -93,21 +134,17 @@ const IndexPage = () => {
                 and let them auto-fill where possible.
               </p>
             </div>
-            <div className="col-12 col-lg-6 offset-lg-6">
-              <h6 className="pb-2">
-                non incidunt nesciunt consequatur nisi! Qui!
-              </h6>
+            <div className="col-12 col-lg-6">
               <p>
                 Embracing the flexible nature of the web gives us powerful,
                 resilient front-ends, where instead of using specific sizes, we
                 give elements sensible boundaries and let them auto-fill where
-                possible. I embrace this mentality as much as possible and roll
-                utilities out like this one for grid layouts
+                possible. I embrace this mentality as much.
               </p>
             </div>
           </div>
 
-          <div className="pt-4 g-row no-gutters">
+          <div className="pt-4 g-row">
             <div className="col-12 col-lg-3 offset-lg-6">
               <p>
                 Embracing the flexible nature of the web gives us powerful,
@@ -149,17 +186,6 @@ const IndexPage = () => {
             </div>
           </div>
         </article>
-      </section>
-
-      <section className={cx('section')}>
-        {/* text effect */}
-        <motion.div style={{ x }} className={cx('textList')}>
-          {textloop1.map((item, index) => (
-            <span key={index} className={cx('textOutline')}>
-              {item}
-            </span>
-          ))}
-        </motion.div>
       </section>
 
       <section className={cx('section')}>
