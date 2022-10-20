@@ -101,6 +101,7 @@
   font-weight: bolder;
   padding: 1rem;
   outline: none;
+  text-decoration: none;
 }
 @include breakpoint-up(sm) {
   .navLink {

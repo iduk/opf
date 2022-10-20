@@ -15,7 +15,7 @@ const AboutPage = () => {
         <header className={cx('g-row', 'pageHeader')}>
           <div className="col-12 col-md-auto">Xenon Histories</div>
           <div className="col-12 col-lg-9">
-            <h1 className={cx('pageHeader__title')}>더도말고 덜도말고</h1>
+            <h1 className={cx('pageHeader__title')}>vanila ice cream van</h1>
           </div>
         </header>
       </section>
@@ -61,7 +61,7 @@ const AboutPage = () => {
         </section>
         <section className="section g-row">
           <div className="col-12 col-md-auto">
-            <p className="mb-5">Services</p>
+            <p className="mb-5">Key Competencies And Skills</p>
           </div>
 
           <div className="col-12 col-md-3 col-lg-2">15</div>

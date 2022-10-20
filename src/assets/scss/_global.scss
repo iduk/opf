@@ -11,9 +11,12 @@
   color-scheme: dark light;
 }
 html {
-  font-size: calc(1rem + 0.15625vw);
+  line-height: 1.15;
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
 }
 body {
+  font-size: calc(14px + 0.3125vw); // 8px
   margin: 0;
   padding: 0;
   font-family: 'Inter', 'Noto Sans KR', -apple-system, BlinkMacSystemFont,
@@ -45,7 +48,7 @@ p {
 
 a {
   color: inherit;
-  text-decoration: none;
+  text-decoration: underline;
   transition: all 0.3s;
   &:hover,
   &:focus {
@@ -123,24 +126,15 @@ a {
 
 .marquee {
   --marquee-gap: 2vw;
-  --marquee-duration: 60s;
+  --marquee-duration: 30s;
 
   position: relative;
   display: flex;
   overflow: hidden;
   user-select: none;
-  gap: var(--marquee-gap);
-  // font-size: xx-large;
-
-  // &:hover .marquee__content {
-  //   animation-play-state: paused;
-  // }
 
   &.reverse .marquee__content {
     animation-direction: reverse;
-    // animation-delay: calc(var(--marquee-duration) / -2);
-    // -webkit-text-stroke: unset;
-    // color: var(--primary);
   }
 
   &__content {
@@ -149,20 +143,21 @@ a {
     justify-content: space-around;
     min-width: 100%;
     gap: var(--marquee-gap);
-    animation: scroll var(--marquee-duration) linear infinite;
+    animation: scroll var(--marquee-duration) linear infinite both;
     // Styling
-    font-size: 8ch;
+    font-size: calc(1rem + 5vw);
     line-height: 1;
     font-weight: bolder;
-    color: var(--gray-9);
+    background-color: var(--gray-2);
+    color: var(--gray-6);
     // Text Shadow
     // text-shadow: 3px 3px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000,
     //   -1px 1px 0 #000, 1px 1px 0 #000;
 
-    li:nth-child(2n) {
-      -webkit-text-fill-color: var(--theme-bg);
+    li:nth-of-type(2n) {
+      -webkit-text-fill-color: transparent;
       -webkit-text-stroke-width: 1px;
-      -webkit-text-stroke-color: var(--gray-9);
+      -webkit-text-stroke-color: var(--gray-6);
     }
   }
 
@@ -206,5 +201,13 @@ section.section {
   [class^='col'] {
     padding: calc($grid-gutter / 2);
     overflow: hidden;
+  }
+}
+
+a.link {
+  display: inline-block;
+  &::after {
+    content: '↘︎';
+    vertical-align: baseline;
   }
 }
