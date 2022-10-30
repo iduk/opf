@@ -142,18 +142,25 @@
 // text effect
 .motionTrack {
   position: absolute;
-  top: 0;
+  top: 10%;
   right: 0;
-  width: 300px;
-  height: 300px;
-  opacity: 0.2;
+  transform: translateX(-50%);
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
 
-  svg text {
-    fill: var(--gray-9);
-    font-size: 50px;
-    font-weight: bolder;
+  .typoCircle {
+    svg {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .typo {
+    fill: var(--gray-5);
+    font-size: 1.25rem;
     text-transform: uppercase;
-    letter-spacing: 0.25em;
+    letter-spacing: 0.5em;
   }
 }
 
