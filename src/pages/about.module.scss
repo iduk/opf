@@ -1,0 +1,57 @@
+// aboutPage
+
+.pageHeader {
+  @include breakpoint-up(lg) {
+    min-height: 30vh;
+    &__title {
+      font-size: 5vw;
+    }
+  }
+
+  &__title {
+    font-weight: normal;
+    line-height: 1.1;
+  }
+}
+
+.myImgContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: 40vh;
+  overflow: hidden;
+  background-color: var(--gray-9);
+  position: relative;
+  z-index: 1;
+
+  .sign {
+    z-index: 1;
+    transition: all 0.2s;
+    padding: 1rem;
+    font-family: 'Silkscreen';
+    color: var(--gray-9);
+    animation: trackingInExpand 0.7s cubic-bezier(0.215, 0.61, 0.355, 1) both;
+  }
+  .myImg {
+    z-index: -1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    mix-blend-mode: luminosity;
+  }
+}
+
+@keyframes trackingInExpand {
+  0% {
+    letter-spacing: -0.5em;
+    opacity: 0;
+  }
+  40% {
+    opacity: 0.6;
+  }
+  100% {
+    opacity: 1;
+  }
+}

@@ -1,0 +1,219 @@
+// Global Styles
+// by. iduk
+// Kor
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root {
+  color-scheme: dark light;
+}
+html {
+  font-size: calc(16px + 0.3125vw); // 8px
+  line-height: 1.15;
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+}
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Lexend', 'Noto Sans KR', -apple-system, BlinkMacSystemFont,
+    system-ui, Roboto, 'Helvetica Neue', 'Segoe UI';
+  background-color: var(--theme-bg);
+  color: var(--theme-text);
+  line-height: normal;
+  font-size: $body-font;
+}
+
+::selection {
+  background-color: var(--primary);
+  color: rgba(white, 0.85);
+}
+
+ul,
+li,
+dt,
+dd {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+p {
+  word-break: keep-all;
+}
+
+a {
+  color: inherit;
+  text-decoration: underline;
+  transition: all 0.3s;
+  &:hover,
+  &:focus {
+    color: var(--primary);
+  }
+}
+
+.img {
+  position: relative;
+  width: 100%;
+  max-inline-size: 100%;
+  block-size: auto;
+  object-fit: cover;
+  // aspect-ratio: 2/1;
+}
+
+.sr-only {
+  border: 0 !important;
+  clip: rect(1px, 1px, 1px, 1px) !important;
+  -webkit-clip-path: inset(50%) !important;
+  clip-path: inset(50%) !important;
+  height: 1px !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+  position: absolute !important;
+  width: 1px !important;
+  white-space: nowrap !important;
+}
+.sr-only-focusable:focus,
+.sr-only-focusable:active {
+  clip: auto !important;
+  -webkit-clip-path: none !important;
+  clip-path: none !important;
+  height: auto !important;
+  margin: auto !important;
+  overflow: visible !important;
+  width: auto !important;
+  white-space: normal !important;
+}
+
+.mask {
+  clip-path: polygon(5% 0, 100% 0, 100% 95%, 95% 100%, 0 100%, 0 5%);
+
+  // clip-path: polygon(
+  //   0 1.5rem,
+  //   0.75rem 0.75rem,
+  //   1.5rem 0,
+  //   100% 0,
+  //   100% calc(100% - 1.5rem),
+  //   calc(100% - 0.75rem) calc(100% - 0.75rem),
+  //   calc(100% - 1.5rem) 100%,
+  //   0 100%
+  // );
+
+  mask-clip: border-box;
+  mask-repeat: no-repeat;
+}
+.mask2 {
+  clip-path: polygon(0 0, 95% 0, 100% 5%, 100% 100%, 5% 100%, 0 95%);
+
+  mask-clip: border-box;
+  mask-repeat: no-repeat;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.marquee {
+  --marquee-gap: 2vw;
+  --marquee-duration: 30s;
+
+  position: relative;
+  display: flex;
+  overflow: hidden;
+  user-select: none;
+
+  &.reverse .marquee__content {
+    animation-direction: reverse;
+  }
+
+  &__content {
+    flex-shrink: 0;
+    display: flex;
+    justify-content: space-around;
+    min-width: 100%;
+    gap: var(--marquee-gap);
+    animation: scroll var(--marquee-duration) linear infinite both;
+    // Styling
+    font-size: calc(1rem + 5vw);
+    line-height: 1;
+    font-weight: bolder;
+    color: var(--gray-6);
+    // Text Shadow
+    // text-shadow: 3px 3px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000,
+    //   -1px 1px 0 #000, 1px 1px 0 #000;
+
+    li:nth-of-type(2n) {
+      -webkit-text-fill-color: transparent;
+      -webkit-text-stroke-width: 1px;
+      -webkit-text-stroke-color: var(--gray-6);
+    }
+  }
+
+  @keyframes scroll {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(calc(-100% - var(--marquee-gap)));
+    }
+  }
+}
+
+// Outline Style Grid
+@mixin gridLine($data: true) {
+  --g-width: 1px;
+  @if $data {
+    & {
+      border-left: var(--g-width) solid var(--gray-9);
+      border-top: var(--g-width) solid var(--gray-9);
+
+      [class^='col'] {
+        border-right: var(--g-width) solid var(--gray-9);
+        border-bottom: var(--g-width) solid var(--gray-9);
+        padding: calc($grid-gutter / 2);
+        overflow: hidden;
+      }
+    }
+    & + & {
+      border-top: 0;
+    }
+  }
+}
+
+[data-line] {
+  @include gridLine($data: true);
+}
+
+section.section {
+  border-top: 1px solid var(--gray-9);
+  > .g-row [class^='col'] {
+    padding: calc($grid-gutter / 2);
+    overflow: hidden;
+  }
+}
+
+a.link {
+  display: inline-block;
+  &::after {
+    content: '↘︎';
+    vertical-align: baseline;
+  }
+}

@@ -1,0 +1,37 @@
+// text-size
+@each $key, $value in $text-sizes {
+  .text-#{$key} {
+    font-size: $value;
+  }
+}
+
+// headings
+@each $key, $value in $headings {
+  h#{$key},
+  .h#{$key} {
+    font-size: $value;
+    font-weight: bold;
+  }
+}
+
+// font-weight
+@each $key, $value in $font-weight {
+  .fw-#{$key} {
+    font-weight: $value !important;
+  }
+}
+
+.text-right {
+  text-align: right;
+}
+.text-left {
+  text-align: left;
+}
+.text-center {
+  text-align: center;
+}
+
+small,
+.small {
+  font-size: 80%;
+}
