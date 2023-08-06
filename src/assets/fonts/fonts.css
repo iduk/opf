@@ -1,24 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100;300;400;500;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700&display=swap');
-
-.dokrip {
-  font-family: 'Dokrip';
-}
-
-@font-face {
-  font-family: 'Dokrip';
-  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.1/Dokrip.woff')
-    format('woff');
-  font-weight: normal;
-  font-style: normal;
-}
-@font-face {
-  font-family: 'Manse';
-  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.1/Manse.woff')
-    format('woff');
-  font-weight: normal;
-  font-style: normal;
-}
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@100;300;400;500;700&display=swap');
 
 @font-face {
   font-family: 'opf_symbol';

@@ -1,5 +1,3 @@
-// Grid Columns
-
 .g-row {
   display: flex;
   flex-wrap: wrap;
@@ -12,8 +10,8 @@
     position: relative;
     width: 100%;
     max-width: 100%;
-    padding-right: calc($grid-gutter * 0.5);
-    padding-left: calc($grid-gutter * 0.5);
+    padding-right: calc($grid-gutter / 2);
+    padding-left: calc($grid-gutter / 2);
   }
 }
 
@@ -28,22 +26,19 @@
 
 [class^='col'] {
   display: block;
-  flex: 1 1 auto;
+  flex: 1 0 0%;
 }
 
 @mixin grid-columns($bp: null) {
   $infix: if($bp == null, '', '-#{$bp}');
 
-  @for $i from 1 through $grid-cols {
+  @for $i from 1 through $grid-count {
     .col#{$infix}-#{$i} {
       flex: 0 0 auto;
-      flex-basis: calc(100 / ($grid-cols / $i) * 1%);
+      flex-basis: calc(100 / ($grid-count / $i) * 1%);
     }
     .offset#{$infix}-#{$i} {
-      margin-left: calc(100 / ($grid-cols / $i) * 1%);
-    }
-    .order#{$infix}-#{$i} {
-      order: calc($grid-cols * $i);
+      margin-left: calc(100 / ($grid-count / $i) * 1%);
     }
   }
   .col#{$infix}-auto {
@@ -53,7 +48,6 @@
   .offset#{$infix}-0 {
     margin-left: 0;
   }
-
   // hidden-[*]
   .hidden#{$infix} {
     display: none !important;

@@ -1,24 +1,18 @@
 .stage {
   display: flex;
+  align-items: center;
   flex-direction: column;
-  justify-content: flex-end;
+  justify-content: center;
 
-  min-height: 65vh;
-  padding-bottom: 4vh;
+  min-height: 92vh;
   position: relative;
-  font-weight: 500;
-  vertical-align: baseline;
   text-transform: uppercase;
 
-  .stageText {
-    font-size: 4vmin;
-    line-height: 115%;
-  }
-
   .stageTitle {
-    line-height: 85%;
+    line-height: 1;
     letter-spacing: -1.5px;
-    font-size: 10vmin;
+    font-size: 8vmin;
+    font-weight: bold;
   }
 
   &__links {
@@ -145,8 +139,8 @@
   top: 10%;
   right: 0;
   transform: translateX(-50%);
-  width: 10vw;
-  height: 10vh;
+  width: 8vw;
+  height: 8vh;
   border-radius: 50%;
 
   .typoCircle {

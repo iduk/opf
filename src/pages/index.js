@@ -28,7 +28,7 @@ const IndexPage = () => {
 
   return (
     <Layout className={cx('index')}>
-      <section className={cx('stage', 'fluid')}>
+      <section className={cx('stage', 'container')}>
         <div className={cx('motionTrack')}>
           <motion.div
             animate={{
@@ -275,21 +275,8 @@ const IndexPage = () => {
         </div>
 
         <div className="g-row">
-          <div className="col-12 col-lg-3 order-2 order-lg-1 mt-lg-0 mt-3">
-            <p className={cx('stageText')}>
-              TroubleShooter
-              <br />
-              openfloor team
-            </p>
-            <p className="mt-3 small w-100 w-lg-65">
-              Mollitia veritatis perspiciatis repellat hic officia. tempore nemo
-              nesciunt ipsum harum?
-            </p>
-          </div>
-          <div className="col-12 col-lg-9 order-1 order-lg-2">
-            <p className={cx('stageTitle')}>
-              Experience Doesn't Count for Much Anymore.
-            </p>
+          <div className="col-12">
+            <p className={cx('stageTitle')}>Core Business Operations</p>
           </div>
         </div>
       </section>
@@ -305,19 +292,29 @@ const IndexPage = () => {
       </section> */}
 
       {/* 1 */}
-      <section className='py-8 px-lg-4 px-xs-2 flex' style={{ borderTop: '1px solid var(--gray-9)', height: '60vh' }}>
-        <div className='shrink-0 w-25'>
+      <section
+        className="py-8 px-lg-4 px-xs-2 flex"
+        style={{ borderTop: '1px solid var(--gray-9)', height: '60vh' }}
+      >
+        <div className="shrink-0 w-25">
           <h1>시작해봅시다</h1>
         </div>
         <div>
           <p>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptate culpa sed, asperiores, adipisci voluptatibus nesciunt atque laudantium quasi repudiandae, sit tenetur pariatur doloremque necessitatibus ipsam eligendi laborum quos nihil sequi.
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid, perspiciatis consequuntur recusandae officiis voluptatum aspernatur sint, cupiditate inventore rerum officia assumenda? Reiciendis ex ad libero facere sunt porro iure ut.
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure ipsam magnam sit soluta sequi est repellendus minima dicta! Repellat non quae nisi maiores, nostrum iste veritatis molestias debitis necessitatibus asperiores.
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptate
+            culpa sed, asperiores, adipisci voluptatibus nesciunt atque
+            laudantium quasi repudiandae, sit tenetur pariatur doloremque
+            necessitatibus ipsam eligendi laborum quos nihil sequi. Lorem ipsum
+            dolor sit amet consectetur adipisicing elit. Aliquid, perspiciatis
+            consequuntur recusandae officiis voluptatum aspernatur sint,
+            cupiditate inventore rerum officia assumenda? Reiciendis ex ad
+            libero facere sunt porro iure ut. Lorem ipsum dolor sit amet
+            consectetur adipisicing elit. Iure ipsam magnam sit soluta sequi est
+            repellendus minima dicta! Repellat non quae nisi maiores, nostrum
+            iste veritatis molestias debitis necessitatibus asperiores.
           </p>
         </div>
       </section>
-
 
       <section className={cx('section', 'work')}>
         <header className={cx('head')}>
@@ -429,8 +426,6 @@ const IndexPage = () => {
           </div>
         </article>
       </section>
-
-      
 
       <section className={cx('section')}>
         <div className={'marquee reverse'}>
