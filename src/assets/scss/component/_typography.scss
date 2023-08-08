@@ -1,7 +1,7 @@
 // text-size
 @each $key, $value in $text-sizes {
   .text-#{$key} {
-    font-size: $value;
+    font-size: $value !important;
   }
 }
 
@@ -10,7 +10,7 @@
   h#{$key},
   .h#{$key} {
     font-size: $value;
-    font-weight: bold;
+    font-weight: 300;
   }
 }
 
@@ -22,16 +22,16 @@
 }
 
 .text-right {
-  text-align: right;
+  text-align: right !important;
 }
 .text-left {
-  text-align: left;
+  text-align: left !important;
 }
 .text-center {
-  text-align: center;
+  text-align: center !important;
 }
 
 small,
 .small {
-  font-size: 80%;
+  font-size: 80% !important;
 }

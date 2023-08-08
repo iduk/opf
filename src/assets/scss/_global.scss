@@ -11,7 +11,7 @@
   color-scheme: dark light;
 }
 html {
-  font-size: calc(16px + 0.3125vw); // 8px
+  font-size: 62.5%;
   line-height: normal;
   -webkit-text-size-adjust: 100%;
   -webkit-font-smoothing: antialiased;
@@ -24,7 +24,11 @@ body {
   background-color: var(--theme-bg);
   color: var(--theme-text);
   line-height: normal;
-  font-size: $body-font;
+}
+
+html,body * {
+  font-size: $body-font; 
+  
 }
 
 ::selection {
@@ -210,6 +214,9 @@ section.section {
   }
 }
 
+a {
+  text-decoration: none;
+}
 a.link {
   display: inline-block;
   &::after {

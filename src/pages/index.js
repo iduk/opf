@@ -14,22 +14,51 @@ import * as styles from './index.module.scss'
 import classNames from 'classnames/bind'
 const cx = classNames.bind(styles)
 
+const workings = [
+  { id: 1, title: 'Design & Human Interface' },
+  { id: 2, title: 'MarTech' },
+  { id: 3, title: 'Cybersecurity - Narrow' },
+  { id: 4, title: 'WomenInTech' },
+  { id: 5, title: 'Tech For Good' },
+  { id: 6, title: 'Vertual Reality - VR' },
+]
+
+function Text({ children, className, style }) {
+  const variants = {
+    visible: {
+      transition: {
+        duration: 1,
+        staggerChildren: 0.025,
+      },
+    },
+  }
+
+  return (
+    <motion.div
+      animate={{ x: [-100, 0] }}
+      variants={variants}
+      className={className}
+      style={style}
+    >
+      {children}
+    </motion.div>
+  )
+}
+
 const IndexPage = () => {
   const ref = React.useRef(null)
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ['end end', 'start start'],
   })
-  // const scaleX = useSpring(scrollYProgress, {
-  //   stiffness: 100,
-  //   damping: 30,
-  //   restDelta: 0.001,
-  // })
-
   return (
     <Layout className={cx('index')}>
-      <section className={cx('stage', 'container')}>
-        <div className={cx('motionTrack')}>
+      <section className={cx('stage', 'fluid')}>
+        <motion.div
+          animate={{ rotateY: 360 }}
+          transition={{ ease: 'linear', duration: 7, repeat: Infinity }}
+          className={cx('motionTrack')}
+        >
           <motion.div
             animate={{
               rotate: 360,
@@ -272,176 +301,107 @@ const IndexPage = () => {
               </text>
             </svg>
           </motion.div>
-        </div>
+        </motion.div>
 
         <div className="g-row">
           <div className="col-12">
-            <p className={cx('stageTitle')}>Core Business Operations</p>
+            <p className={cx('stageTitle')}>Openfloor Makes Quality</p>
+            <p className={cx('stageBody')}>
+              오픈플로어는 새로운 기술을 활용해 제품 및 서비스를 개선해야 할 때,
+              재무 성과를 높여야 할 때, 타임 투 마켓의 속도를 가속화할 때를 알고
+              있습니다.
+            </p>
           </div>
+        </div>
+
+        <div className={cx('stageBtns')}>
+          <button>
+            <svg
+              viewBox="0 0 42 42"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path d="M1 1L41 41" stroke="black" />
+              <path d="M41 1.00018L1.00003 41.0001" stroke="black" />
+            </svg>
+          </button>
+          <button>
+            <svg
+              viewBox="0 0 42 42"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path d="M1 1L41 41" stroke="black" />
+              <path d="M41 1.00018L1.00003 41.0001" stroke="black" />
+            </svg>
+          </button>
+          <button>
+            <svg
+              viewBox="0 0 42 42"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path d="M1 1L41 41" stroke="black" />
+              <path d="M41 1.00018L1.00003 41.0001" stroke="black" />
+            </svg>
+          </button>
         </div>
       </section>
 
-      {/* <section>
-        <motion.div className={cx('textList')}>
-          {textloop1.map((item, index) => (
-            <span key={index} className={cx('textOutline')}>
-              {item}
-            </span>
+      <section className={cx('section', 'fluid')}>
+        <article className="g-row">
+          <div className={cx('col-12', 'sectionFeature')}>
+            <h2 className={cx('featureTitle', 'text-lg')}>who we are</h2>
+          </div>
+        </article>
+
+        <article className={cx('heading', 'g-row')}>
+          <div className="col-lg-6 col-sm-5 col-12">
+            <h3 className={cx('h1')}>service philosophy</h3>
+          </div>
+          <div className="col-lg-6 col-sm-7 col-12">
+            달 가고 밤 가고 눈물도 가고 틔어 올 밝은 하늘 빛난 아침 이르면
+            향기로운 이슬밭 푸른 언덕을 총총총 달려도 와 줄 볼이 고운 나의 사람.
+            푸른 산 한나절 구름은 가고 고을 너머 뻐꾸기는 우는데 눈에 어려
+            흘러가는 물결 같은 사람 속 아우성쳐 흘러가는 물결 같은 사람 속에 난
+            그리노라.
+          </div>
+        </article>
+
+        <ul className={cx('workings', 'g-row')}>
+          {workings.map(work => (
+            <li
+              key={work.id}
+              className={cx('workingsItem', 'col-lg-4', 'col-sm-6', 'col-12')}
+            >
+              <Link to="javascript:void();">{work.title}</Link>
+            </li>
           ))}
-        </motion.div>
-      </section> */}
+        </ul>
 
-      {/* 1 */}
-      <section
-        className="py-8 px-lg-4 px-xs-2 flex"
-        style={{ borderTop: '1px solid var(--gray-9)', height: '60vh' }}
-      >
-        <div className="shrink-0 w-25">
-          <h1>시작해봅시다</h1>
-        </div>
-        <div>
-          <p>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptate
-            culpa sed, asperiores, adipisci voluptatibus nesciunt atque
-            laudantium quasi repudiandae, sit tenetur pariatur doloremque
-            necessitatibus ipsam eligendi laborum quos nihil sequi. Lorem ipsum
-            dolor sit amet consectetur adipisicing elit. Aliquid, perspiciatis
-            consequuntur recusandae officiis voluptatum aspernatur sint,
-            cupiditate inventore rerum officia assumenda? Reiciendis ex ad
-            libero facere sunt porro iure ut. Lorem ipsum dolor sit amet
-            consectetur adipisicing elit. Iure ipsam magnam sit soluta sequi est
-            repellendus minima dicta! Repellat non quae nisi maiores, nostrum
-            iste veritatis molestias debitis necessitatibus asperiores.
-          </p>
-        </div>
+        <h3></h3>
       </section>
 
-      <section className={cx('section', 'work')}>
-        <header className={cx('head')}>
-          <div className={cx('head__wrap')}>
-            <h1>Hangul is vertical align not working</h1>
-          </div>
-        </header>
-
-        <article className={cx('art1')}>
-          <div className={cx('art1__wrap')}>
-            <ul className={cx('makingInfo', 'g-row')}>
-              <li className="col-12">
-                <h6>Client</h6>
-                <p>CJ OliveHyoung</p>
-              </li>
-              <li className="col-12">
-                <h6>Direction</h6>
-                <p>openfloor😎</p>
-                <p>Oct. 9, 2019</p>
-              </li>
-              <li className="col-12">
-                <h6>Performance</h6>
-                <p>System Architecture, UI/UX Design</p>
-              </li>
-
-              <li className="col-12">
-                <h6>Teams</h6>
-                <p>
-                  <small>PM</small> Hildebrant
-                </p>
-                <p>
-                  <small>PL</small> Brett
-                </p>
-                <p>
-                  <small>B/E</small> Lenny
-                </p>
-                <p>
-                  <small>F/E</small> Wang
-                </p>
-              </li>
-            </ul>
+      {/* section */}
+      <section className={cx('section', 'fluid')}>
+        <article className="g-row">
+          <div className={cx('col-12', 'sectionFeature')}>
+            <h2 className={cx('featureTitle', 'text-lg')}>who we are</h2>
           </div>
         </article>
 
-        <article className={cx('art2')}>
-          <div className="g-row" style={{ margin: '-1rem' }}>
-            <div className="col-12 col-lg-6 px-0">
-              <StaticImage
-                src="https://images.unsplash.com/photo-1611001716885-b3402558a62b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3270&q=80"
-                // src="https://placeimg.com/1000/1000/any"
-                alt="ProjectImage"
-                layout="fullWidth"
-                imgClassName="mask"
-              />
-            </div>
-            <div className="col-12 col-lg-6 px-0">
-              <StaticImage
-                src="https://images.unsplash.com/photo-1611001716885-b3402558a62b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3270&q=80"
-                // src="https://placeimg.com/1000/1000/any"
-                alt="ProjectImage"
-                layout="fullWidth"
-                imgClassName="mask2"
-              />
-            </div>
+        <article className={cx('heading', 'g-row')}>
+          <div className="col-lg-6 col-sm-5 col-12">
+            <h1 className={cx('h1')}>service philosophy</h1>
           </div>
-
-          <div className="pb-4 g-row">
-            <div className="col-12 col-lg-6">
-              <h4 className="pb-2">Essentials</h4>
-              <p>
-                Embracing the flexible nature of the web gives us powerful,
-                resilient front-ends, where instead of using specific sizes, we
-                give elements sensible{' '}
-                <Link className="link" to="#">
-                  boundaries
-                </Link>{' '}
-                and let them auto-fill where possible.
-              </p>
-            </div>
-            <div className="col-12 col-lg-6">
-              <p>
-                Embracing the flexible nature of the web gives us powerful,
-                resilient front-ends, where instead of using specific sizes, we
-                give elements sensible boundaries and let them auto-fill where
-                possible. I embrace this mentality as much.
-              </p>
-            </div>
-          </div>
-
-          <div className="pt-4 g-row">
-            <div className="col-12 col-lg-3 offset-lg-6">
-              <p>
-                Embracing the flexible nature of the web gives us powerful,
-                resilient front-ends, where instead of using specific sizes, we
-                give elements sensible boundaries and let them auto-fill where
-                possible. I embrace this mentality as much as possible and roll
-                utilities out like this one for grid layouts
-              </p>
-            </div>
-            <div className="col-12 col-lg-3">
-              <p>
-                Embracing the flexible nature of the web gives us powerful,
-                resilient front-ends, where instead of using specific sizes, we
-                give elements sensible boundaries and let them auto-fill where
-                possible. I embrace this mentality as much as possible and roll
-                utilities out like this one for grid layouts
-              </p>
-            </div>
+          <div className="col-lg-6 col-sm-7 col-12">
+            달 가고 밤 가고 눈물도 가고 틔어 올 밝은 하늘 빛난 아침 이르면
+            향기로운 이슬밭 푸른 언덕을 총총총 달려도 와 줄 볼이 고운 나의 사람.
+            푸른 산 한나절 구름은 가고 고을 너머 뻐꾸기는 우는데 눈에 어려
+            흘러가는 물결 같은 사람 속 아우성쳐 흘러가는 물결 같은 사람 속에 난
+            그리노라.
           </div>
         </article>
-      </section>
-
-      <section className={cx('section')}>
-        <div className={'marquee reverse'}>
-          <ul className={'marquee__content'}>
-            <li>Word1</li>
-            <li>Word2</li>
-            <li>Word3</li>
-            <li>Word4</li>
-          </ul>
-          <ul className={'marquee__content'} aria-hidden="true">
-            <li>Word1</li>
-            <li>Word2</li>
-            <li>Word3</li>
-            <li>Word4</li>
-          </ul>
-        </div>
       </section>
     </Layout>
   )

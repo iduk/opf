@@ -4,20 +4,20 @@ require('dotenv').config({
 
 module.exports = {
   siteMetadata: {
-    title: `openfloor`,
-    description: `openfloor Corp.`,
-    author: `iduk`,
+    title: `Openfloor`,
+    description: `Openfloor Corp.`,
+    author: `iDuk`,
     siteUrl: `https://opf.vercel.app`,
     // nav
     menuLinks: [
       {
-        name: `about`,
-        url: `/about`,
+        name: `Who we are`,
+        url: `#whoWeAre`,
         subMenu: [],
       },
       {
-        name: `work`,
-        url: `/work`,
+        name: `How we work`,
+        url: `#howWeWork`,
         subMenu: [],
       },
     ],
@@ -107,6 +107,7 @@ module.exports = {
           @import 'src/assets/scss/_mixins.scss';
         `,
         cssLoaderOptions: {
+          camelCase: false,
           modules: {
             localIdentName: '[local]__[hash:base64:5]',
           },
@@ -117,15 +118,12 @@ module.exports = {
       resolve: `gatsby-plugin-postcss`,
       options: {
         cssLoaderOptions: {
-          exportLocalsConvention: false,
-          namedExport: false,
+          esModule: false,
+          modules: {
+            exportLocalsConvention: "asIs",
+            namedExport: false,
+          },
         },
-        postCssPlugins: [
-          require('postcss-import'),
-          require('postcss-preset-env')({
-            stage: 0,
-          }),
-        ],
       },
     },
     {

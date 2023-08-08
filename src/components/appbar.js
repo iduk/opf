@@ -6,6 +6,7 @@ import classNames from 'classnames/bind'
 import ThemeToggle from './themeToggle'
 import { motion } from 'framer-motion'
 import useMediaQuery from '../hooks/useMediaQuery'
+import { useEffect } from 'react'
 const cx = classNames.bind(styles)
 
 const LogoImg = () => {
@@ -25,8 +26,8 @@ const LogoImg = () => {
 
 const Appbar = ({ siteTitle }) => {
   const [isOpen, setIsOpen] = React.useState(false)
-  const isSmall = useMediaQuery('(max-width: 767px)')
 
+  const isSmall = useMediaQuery('(max-width: 767px)')
   const variants = isSmall
     ? {
         open: {
@@ -64,7 +65,17 @@ const Appbar = ({ siteTitle }) => {
       }
     `
   )
+
   const navLinks = data.site.siteMetadata.menuLinks
+  
+  const handleClickScroll = () => {
+    console.log('zzz')
+    window.scrollTo({
+      top: document.offsetTop,
+      left: 0,
+      behavior: "smooth",
+    });
+  };
 
   return (
     <header>
@@ -87,8 +98,8 @@ const Appbar = ({ siteTitle }) => {
 
         <motion.nav
           initial="hidden"
-          animate={isOpen ? 'open' : 'closed'}
-          variants={variants}
+          // animate={isOpen ? 'open' : 'closed'}
+          // variants={variants}
           className={cx('nav', `${isOpen ? 'active' : ''}`)}
         >
           <ul className={cx('navList')}>
@@ -99,6 +110,7 @@ const Appbar = ({ siteTitle }) => {
                   to={link.url}
                   activeClassName={cx('active')}
                   tabIndex={index + 1}
+                  onClick={()=> handleClickScroll(link.url)}
                 >
                   {link.name}
                 </Link>
