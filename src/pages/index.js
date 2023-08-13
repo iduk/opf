@@ -304,7 +304,7 @@ const IndexPage = () => {
         </motion.div>
 
         <div className="g-row">
-          <div className="col-12">
+          <div className="col-12 px-xs-3">
             <p className={cx('stageTitle')}>Openfloor Makes Quality</p>
             <p className={cx('stageBody')}>
               오픈플로어는 새로운 기술을 활용해 제품 및 서비스를 개선해야 할 때,
@@ -359,7 +359,7 @@ const IndexPage = () => {
           <div className="col-lg-6 col-sm-5 col-12">
             <h3 className={cx('h1')}>service philosophy</h3>
           </div>
-          <div className="col-lg-6 col-sm-7 col-12">
+          <div className="col-lg-6 col-sm-7 col-12 mt-3">
             달 가고 밤 가고 눈물도 가고 틔어 올 밝은 하늘 빛난 아침 이르면
             향기로운 이슬밭 푸른 언덕을 총총총 달려도 와 줄 볼이 고운 나의 사람.
             푸른 산 한나절 구름은 가고 고을 너머 뻐꾸기는 우는데 눈에 어려
@@ -368,18 +368,22 @@ const IndexPage = () => {
           </div>
         </article>
 
-        <ul className={cx('workings', 'g-row')}>
-          {workings.map(work => (
-            <li
-              key={work.id}
-              className={cx('workingsItem', 'col-lg-4', 'col-sm-6', 'col-12')}
-            >
-              <Link to="javascript:void();">{work.title}</Link>
-            </li>
-          ))}
-        </ul>
-
-        <h3></h3>
+        <article className={cx('workingsWrapper')}>
+          <ul className={cx('workings', 'g-row')}>
+            {workings.map(work => (
+              <li
+                key={work.id}
+                className={cx('workingsItem', 'col-lg-4', 'col-sm-6', 'col-12', 'mt-4')}
+              >
+                <Link to="javascript:void();">{work.title}</Link>
+              </li>
+            ))}
+          </ul>
+          <div className={cx('floatingTypo')}>
+            <b className='text-gray-8'>Introduction To “OPENFLOOR”</b>
+            Services, Technologies, and Corporate Culture.
+          </div>
+        </article>
       </section>
 
       {/* section */}
@@ -394,7 +398,7 @@ const IndexPage = () => {
           <div className="col-lg-6 col-sm-5 col-12">
             <h1 className={cx('h1')}>service philosophy</h1>
           </div>
-          <div className="col-lg-6 col-sm-7 col-12">
+          <div className="col-lg-6 col-sm-7 col-12 mt-3">
             달 가고 밤 가고 눈물도 가고 틔어 올 밝은 하늘 빛난 아침 이르면
             향기로운 이슬밭 푸른 언덕을 총총총 달려도 와 줄 볼이 고운 나의 사람.
             푸른 산 한나절 구름은 가고 고을 너머 뻐꾸기는 우는데 눈에 어려

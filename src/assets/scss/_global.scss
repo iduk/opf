@@ -24,11 +24,7 @@ body {
   background-color: var(--theme-bg);
   color: var(--theme-text);
   line-height: normal;
-}
-
-html,body * {
   font-size: $body-font; 
-  
 }
 
 ::selection {

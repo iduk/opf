@@ -51,7 +51,7 @@ $grays: (
 /* ---------------------------------------------------------- 
     Typography
  ---------------------------------------------------------- */
-$body-font: 1rem;
+$body-font: 16px !default;
 
 $text-sizes: (
   'xs': $body-font * 0.75,
@@ -64,12 +64,12 @@ $text-sizes: (
 ) !default;
 
 $headings: (
-  1: $body-font * 4.5,
-  2: $body-font * 4,
-  3: $body-font * 3,
-  4: $body-font * 2.5,
-  5: $body-font * 2,
-  6: $body-font * 1.5,
+  1: calc($body-font * 1.75 + 2.75vw),
+  2: calc($body-font * 1.5 + 2.5vw),
+  3: calc($body-font * 1.375 + 1.5vw),
+  4: calc($body-font * 1 + 1vw),
+  5: calc($body-font * 1 + .6vw),
+  6: $body-font,
 ) !default;
 
 $font-weight: (
@@ -140,4 +140,4 @@ $btn-sizes: (
     Spacing
  ---------------------------------------------------------- */
 $spacing: 0.5rem !default;
-$space-count: 20 !default;
+$space-count: 30 !default;

@@ -112,6 +112,11 @@ module.exports = {
             localIdentName: '[local]__[hash:base64:5]',
           },
         },
+        useResolveUrlLoader: {
+          options: {
+            debug: true,
+          },
+        },
       },
     },
     {
