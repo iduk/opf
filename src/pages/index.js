@@ -10,6 +10,9 @@ import {
   useInView,
   useSpring,
 } from 'framer-motion'
+import ParallaxText from '../components/ParallaxText'
+import GwangJuBank from '../assets/images/logo-gwangju_bank.svg'
+import OliveYoung from '../assets/images/logo-Olive_Young.svg'
 import * as styles from './index.module.scss'
 import classNames from 'classnames/bind'
 const cx = classNames.bind(styles)
@@ -21,6 +24,82 @@ const workings = [
   { id: 4, title: 'WomenInTech' },
   { id: 5, title: 'Tech For Good' },
   { id: 6, title: 'Vertual Reality - VR' },
+]
+const histories = [
+  {
+    date: '25 Mar 2022',
+    title: '올영 EZ (UX/UI/FRONT/MAINTEANENCE)',
+    partner: '(주)CJ올리브영',
+    solution: 'LMS',
+  },
+  {
+    date: '22 Aug 2022',
+    title: '올리브 라운지 (UX/UI/FRONT/MAINTEANENCE)',
+    partner: '(주)CJ올리브영',
+    solution: 'LMS',
+  },
+  {
+    date: '04 Sept 2022',
+    title: '셀프 체크아웃 (DESIGN)',
+    partner: '(주)CJ올리브영',
+    solution: 'LMS',
+  },
+  {
+    date: '03 Feb 2022',
+    title: 'PDA 2.0 (UX/UI/FRONT/BACKEND/MAINTEANENCE)',
+    partner: '(주)CJ올리브영',
+    solution: 'LMS',
+  },
+  {
+    date: '30 Jan 2022',
+    title: 'SBI 저축은행 개인 뱅킹 (UX/UI/FRONT)',
+    partner: 'SBI저축은행',
+    solution: 'LMS',
+  },
+  {
+    date: '04 Sept 2022',
+    title: '하나 손해 보험 고도화 (FRONT/BACKEND)',
+    partner: '하나손해보험',
+    solution: 'CRM',
+  },
+  {
+    date: '30 Jan 2022',
+    title: '광주은행 개인 뱅킹 / 기업 뱅킹 (FRONT/BACKEND)',
+    partner: '광주은행',
+    solution: 'LMS',
+  },
+  {
+    date: '04 Sept 2022',
+    title: '케이뱅크 기업 뱅킹 (UX/UI)',
+    partner: '케이뱅크',
+    solution: 'CRM',
+  },
+]
+const projectList = [
+  {
+    date: '25 Mar 2022',
+    title: 'Design & Human Interface',
+  },
+  {
+    date: '22 Aug 2022',
+    title: 'Website admin page redesign',
+  },
+  {
+    date: '04 Sept 2022',
+    title: 'Business Platform debt, docs, refactors and stability',
+  },
+  {
+    date: '03 Feb 2022',
+    title: 'Web UI kit automation',
+  },
+  {
+    date: '30 Jan 2022',
+    title: 'Business Platform debt, docs, refactors and stability',
+  },
+  {
+    date: '04 Sept 2021',
+    title: 'Refactors and stability',
+  },
 ]
 
 function Text({ children, className, style }) {
@@ -53,8 +132,10 @@ const IndexPage = () => {
   })
   return (
     <Layout className={cx('index')}>
-      <section className={cx('stage', 'fluid')}>
-        <motion.div
+      <section
+        className={cx('fluid', 'stage', 'justify-center', 'text-center')}
+      >
+        {/* <motion.div
           animate={{ rotateY: 360 }}
           transition={{ ease: 'linear', duration: 7, repeat: Infinity }}
           className={cx('motionTrack')}
@@ -301,111 +382,214 @@ const IndexPage = () => {
               </text>
             </svg>
           </motion.div>
-        </motion.div>
+        </motion.div> */}
 
         <div className="g-row">
-          <div className="col-12 px-xs-3">
-            <p className={cx('stageTitle')}>Openfloor Makes Quality</p>
-            <p className={cx('stageBody')}>
-              오픈플로어는 새로운 기술을 활용해 제품 및 서비스를 개선해야 할 때,
-              재무 성과를 높여야 할 때, 타임 투 마켓의 속도를 가속화할 때를 알고
-              있습니다.
-            </p>
+          <div className="col-lg-8 offset-lg-2">
+            <article className={cx('stageTitle')}>
+              <p>Openfloor</p>
+              <p>Makes</p>
+              <p>Quality</p>
+            </article>
           </div>
-        </div>
-
-        <div className={cx('stageBtns')}>
-          <button>
-            <svg
-              viewBox="0 0 42 42"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path d="M1 1L41 41" stroke="black" />
-              <path d="M41 1.00018L1.00003 41.0001" stroke="black" />
-            </svg>
-          </button>
-          <button>
-            <svg
-              viewBox="0 0 42 42"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path d="M1 1L41 41" stroke="black" />
-              <path d="M41 1.00018L1.00003 41.0001" stroke="black" />
-            </svg>
-          </button>
-          <button>
-            <svg
-              viewBox="0 0 42 42"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path d="M1 1L41 41" stroke="black" />
-              <path d="M41 1.00018L1.00003 41.0001" stroke="black" />
-            </svg>
-          </button>
         </div>
       </section>
 
-      <section className={cx('section', 'fluid')}>
-        <article className="g-row">
-          <div className={cx('col-12', 'sectionFeature')}>
-            <h2 className={cx('featureTitle', 'text-lg')}>who we are</h2>
-          </div>
-        </article>
+      <section className={cx('section', 'whoWeAre')}>
+        <div className="container">
+          <article className="g-row">
+            <div className={cx('col-12', 'sectionFeature')}>
+              <h2 className={cx('featureTitle', 'text-lg')}>who we are</h2>
+            </div>
+          </article>
 
-        <article className={cx('heading', 'g-row')}>
-          <div className="col-lg-6 col-sm-5 col-12">
-            <h3 className={cx('h1')}>service philosophy</h3>
-          </div>
-          <div className="col-lg-6 col-sm-7 col-12 mt-3">
-            달 가고 밤 가고 눈물도 가고 틔어 올 밝은 하늘 빛난 아침 이르면
-            향기로운 이슬밭 푸른 언덕을 총총총 달려도 와 줄 볼이 고운 나의 사람.
-            푸른 산 한나절 구름은 가고 고을 너머 뻐꾸기는 우는데 눈에 어려
-            흘러가는 물결 같은 사람 속 아우성쳐 흘러가는 물결 같은 사람 속에 난
-            그리노라.
-          </div>
-        </article>
+          <article className={cx('heading', 'g-row')}>
+            <div className="col-lg-6 col-12">
+              <h3 className={cx('h1')}>
+                service
+                <br />
+                philosophy
+              </h3>
+            </div>
+            <div className="col-lg-6 col-12 mt-3">
+              달 가고 밤 가고 눈물도 가고 틔어 올 밝은 하늘 빛난 아침 이르면
+              향기로운 이슬밭 푸른 언덕을 총총총 달려도 와 줄 볼이 고운 나의
+              사람. 푸른 산 한나절 구름은 가고 고을 너머 뻐꾸기는 우는데 눈에
+              어려 흘러가는 물결 같은 사람 속 아우성쳐 흘러가는 물결 같은 사람
+              속에 난 그리노라. 달 가고 밤 가고 눈물도 가고 틔어 올 밝은 하늘
+              빛난 아침 이르면 향기로운 이슬밭 푸른 언덕을 총총총 달려도 와 줄
+              볼이 고운 나의 사람. 푸른 산 한나절 구름은 가고 고을 너머 뻐꾸기는
+              우는데 눈에 어려 흘러가는 물결 같은 사람 속 아우성쳐 흘러가는 물결
+              같은 사람 속에 난 그리노라.
+            </div>
+          </article>
+        </div>
 
         <article className={cx('workingsWrapper')}>
-          <ul className={cx('workings', 'g-row')}>
-            {workings.map(work => (
-              <li
-                key={work.id}
-                className={cx('workingsItem', 'col-lg-4', 'col-sm-6', 'col-12', 'mt-4')}
-              >
-                <Link to="javascript:void();">{work.title}</Link>
-              </li>
-            ))}
-          </ul>
-          <div className={cx('floatingTypo')}>
-            <b className='text-gray-8'>Introduction To “OPENFLOOR”</b>
-            Services, Technologies, and Corporate Culture.
+          <div className="container">
+            <ul className={cx('workings', 'g-row')}>
+              {workings.map(work => (
+                <li
+                  key={work.id}
+                  className={cx('workingsItem', 'col-lg-4', 'col-6')}
+                >
+                  <Link to="#" className="h2">
+                    {work.title}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+            <div className={cx('floatingTypo')}>
+              <ParallaxText baseVelocity={-5}>
+                Openfloor Makes Quality
+              </ParallaxText>
+              <ParallaxText baseVelocity={5}>
+                Openfloor Makes Quality
+              </ParallaxText>
+
+              {/* <ParallaxText baseVelocity={5}>
+                Openfloor Makes Quality
+              </ParallaxText>
+              <ParallaxText baseVelocity={-4}>
+                Openfloor Makes Quality
+              </ParallaxText> */}
+            </div>
           </div>
         </article>
       </section>
 
-      {/* section */}
-      <section className={cx('section', 'fluid')}>
-        <article className="g-row">
-          <div className={cx('col-12', 'sectionFeature')}>
-            <h2 className={cx('featureTitle', 'text-lg')}>who we are</h2>
-          </div>
-        </article>
+      {/* section > Who We Are > Histories */}
+      <section className={cx('section', 'historiesWrapper')}>
+        <div className="container">
+          <article className={cx('heading', 'g-row')}>
+            <div className="col-lg-6 col-12">
+              <h1 className={cx('h1')}>
+                openfloor
+                <br />
+                Histories
+              </h1>
+            </div>
+            <div className="col-lg-6 col-12 mt-3">
+              인공지능(AI), 클라우드, 검색 등 오랜 시간 동안 축적한 오픈플로어
+              팀의 기술력과 서비스 경험을 결합하여 기존에 진행하던 사업을 더욱
+              속도감 있게 전개하고 신규 성장 동력 확보를 위해 본격적으로
+              비즈니스 파트너들과 함께하는 엔터프라이즈 IT 기업을 지향합니다.
+            </div>
+          </article>
+        </div>
 
-        <article className={cx('heading', 'g-row')}>
-          <div className="col-lg-6 col-sm-5 col-12">
-            <h1 className={cx('h1')}>service philosophy</h1>
-          </div>
-          <div className="col-lg-6 col-sm-7 col-12 mt-3">
-            달 가고 밤 가고 눈물도 가고 틔어 올 밝은 하늘 빛난 아침 이르면
-            향기로운 이슬밭 푸른 언덕을 총총총 달려도 와 줄 볼이 고운 나의 사람.
-            푸른 산 한나절 구름은 가고 고을 너머 뻐꾸기는 우는데 눈에 어려
-            흘러가는 물결 같은 사람 속 아우성쳐 흘러가는 물결 같은 사람 속에 난
-            그리노라.
-          </div>
-        </article>
+        <div className={cx('container')}>
+          <article className="g-row justify-end">
+            <div className="col-12 col-lg-12">
+              <ul className={cx('histories')}>
+                {histories.map((item, index) => (
+                  <li key={index}>
+                    <Link to={'#'} className="g-row flex-between">
+                      <p className="col-lg-2 col-12">{item.date}</p>
+                      <p className="col-lg-6 col-12">{item.title}</p>
+                      <p className="col-lg-2 col-6 mt-2 mt-lg-0">
+                        {item.partner}
+                      </p>
+                      <p className="col-lg-2 col-6 mt-2 mt-lg-0">
+                        {item.solution}
+                      </p>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      {/* section >  */}
+      <section className={cx('section', 'howWeWork')}>
+        <div className="container">
+          <article className="g-row">
+            <div className={cx('col-12', 'sectionFeature')}>
+              <h2 className={cx('featureTitle', 'text-lg')}>How We Work</h2>
+            </div>
+          </article>
+
+          <article className={cx('heading', 'g-row')}>
+            <div className="col-lg-6 col-12">
+              <h3 className={cx('h1')}>
+                Openfloor
+                <br />
+                Makes Quality
+              </h3>
+            </div>
+            <div className="col-lg-6 col-12 mt-3">
+              흐르는 골짜기 스며드는 물소리에 내사 줄줄줄 가슴이 울어라.
+              달밤이나 새벽녘 홀로 서서 눈물 어릴 볼이 고운 나의 사람. 푸른 산
+              한나절 구름은 가고 고을 너머 뻐꾸기는 우는데 눈에 어려 흘러가는
+              물결 같은 사람 속 아우성쳐 흘러가는 물결 같은 사람 속에 난
+              그리노라.
+            </div>
+          </article>
+        </div>
+
+        <div className="fluid">
+          <article className={cx('projectWrapper')}>
+            <ul className={cx('projectList')}>
+              {projectList.map((item, index) => (
+                <li key={index} className="">
+                  <a href="#">{item.title}</a>
+                </li>
+              ))}
+            </ul>
+          </article>
+        </div>
+      </section>
+
+
+      {/* section > partners */}
+      <section className={cx('section', 'partnersWrapper')}>
+        <div className="container">
+          <ul className={cx('g-row', 'justify-center')} style={{ gap: '1rem' }}>
+
+            <li className="col-lg-3 col-6">
+              <div className={cx('partner')}>
+                <img src={OliveYoung} alt="" />
+              </div>
+            </li>
+            <li className="col-lg-3 col-6">
+              <div className={cx('partner')}>
+                <img src={GwangJuBank} alt="" />
+              </div>
+            </li>
+            <li className="col-lg-3 col-6">
+              <div className={cx('partner')}>
+                <img src={OliveYoung} alt="" />
+              </div>
+            </li>
+            <li className="col-lg-3 col-6">
+              <div className={cx('partner')}>
+                <img src={GwangJuBank} alt="" />
+              </div>
+            </li>
+            <li className="col-lg-3 col-6">
+              <div className={cx('partner')}>
+                <img src={OliveYoung} alt="" />
+              </div>
+            </li>
+            <li className="col-lg-3 col-6">
+              <div className={cx('partner')}>
+                <img src={GwangJuBank} alt="" />
+              </div>
+            </li>
+            <li className="col-lg-3 col-6">
+              <div className={cx('partner')}>
+                <img src={OliveYoung} alt="" />
+              </div>
+            </li>
+            <li className="col-lg-3 col-6">
+              <div className={cx('partner')}>
+                <img src={GwangJuBank} alt="" />
+              </div>
+            </li>
+          </ul>
+        </div>
       </section>
     </Layout>
   )

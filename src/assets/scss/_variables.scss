@@ -3,6 +3,28 @@
 /* ---------------------------------------------------------- 
     colors palette
  ---------------------------------------------------------- */
+$gray-1: #f8f9fa;
+$gray-2: #eee;
+$gray-3: #ddd;
+$gray-4: #ccc;
+$gray-5: #999;
+$gray-6: #666;
+$gray-7: #444;
+$gray-8: #333;
+$gray-9: #111;
+
+$grays: (
+  gray-1: $gray-1,
+  gray-2: $gray-2,
+  gray-3: $gray-3,
+  gray-4: $gray-4,
+  gray-5: $gray-5,
+  gray-6: $gray-6,
+  gray-7: $gray-7,
+  gray-8: $gray-8,
+  gray-9: $gray-9,
+) !default;
+
 
 $primary: #d83a3a;
 $secondary: #353a53;
@@ -11,9 +33,9 @@ $green: #127039;
 $yellow: #c2b542;
 $orange: #e58f65;
 $red: #d05353;
-$gray: #88a0a8;
-$dark: #111111;
-$light: #f5f5f5;
+$gray: $gray-6;
+$dark: $gray-9;
+$light: $gray-1;
 
 $color-palette: (
   primary: $primary,
@@ -26,33 +48,12 @@ $color-palette: (
   gray: $gray,
 ) !default;
 
-$gray-100: #f8f9fa;
-$gray-200: #eeeeee;
-$gray-300: #dddddd;
-$gray-400: #cccccc;
-$gray-500: #999999;
-$gray-600: #666666;
-$gray-700: #444b54;
-$gray-800: #333333;
-$gray-900: #222222;
-
-$grays: (
-  gray-1: $gray-100,
-  gray-2: $gray-200,
-  gray-3: $gray-300,
-  gray-4: $gray-400,
-  gray-5: $gray-500,
-  gray-6: $gray-600,
-  gray-7: $gray-700,
-  gray-8: $gray-800,
-  gray-9: $gray-900,
-) !default;
-
 /* ---------------------------------------------------------- 
     Typography
  ---------------------------------------------------------- */
 $body-font: 16px !default;
 
+// 4 8 12 16 20 24 ...
 $text-sizes: (
   'xs': $body-font * 0.75,
   'sm': $body-font * 0.875,
@@ -63,13 +64,14 @@ $text-sizes: (
   '3xl': $body-font * 2,
 ) !default;
 
+// custom
 $headings: (
-  1: calc($body-font * 1.75 + 2.75vw),
-  2: calc($body-font * 1.5 + 2.5vw),
-  3: calc($body-font * 1.375 + 1.5vw),
-  4: calc($body-font * 1 + 1vw),
-  5: calc($body-font * 1 + .6vw),
-  6: $body-font,
+  1: $body-font * 4.5,
+  2: $body-font * 2.5,
+  3: $body-font * 2,
+  4: $body-font * 1.75,
+  5: $body-font * 1.5,
+  6: $body-font * 1.125,
 ) !default;
 
 $font-weight: (
@@ -78,7 +80,7 @@ $font-weight: (
   'normal': 400,
   'medium': 500,
   'bold': 600,
-  'bolder': 800,
+  'bolder': 900,
 ) !default;
 
 /* ---------------------------------------------------------- 
@@ -95,10 +97,10 @@ $grid-breakpoints: (
 
 // Cotainer
 $container-max-widths: (
-  sm: 575px,
-  md: 767px,
-  lg: 1399px,
-  xl: 1599px
+  sm: 540px,
+  md: 720px,
+  lg: 1320px,
+  xl: 1520px
 ) !default;
 
 $grid-count: 12 !default;
@@ -107,11 +109,11 @@ $grid-gutter: 2rem !default;
 $border-width: 1px;
 $border-width-lg: 2px;
 
-$rounded: 10px;
-$rounded-xs: 4px;
-$rounded-sm: 6px;
-$rounded-lg: 10px;
-$rounded-full: 30px;
+$rounded: 1rem;
+$rounded-xs: .5rem;
+$rounded-sm: 1rem;
+$rounded-lg: 3rem;
+$rounded-full: 10rem;
 $rounded-0: 0;
 
 $rounded-sizes: (

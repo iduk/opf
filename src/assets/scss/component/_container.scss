@@ -1,8 +1,8 @@
 // fluid
 @mixin make-container($gutter: $grid-gutter) {
   width: 100%;
-  padding-right: calc($grid-gutter * .5);
-  padding-left: calc($grid-gutter * .5);
+  padding-right: $grid-gutter;
+  padding-left: $grid-gutter;
   margin-right: auto;
   margin-left: auto;
 }

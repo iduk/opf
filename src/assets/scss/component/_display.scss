@@ -68,7 +68,7 @@ $flex-gap: (
 @mixin flex-properties($name, $prop, $arr) {
   @each $mod, $dir in $arr {
     .#{$name}-#{$mod} {
-      #{$prop}: #{$dir};
+      #{$prop}: #{$dir} !important;
     }
   }
 }

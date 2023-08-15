@@ -6,30 +6,30 @@ $theme: (
     'colors': $color-palette,
     'grays': (
       'gray-0': #fff,
-      'gray-1': $gray-100,
-      'gray-2': $gray-200,
-      'gray-3': $gray-300,
-      'gray-4': $gray-400,
-      'gray-5': $gray-500,
-      'gray-6': $gray-600,
-      'gray-7': $gray-700,
-      'gray-8': $gray-800,
-      'gray-9': $gray-900,
+      'gray-1': $gray-1,
+      'gray-2': $gray-2,
+      'gray-3': $gray-3,
+      'gray-4': $gray-4,
+      'gray-5': $gray-5,
+      'gray-6': $gray-6,
+      'gray-7': $gray-7,
+      'gray-8': $gray-8,
+      'gray-9': $gray-9,
     ),
   ),
   'dark': (
     'colors': $color-palette,
     'grays': (
-      'gray-0': #111,
-      'gray-1': $gray-900,
-      'gray-2': $gray-800,
-      'gray-3': $gray-700,
-      'gray-4': $gray-600,
-      'gray-5': $gray-500,
-      'gray-6': $gray-400,
-      'gray-7': $gray-300,
-      'gray-8': $gray-200,
-      'gray-9': $gray-100,
+      'gray-0': #000,
+      'gray-1': $gray-9,
+      'gray-2': $gray-8,
+      'gray-3': $gray-7,
+      'gray-4': $gray-6,
+      'gray-5': $gray-5,
+      'gray-6': $gray-4,
+      'gray-7': $gray-3,
+      'gray-8': $gray-2,
+      'gray-9': $gray-1,
     ),
   ),
 );
@@ -55,7 +55,6 @@ $transition-bg: all 0.1s cubic-bezier(0.185, 0.475, 0.895, 0.39);
       @each $name, $color in $colors {
         --#{''+$name}: #{$color};
       }
-
       @each $name, $color in $theme-mode {
         --theme-#{''+$name}: #{$color};
       }

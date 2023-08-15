@@ -1,20 +1,27 @@
 // .$column-calculation: 
 // (100% - ($gutter-width-procent * ($column-count - 1))) / $column-count; 
 
-.g-row {
+@mixin make-row($gutter: $grid-gutter) {
   display: flex;
   flex-wrap: wrap;
-  box-sizing: border-box;
-  flex: 0 1 auto;
-  margin-right: calc(-.5 * $grid-gutter);
-  margin-left: calc(-.5 * $grid-gutter);
+  margin-right: -$gutter * .5;
+  margin-left: -$gutter * .5;
+}
+@mixin make-col-auto() {
+  flex: 0 0 auto;
+  width: auto;
+}
+
+.g-row {
+  @include make-row();
+  
   > * {
-    // flex-shrink: 0;
+    flex-shrink: 0;
     position: relative;
     width: 100%;
     max-width: 100%;
-    padding-right: calc($grid-gutter * .5);
-    padding-left: calc($grid-gutter * .5);
+    padding-right: $grid-gutter * .5;
+    padding-left: $grid-gutter * .5;
   }
 }
 
@@ -37,7 +44,7 @@
 
   @for $i from 1 through $grid-count {
     .col#{$infix}-#{$i} {
-      flex: 1 1 auto;
+      flex: 0 0 auto;
       flex-basis: calc(100 / ($grid-count / $i) * 1%);
     }
     .offset#{$infix}-#{$i} {
@@ -45,7 +52,8 @@
     }
   }
   .col#{$infix}-auto {
-    flex: 1 0 0;
+    @include make-col-auto();
+    
   }
 
   .offset#{$infix}-0 {

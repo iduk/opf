@@ -1,7 +1,12 @@
+@import "/node_modules/rfs/scss";
+
 // text-size
 @each $key, $value in $text-sizes {
   .text-#{$key} {
     font-size: $value !important;
+    @include breakpoint-down(lg) {
+      font-size: rfs-fluid-value($value !important);      
+    }
   }
 }
 
@@ -9,9 +14,12 @@
 @each $key, $value in $headings {
   h#{$key},
   .h#{$key} {
+    // font-weight: 300;
+    line-height: 1.1;
     font-size: $value;
-    font-weight: 300;
-    line-height: 1.2;
+    @include breakpoint-down(lg) {
+      font-size: rfs-fluid-value($value);      
+    }
   }
 }
 

@@ -132,12 +132,6 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-mini-css-class-name`,
-      options: {
-        // prefix: `xo-`,
-      },
-    },
-    {
       resolve: `gatsby-plugin-styled-components`,
       options: {
         // Add any options here

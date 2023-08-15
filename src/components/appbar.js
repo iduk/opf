@@ -4,7 +4,7 @@ import { Link, useStaticQuery, graphql } from 'gatsby'
 import * as styles from './appbar.module.scss'
 import classNames from 'classnames/bind'
 import ThemeToggle from './themeToggle'
-import { motion } from 'framer-motion'
+import { motion, useScroll, useSpring } from 'framer-motion'
 import useMediaQuery from '../hooks/useMediaQuery'
 import { useEffect } from 'react'
 const cx = classNames.bind(styles)
@@ -14,19 +14,24 @@ const LogoImg = () => {
     <svg
       className={cx('logoSvg')}
       xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 139.23 118.35"
+      viewBox="0 0 114 96"
     >
+      <path className={cx('cls-1')} d="M56.99,92.89V7.89" />
       <path
         className={cx('cls-1')}
-        d="M134,110.46l-.18-.3L74.01,8.47l-.25-.42-4.15-7.06-4.15,7.06-.25,.42L5.4,110.16s-.05,.07-.07,.11l-.11,.19-.04,.07-4.31,7.32H138.35l-4.35-7.39Zm-69.39-2.61h-31.22l31.22-13.74v13.74Zm0-24.66l-22.05,9.7,22.05-17.64v7.94Zm0-20.74l-36.94,29.56L64.61,29.21V62.45Zm10,45.4v-13.74l31.22,13.74h-31.22Zm0-24.66V29.21l42.84,72.82-42.84-18.84Z"
+        d="M106.99 92.89 56.99 70.89 6.99 92.89 56.99 52.89"
+      />
+      <path
+        className={cx('cls-1')}
+        d="M56.99 7.89 106.99 92.89 6.99 92.89 56.99 7.89z"
       />
     </svg>
   )
 }
 
 const Appbar = ({ siteTitle }) => {
+  const { scrollYProgress } = useScroll()
   const [isOpen, setIsOpen] = React.useState(false)
-
   const isSmall = useMediaQuery('(max-width: 767px)')
   const variants = isSmall
     ? {
@@ -67,59 +72,71 @@ const Appbar = ({ siteTitle }) => {
   )
 
   const navLinks = data.site.siteMetadata.menuLinks
-  
+
   const handleClickScroll = () => {
     console.log('zzz')
     window.scrollTo({
       top: document.offsetTop,
       left: 0,
-      behavior: "smooth",
-    });
-  };
+      behavior: 'smooth',
+    })
+  }
+
+  const scaleX = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 20,
+    restDelta: 0.001,
+  })
 
   return (
-    <header>
-      <ThemeToggle />
-      <div className={cx('navbar', 'fluid')}>
-        <Link to={'/'} className={cx('logo')} title={siteTitle} tabIndex="0">
-          <LogoImg />
-        </Link>
+    <>
+      <motion.div className={cx('progressBar')} style={{ scaleX }} />
+      <header>
+        <ThemeToggle />
+        <div className={cx('navbar')}>
+          <div className="container">
+            <Link to={'/'} className={cx('logo')} title={siteTitle} tabIndex="0">
+              <span className={cx('symbol')}><LogoImg /></span>
+              {/* <span className={cx('logoText', 'h6')}>Openfloor</span> */}
+            </Link>
 
-        <button
-          onClick={() => setIsOpen(isOpen => !isOpen)}
-          className={cx('navTrigger')}
-        >
-          <div className={cx('hamburger', `${isOpen ? 'active' : ''}`)}>
-            <span className={cx('hamburger__bar')}></span>
-            <span className={cx('hamburger__bar')}></span>
-            <span className={cx('hamburger__bar')}></span>
+            <button
+              onClick={() => setIsOpen(isOpen => !isOpen)}
+              className={cx('navTrigger')}
+            >
+              <div className={cx('hamburger', `${isOpen ? 'active' : ''}`)}>
+                <span className={cx('hamburger__bar')}></span>
+                <span className={cx('hamburger__bar')}></span>
+                <span className={cx('hamburger__bar')}></span>
+              </div>
+            </button>
+
+            <motion.nav
+              initial="hidden"
+              // animate={isOpen ? 'open' : 'closed'}
+              // variants={variants}
+              className={cx('nav', `${isOpen ? 'active' : ''}`)}
+            >
+              <ul className={cx('navList')}>
+                {navLinks.map((link, index) => (
+                  <li key={link.url}>
+                    <Link
+                      className={cx('navLink')}
+                      to={link.url}
+                      activeClassName={cx('active')}
+                      tabIndex={index + 1}
+                      onClick={() => handleClickScroll(link.url)}
+                    >
+                      {link.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </motion.nav>
           </div>
-        </button>
-
-        <motion.nav
-          initial="hidden"
-          // animate={isOpen ? 'open' : 'closed'}
-          // variants={variants}
-          className={cx('nav', `${isOpen ? 'active' : ''}`)}
-        >
-          <ul className={cx('navList')}>
-            {navLinks.map((link, index) => (
-              <li key={link.url}>
-                <Link
-                  className={cx('navLink')}
-                  to={link.url}
-                  activeClassName={cx('active')}
-                  tabIndex={index + 1}
-                  onClick={()=> handleClickScroll(link.url)}
-                >
-                  {link.name}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </motion.nav>
-      </div>
-    </header>
+        </div>
+      </header>
+    </>
   )
 }
 
