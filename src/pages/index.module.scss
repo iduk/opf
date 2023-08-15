@@ -148,9 +148,9 @@ $index-bg: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 32%, rgba(255,2
   
   .workings {
     &--item {
-      margin-top: 2rem;
+      margin-top: 1rem;
       > a {
-        height: 25vmax;
+        height: 20vmax;
         display: block;
         border: 1px solid var(--theme-border);
         overflow: hidden;
@@ -221,12 +221,12 @@ $index-bg: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 32%, rgba(255,2
   .projectList {
     display: flex;
     flex-wrap: nowrap;
-    column-gap: 2rem;
+    column-gap: 1rem;
     >li a{
       display: block;
       width: 25vmax;
-      height: 25vmax;
-      border-radius: 3rem;
+      height: 30vmax;
+      border-radius: 2rem;
       border:1px solid var(--theme-border)
     }
   }

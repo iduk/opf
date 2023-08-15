@@ -431,7 +431,7 @@ const IndexPage = () => {
               {workings.map(work => (
                 <li
                   key={work.id}
-                  className={cx('workingsItem', 'col-lg-4', 'col-6')}
+                  className={cx('workingsItem', 'col-lg-4', 'col-6', 'px-xs-1')}
                 >
                   <Link to="#" className="h2">
                     {work.title}
@@ -545,7 +545,7 @@ const IndexPage = () => {
 
       {/* section > partners */}
       <section className={cx('section', 'partnersWrapper')}>
-        <div className="container">
+        <div className="fluid">
           <ul className={cx('g-row', 'justify-center')} style={{ gap: '1rem' }}>
 
             <li className="col-lg-3 col-6">
