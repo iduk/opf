@@ -1,5 +1,5 @@
 // $index-bg: linear-gradient(-180deg, var(--light) 50%, var(--dark) 20%, var(--dark) 0%);
-$index-bg: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 32%, rgba(255,255,255,1) 40%);
+$index-bg: linear-gradient(0deg, var(--dark) 0%, var(--dark) 32%, var(--light) 45%);
 
 .index {
   background: $index-bg;
@@ -237,9 +237,18 @@ $index-bg: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 32%, rgba(255,2
   padding-bottom: 15vh;
   .partner {
     color: white;
+    display: flex;
+    align-items: center;
     width: 100%;
+    height: 100%;
+    max-width: 160px;
+    padding: 1vh;
+    opacity: 0.4;
+    &:is(:hover,:focus) {
+      opacity: 1;
+    }
     
-    svg {
+    img,svg {
       width: 100%;
       height: 100%;
     }

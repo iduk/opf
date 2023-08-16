@@ -11,8 +11,13 @@ import {
   useSpring,
 } from 'framer-motion'
 import ParallaxText from '../components/ParallaxText'
-import GwangJuBank from '../assets/images/logo-gwangju_bank.svg'
-import OliveYoung from '../assets/images/logo-Olive_Young.svg'
+import Ibm from '../assets/images/logo_ibm.svg'
+import Adobe from '../assets/images/logo_adobe.svg'
+import Intel from '../assets/images/logo_intel.svg'
+import Amazon from '../assets/images/logo_amazon.svg'
+import Cisco from '../assets/images/logo_cisco.svg'
+import Netflix from '../assets/images/logo_netflix.svg'
+import Oracle from '../assets/images/logo_oracle.svg'
 import * as styles from './index.module.scss'
 import classNames from 'classnames/bind'
 const cx = classNames.bind(styles)
@@ -100,6 +105,15 @@ const projectList = [
     date: '04 Sept 2021',
     title: 'Refactors and stability',
   },
+]
+
+const partners = [
+  { name: Ibm },
+  { name: Intel },
+  { name: Amazon },
+  { name: Cisco },
+  { name: Netflix },
+  { name: Oracle },
 ]
 
 function Text({ children, className, style }) {
@@ -395,7 +409,7 @@ const IndexPage = () => {
         </div>
       </section>
 
-      <section className={cx('section', 'whoWeAre')}>
+      <section id='whoWeAre' className={cx('section', 'whoWeAre')}>
         <div className="container">
           <article className="g-row">
             <div className={cx('col-12', 'sectionFeature')}>
@@ -503,7 +517,7 @@ const IndexPage = () => {
       </section>
 
       {/* section >  */}
-      <section className={cx('section', 'howWeWork')}>
+      <section id='howWeWork' className={cx('section', 'howWeWork')}>
         <div className="container">
           <article className="g-row">
             <div className={cx('col-12', 'sectionFeature')}>
@@ -545,49 +559,15 @@ const IndexPage = () => {
 
       {/* section > partners */}
       <section className={cx('section', 'partnersWrapper')}>
-        <div className="fluid">
-          <ul className={cx('g-row', 'justify-center')} style={{ gap: '1rem' }}>
-
-            <li className="col-lg-3 col-6">
-              <div className={cx('partner')}>
-                <img src={OliveYoung} alt="" />
-              </div>
-            </li>
-            <li className="col-lg-3 col-6">
-              <div className={cx('partner')}>
-                <img src={GwangJuBank} alt="" />
-              </div>
-            </li>
-            <li className="col-lg-3 col-6">
-              <div className={cx('partner')}>
-                <img src={OliveYoung} alt="" />
-              </div>
-            </li>
-            <li className="col-lg-3 col-6">
-              <div className={cx('partner')}>
-                <img src={GwangJuBank} alt="" />
-              </div>
-            </li>
-            <li className="col-lg-3 col-6">
-              <div className={cx('partner')}>
-                <img src={OliveYoung} alt="" />
-              </div>
-            </li>
-            <li className="col-lg-3 col-6">
-              <div className={cx('partner')}>
-                <img src={GwangJuBank} alt="" />
-              </div>
-            </li>
-            <li className="col-lg-3 col-6">
-              <div className={cx('partner')}>
-                <img src={OliveYoung} alt="" />
-              </div>
-            </li>
-            <li className="col-lg-3 col-6">
-              <div className={cx('partner')}>
-                <img src={GwangJuBank} alt="" />
-              </div>
-            </li>
+        <div className="container">
+          <ul className={cx('g-row', 'justify-center')}>
+            {partners.map((item, index)=>(
+              <li key={index} className="col-lg-2 col-4">
+                <div className={cx('partner')}>
+                  <img src={item.name} alt={item.name} />
+                </div>
+              </li>
+            ))}
           </ul>
         </div>
       </section>
