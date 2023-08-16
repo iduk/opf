@@ -11,7 +11,8 @@ import {
 import { wrap } from "@motionone/utils";
 import './ParallaxText.scss'
 
-const ParallaxText = ({children, baseVelocity = 100}) => {
+
+function ParallaxText ({children, baseVelocity = 100}) {
   const baseX = useMotionValue(0);
   const { scrollY } = useScroll();
   const scrollVelocity = useVelocity(scrollY);
