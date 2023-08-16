@@ -9,7 +9,7 @@ import {
   useAnimationFrame
 } from "framer-motion";
 import { wrap } from "@motionone/utils";
-import './ParallaxText.scss'
+import './parallaxText.scss'
 
 
 function ParallaxText ({children, baseVelocity = 100}) {
