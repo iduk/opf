@@ -78,7 +78,6 @@ module.exports = {
           quality: 80,
           breakpoints: [600, 900, 1200, 1920],
           backgroundColor: `transparent`,
-          tracedSVGOptions: {},
           blurredOptions: {},
           jpgOptions: {},
           pngOptions: {},
