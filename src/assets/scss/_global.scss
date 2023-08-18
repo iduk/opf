@@ -28,15 +28,6 @@ body {
   font-size: $body-font; 
 }
 
-// scrollbar hide
-* {
-  &::-webkit-scrollbar { // chrome, safari
-    display: none;
-  }
-  // IE, Edge & Firefox
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
 
 ::selection {
   background-color: var(--primary);

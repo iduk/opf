@@ -17,18 +17,18 @@ function ParallaxText ({children, baseVelocity = 100}) {
   const { scrollY } = useScroll();
   const scrollVelocity = useVelocity(scrollY);
   const smoothVelocity = useSpring(scrollVelocity, {
-    damping: 50,
+    damping: 100,
     stiffness: 400
   });
-  const velocityFactor = useTransform(smoothVelocity, [0, 1000], [0, 5], {
+  const velocityFactor = useTransform(smoothVelocity, [0, 3000], [0, 5], {
     clamp: false
   });
 
   const x = useTransform(baseX, (v) => `${wrap(-20, -45, v)}%`);
 
   const directionFactor = useRef(1);
-  useAnimationFrame(delta => {
-    let moveBy = directionFactor.current * baseVelocity * (delta / 4000);
+  useAnimationFrame((t,delta) => {
+    let moveBy = directionFactor.current * baseVelocity * (delta / 3000);
 
     if (velocityFactor.get() < 0) {
       directionFactor.current = -1;

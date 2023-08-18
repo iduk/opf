@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React, { useRef, useEffect } from 'react'
 import { Link } from 'gatsby'
 import { StaticImage } from 'gatsby-plugin-image'
 import Layout from '../components/layout'
@@ -10,6 +10,7 @@ import {
   useInView,
   useSpring,
 } from 'framer-motion'
+
 import Ibm from '../assets/images/logo_ibm.svg'
 import Adobe from '../assets/images/logo_adobe.svg'
 import Intel from '../assets/images/logo_intel.svg'
@@ -20,15 +21,17 @@ import Oracle from '../assets/images/logo_oracle.svg'
 import * as styles from './index.module.scss'
 import classNames from 'classnames/bind'
 import ParallaxText from '../components/parallaxText'
+import RevealContainer from '../components/revealContainer'
+
 const cx = classNames.bind(styles)
 
 const workings = [
-  { id: 1, title: 'Design & Human Interface' },
+  { id: 1, title: 'Human Interface' },
   { id: 2, title: 'MarTech' },
-  { id: 3, title: 'Cybersecurity - Narrow' },
+  { id: 3, title: 'Cybersecurity' },
   { id: 4, title: 'WomenInTech' },
   { id: 5, title: 'Tech For Good' },
-  { id: 6, title: 'Vertual Reality - VR' },
+  { id: 6, title: 'Vertual Reality' },
 ]
 const histories = [
   {
@@ -75,8 +78,26 @@ const histories = [
   },
   {
     date: '04 Sept 2022',
-    title: '케이뱅크 기업 뱅킹 (UX/UI)',
-    partner: '케이뱅크',
+    title: '세탁 O2O 플랫폼 구축 (APP / DESKTOP / WEB / SERVER)',
+    partner: '온디맨드랩',
+    solution: 'CRM',
+  },
+  {
+    date: '04 Sept 2022',
+    title: '배달 O2O 플랫폼 구축 (APP / DESKTOP / WEB / SERVER)',
+    partner: '온디맨드랩',
+    solution: 'CRM',
+  },
+  {
+    date: '30 Jan 2022',
+    title: 'SPC 잠바주스 키오스크 플랫폼 구축 (APP / WEB / SERVER)',
+    partner: 'SPC',
+    solution: 'APP',
+  },
+  {
+    date: '04 Sept 2022',
+    title: '삼성중공업 모바일 무도면 시스템 (APP / SERVER)',
+    partner: '삼성중공업',
     solution: 'CRM',
   },
 ]
@@ -139,11 +160,13 @@ function Text({ children, className, style }) {
 }
 
 const IndexPage = () => {
-  const ref = React.useRef(null)
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ['end end', 'start start'],
-  })
+  // const ref = useRef(null)
+
+  // const { scrollYProgress } = useScroll({
+  //   target: ref,
+  //   offset: ['end end', 'start start'],
+  // })
+
   return (
     <Layout className={cx('index')}>
       <section
@@ -401,15 +424,18 @@ const IndexPage = () => {
         <div className="g-row">
           <div className="col-lg-8 offset-lg-2">
             <article className={cx('stageTitle')}>
-              <p>Openfloor</p>
-              <p>Makes</p>
-              <p>Quality</p>
+              <RevealContainer>Openfloor</RevealContainer>
+              <RevealContainer>Makes</RevealContainer>
+              <RevealContainer>
+                Quality
+                <span>.</span>
+              </RevealContainer>
             </article>
           </div>
         </div>
       </section>
 
-      <section id='whoWeAre' className={cx('section', 'whoWeAre')}>
+      <section id="whoWeAre" className={cx('section', 'whoWeAre')}>
         <div className="container">
           <article className="g-row">
             <div className={cx('col-12', 'sectionFeature')}>
@@ -447,8 +473,8 @@ const IndexPage = () => {
                   key={work.id}
                   className={cx('workingsItem', 'col-lg-4', 'col-6', 'px-xs-1')}
                 >
-                  <Link to="#" className="h2">
-                    {work.title}
+                  <Link to={'.'}>
+                    <h2 className='h2'>{work.title}</h2>
                   </Link>
                 </li>
               ))}
@@ -517,7 +543,7 @@ const IndexPage = () => {
       </section>
 
       {/* section >  */}
-      <section id='howWeWork' className={cx('section', 'howWeWork')}>
+      <section id="howWeWork" className={cx('section', 'howWeWork')}>
         <div className="container">
           <article className="g-row">
             <div className={cx('col-12', 'sectionFeature')}>
@@ -556,12 +582,11 @@ const IndexPage = () => {
         </div>
       </section>
 
-
       {/* section > partners */}
       <section className={cx('section', 'partnersWrapper')}>
         <div className="container">
           <ul className={cx('g-row', 'justify-center')}>
-            {partners.map((item, index)=>(
+            {partners.map((item, index) => (
               <li key={index} className="col-lg-2 col-4">
                 <div className={cx('partner')}>
                   <img src={item.name} alt={item.name} />
