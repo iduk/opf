@@ -6069,7 +6069,7 @@ gatsby-plugin-purgecss@^6.1.2:
     merge-anything "^5.1.4"
     purgecss "^4.1.3"
 
-gatsby-plugin-react-svg@^3.1.0:
+gatsby-plugin-react-svg@^3.3.0:
   version "3.3.0"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-react-svg/-/gatsby-plugin-react-svg-3.3.0.tgz#1dad8594ecd6ffd86e5ff45e1b9365367c999c44"
   integrity sha512-kFPElMFu1QCkiFCm1pSrVkOHAeafU6wkD0qCVPs7nL/Txh5KFh0aOO6Feiwvfre1Jo+Eg3lwCuGmgsy9L+4pDg==
@@ -6118,14 +6118,6 @@ gatsby-plugin-styled-components@^5.21.0:
   integrity sha512-gBCgvLDz+X9Xq8BhroFWZTtURMycgARyly4SlidrPqcPtxWhJtas+gc01/uivHnjIUW6SAac8cpot3ld/PLdZA==
   dependencies:
     "@babel/runtime" "^7.15.4"
-
-gatsby-plugin-svgr-svgo@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-svgr-svgo/-/gatsby-plugin-svgr-svgo-2.0.0.tgz#2d230c9987095f223e8fe1fcce03f2fd760ebb9d"
-  integrity sha512-PBh+3fV70BWdKkyKCvlQdTVhcCahbeHo850Hc6bFKu8P4H3DDDsxEOx52uLhGUds1y5hsKQV/VXRUaM6gjkY3w==
-  dependencies:
-    svgo "^2.8.0"
-    svgo-loader "^3.0.0"
 
 gatsby-plugin-typescript@^4.25.0:
   version "4.25.0"
@@ -7810,7 +7802,7 @@ loader-utils@^1.2.3:
     emojis-list "^3.0.0"
     json5 "^1.0.1"
 
-loader-utils@^2.0.0, loader-utils@^2.0.3, loader-utils@^2.0.4:
+loader-utils@^2.0.0, loader-utils@^2.0.4:
   version "2.0.4"
   resolved "https://registry.yarnpkg.com/loader-utils/-/loader-utils-2.0.4.tgz#8b5cb38b5c34a9a018ee1fc0e6a066d1dfcc528c"
   integrity sha512-xXqpXoINfFhgua9xiqD8fPFHgkoq1mmmpE92WlDbm9rNRd/EbRb+Gqf908T2DMfuHjjJlksiK2RbHVOdD/MqSw==
@@ -11198,14 +11190,6 @@ svg-react-loader@^0.4.6:
     rx "4.1.0"
     traverse "0.6.6"
     xml2js "0.4.17"
-
-svgo-loader@^3.0.0:
-  version "3.0.3"
-  resolved "https://registry.yarnpkg.com/svgo-loader/-/svgo-loader-3.0.3.tgz#ee193c53610adf32825fa5861ba444dfc9ad0294"
-  integrity sha512-6YdWYge3h0aCb8xHvPhGP4hofIU1OWfZm0I8bteab7hddeRN4fl3aIkN8Z/ZB/ji9QrMOd6C8wT8F1p31GUwuQ==
-  dependencies:
-    loader-utils "^2.0.3"
-    svgo "^2.8.0"
 
 svgo@^2.7.0, svgo@^2.8.0:
   version "2.8.0"
