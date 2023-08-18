@@ -471,7 +471,7 @@ const IndexPage = () => {
               {workings.map(work => (
                 <li
                   key={work.id}
-                  className={cx('workingsItem', 'col-lg-4', 'col-6', 'px-xs-1')}
+                  className={cx('workingsItem', 'col-lg-4', 'col-sm-6',"col-12", 'px-xs-1')}
                 >
                   <Link to={'.'}>
                     <h2 className="h2">{work.title}</h2>
