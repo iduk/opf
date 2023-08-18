@@ -474,7 +474,7 @@ const IndexPage = () => {
                   className={cx('workingsItem', 'col-lg-4', 'col-6', 'px-xs-1')}
                 >
                   <Link to={'.'}>
-                    <h2 className='h2'>{work.title}</h2>
+                    <h2 className="h2">{work.title}</h2>
                   </Link>
                 </li>
               ))}
@@ -518,21 +518,23 @@ const IndexPage = () => {
           </article>
         </div>
 
-        <div className={cx('container')}>
+        <div className={cx('fluid')}>
           <article className="g-row justify-end">
             <div className="col-12 col-lg-12">
               <ul className={cx('histories')}>
                 {histories.map((item, index) => (
                   <li key={index}>
-                    <Link to={'#'} className="g-row flex-between">
-                      <p className="col-lg-2 col-12">{item.date}</p>
-                      <p className="col-lg-6 col-12">{item.title}</p>
-                      <p className="col-lg-2 col-6 mt-2 mt-lg-0">
-                        {item.partner}
-                      </p>
-                      <p className="col-lg-2 col-6 mt-2 mt-lg-0">
+                    <Link to={'#'} className="g-row flex-between align-center">
+                      <div className="col-lg-2 col-12">
+                        <p>{item.date}</p>
+                      </div>
+                      <div className="col-lg-6 col-12">
+                        <p className="my-2 my-lg-0 h3">{item.title}</p>
+                      </div>
+                      <div className="col-lg-2 col-6">{item.partner}</div>
+                      <div className="col-lg-2 col-6">
                         {item.solution}
-                      </p>
+                      </div>
                     </Link>
                   </li>
                 ))}

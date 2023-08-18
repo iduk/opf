@@ -7,10 +7,11 @@
   overflow: hidden;
   padding-top: 1rem;
   padding-bottom: 1rem;
-  border-bottom: 1px solid var(--dark);
+  // border-bottom: 1px solid var(--dark);
+  // background-color: var(--gray-9);
   color: var(--dark);
   // scrolled
-  mix-blend-mode: exclusion !important;
+  mix-blend-mode: difference !important;
   filter: invert(1) !important;
 
   > div {
@@ -23,10 +24,10 @@
 .progress-bar {
   z-index: 2;
   position: fixed;
-  top: 0;
+  bottom: 0;
   left: 0;
   right: 0;
-  height: 3px;
+  height: 4px;
   background-color: var(--primary);
   transform-origin: 0%;
 }

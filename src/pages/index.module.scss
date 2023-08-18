@@ -212,8 +212,10 @@ $index-bg: linear-gradient(0deg, var(--dark) 0%, var(--dark) 32%, var(--light) 4
       font-size: calc(0.925rem + .6vw);
       border-top: 1px solid var(--gray-9);
       color: var(--gray-9);
-      padding-top: 2rem;
-      padding-bottom: 2rem;
+      padding-top: 2vh;
+      padding-bottom: 2vh;
+      overflow: hidden;
+      flex-wrap: wrap;
       // &:hover,&:active {
       //   background-color: #00000015;
       //   transition: background-color .2s ease;
