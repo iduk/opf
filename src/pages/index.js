@@ -19,7 +19,7 @@ import Netflix from '../assets/images/logo_netflix.svg'
 import Oracle from '../assets/images/logo_oracle.svg'
 import * as styles from './index.module.scss'
 import classNames from 'classnames/bind'
-import ParallaxText from '../components/ParallaxText'
+import ParallaxText from '../components/parallaxText'
 const cx = classNames.bind(styles)
 
 const workings = [
