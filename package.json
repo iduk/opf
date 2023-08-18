@@ -47,7 +47,6 @@
     "rfs": "^10.0.0"
   },
   "devDependencies": {
-    "@babel/types": "^7.22.10",
     "@svgr/webpack": "^6.4.0",
     "babel-plugin-styled-components": "^2.0.7",
     "classnames": "^2.3.1",
@@ -63,7 +62,8 @@
     "prop-types": "^15.8.1",
     "resolve-url-loader": "^5.0.0",
     "sass": "^1.54.5",
-    "styled-components": "^5.3.5"
+    "styled-components": "^5.3.5",
+    "babel-plugin-lodash/@babel/types": "^7.21.2"
   },
   "lint-staged": {
     "**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
