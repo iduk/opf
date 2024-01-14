@@ -22,6 +22,7 @@ import OpenfloorText from '../assets/images/openfloor-text.svg'
 import * as styles from './index.module.scss'
 import classNames from 'classnames/bind'
 import ParallaxText from '../components/parallaxText'
+import smoothscroll from 'smoothscroll-polyfill'
 const cx = classNames.bind(styles)
 
 const anim = {
@@ -240,7 +241,8 @@ const IndexPage = () => {
   //   target: ref,
   //   offset: ['end end', 'start start'],
   // })
-
+  
+  smoothscroll.polyfill()
   return (
     <Layout className={cx('index')}>
       <section
