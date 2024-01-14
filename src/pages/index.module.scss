@@ -1,3 +1,6 @@
+html {
+  scroll-behavior: smooth;
+}
 // $index-bg: linear-gradient(-180deg, var(--light) 50%, var(--dark) 20%, var(--dark) 0%);
 $index-bg: linear-gradient(0deg, var(--dark) 0%, var(--dark) 32%, var(--light) 45%);
 
@@ -25,10 +28,10 @@ $index-bg: linear-gradient(0deg, var(--dark) 0%, var(--dark) 32%, var(--light) 4
     line-height: 1.1;
     letter-spacing: -4px;
     font-weight: 400;
-    font-size: 160px;
+    font-size: calc(5rem + 3vw);
     @include breakpoint-down(lg) {
       letter-spacing: -2px;
-      font-size: calc(4rem + 2.5vw);
+      font-size: calc(4rem + 3vw);
     }
   }
   .stageBody {
@@ -154,14 +157,20 @@ $index-bg: linear-gradient(0deg, var(--dark) 0%, var(--dark) 32%, var(--light) 4
       margin-top: 1rem;
       > a {
         height: 20vmax;
-        display: block;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
         border: 1px solid var(--theme-border);
         position: relative;
         // background-image: url(https://images.unsplash.com/photo-1549478872-c222daebeb6f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3089&q=80);
         // background-color: lightgreen;
-        border-radius: 3rem;
-        padding: 1vmax;
+        // border-radius: 3rem;
+        padding: 2vmax;
         text-transform: uppercase;
+        &:hover {
+          transition: .3s all linear;
+          background-color: var(--gray-8);
+        }
   
         
         &::before {
@@ -273,8 +282,9 @@ $index-bg: linear-gradient(0deg, var(--dark) 0%, var(--dark) 32%, var(--light) 4
       display: block;
       width: 25vmax;
       height: 30vmax;
-      border-radius: 2rem;
-      border:1px solid var(--theme-border)
+      // border-radius: 2rem;
+      // border:1px solid var(--theme-border)
+      background-color: var(--gray-8);
     }
   }
 }

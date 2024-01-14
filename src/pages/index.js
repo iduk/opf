@@ -34,13 +34,31 @@ const anim = {
   closed: { width: 0, height: 0 },
 }
 
-const workings = [
-  { id: 1, title: 'Human Interface' },
-  { id: 2, title: 'MarTech' },
-  { id: 3, title: 'Cybersecurity' },
-  { id: 4, title: 'WomenInTech' },
-  { id: 5, title: 'Tech For Good' },
-  { id: 6, title: 'Vertual Reality' },
+const skills = [
+  {
+    id: 1,
+    title: 'Efficieny',
+    hoverTitle: '효율성',
+    desc: '결과를 극대화할 수 있는 리소스를 보유하고 있으며, 불필요한 개발 과정을 줄이고 언제나 효울적인 업무 방식을 택합니다.',
+  },
+  {
+    id: 2,
+    title: 'Latest Technology',
+    hoverTitle: '최신 기술력',
+    desc: 'AI, 디지털 트윈 등 IT 트렌드를 선도하는 최신 동향을 파악하고, 그에 맞는 기술력을 갖추고 있습니다.',
+  },
+  {
+    id: 3,
+    title: 'Quality',
+    hoverTitle: '최상의 결과물',
+    desc: '다양한 경험을 통한 군더더기 없는 코드와 자체 검증 과정을 통해 프로젝트 최상의 결과물을 보장합니다.',
+  },
+  {
+    id: 4,
+    title: 'Running mate',
+    hoverTitle: '러닝메이트',
+    desc: '요구사항의 정확한 이해와 검증을 통해 파트너 사의 소중한 제품과 프로젝트의 시작과 끝을 책임집니다.',
+  },
 ]
 const histories = [
   {
@@ -508,15 +526,16 @@ const IndexPage = () => {
               </h3>
             </div>
             <div className="col-lg-6 col-12 mt-3">
-              달 가고 밤 가고 눈물도 가고 틔어 올 밝은 하늘 빛난 아침 이르면
-              향기로운 이슬밭 푸른 언덕을 총총총 달려도 와 줄 볼이 고운 나의
-              사람. 푸른 산 한나절 구름은 가고 고을 너머 뻐꾸기는 우는데 눈에
-              어려 흘러가는 물결 같은 사람 속 아우성쳐 흘러가는 물결 같은 사람
-              속에 난 그리노라. 달 가고 밤 가고 눈물도 가고 틔어 올 밝은 하늘
-              빛난 아침 이르면 향기로운 이슬밭 푸른 언덕을 총총총 달려도 와 줄
-              볼이 고운 나의 사람. 푸른 산 한나절 구름은 가고 고을 너머 뻐꾸기는
-              우는데 눈에 어려 흘러가는 물결 같은 사람 속 아우성쳐 흘러가는 물결
-              같은 사람 속에 난 그리노라.
+              <p className="mb-2" style={{ color: 'var(--gray-6)' }}>
+                We help your business develop more easily and efficiently with
+                technology and experience.
+              </p>
+              <p>
+                세상의 많은 기업에는 해결하고자 하는 문제가 남아있습니다.
+                오픈플로어는 기업이 겪는 어려움을 기술과 경험을 통해 풀어가고자
+                합니다. 기업이 더 쉽고 효율적으로 비즈니스를 성장시킬 수 있도록,
+                기업의 입장에서 문제를 탐구하고 해결해 나가고 있습니다.
+              </p>
             </div>
           </article>
         </div>
@@ -524,19 +543,20 @@ const IndexPage = () => {
         <article className={cx('workingsWrapper')}>
           <div className="container">
             <ul className={cx('workings', 'g-row')}>
-              {workings.map(work => (
+              {skills.map(item => (
                 <li
-                  key={work.id}
+                  key={item.id}
                   className={cx(
                     'workingsItem',
-                    'col-lg-4',
+                    'col-lg-6',
                     'col-sm-6',
                     'col-12',
                     'px-xs-1'
                   )}
                 >
                   <Link to={'.'}>
-                    <h2 className="h2">{work.title}</h2>
+                    <h2 className="h2">{item.title}</h2>
+                    <p>{item.desc}</p>
                   </Link>
                 </li>
               ))}
@@ -606,11 +626,18 @@ const IndexPage = () => {
               </h3>
             </div>
             <div className="col-lg-6 col-12 mt-3">
-              흐르는 골짜기 스며드는 물소리에 내사 줄줄줄 가슴이 울어라.
-              달밤이나 새벽녘 홀로 서서 눈물 어릴 볼이 고운 나의 사람. 푸른 산
-              한나절 구름은 가고 고을 너머 뻐꾸기는 우는데 눈에 어려 흘러가는
-              물결 같은 사람 속 아우성쳐 흘러가는 물결 같은 사람 속에 난
-              그리노라.
+              <p style={{ color: 'var(--theme-border)'}} className='mb-2'>
+                We focus on providing the best value for our results through
+                development experience and diverse capabilities in various
+                fields.
+              </p>
+              <p>
+                국내 최대 e-커머스 플랫폼 부터 금융 서비스, 글로벌 기업까지
+                대규모 파트너사와의 든든한 신뢰를 통한 협력을 진행해 오고
+                있습니다. 다양한 분야의 개발 경험과 다채로운 역량을 통해
+                불필요한 요소는 과감히 제거하고 결과물에 대한 최선의 가치에
+                집중합니다.
+              </p>
             </div>
           </article>
         </div>
@@ -619,7 +646,7 @@ const IndexPage = () => {
           <article className={cx('projectWrapper')}>
             <ul className={cx('projectList')}>
               {projectList.map((item, index) => (
-                <li key={index} className="">
+                <li key={index}>
                   <a href="#">{item.title}</a>
                 </li>
               ))}
