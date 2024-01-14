@@ -8,6 +8,8 @@ import { motion, useScroll, useSpring } from 'framer-motion'
 import useMediaQuery from '../hooks/useMediaQuery'
 import { useEffect } from 'react'
 const cx = classNames.bind(styles)
+import smoothscroll from 'smoothscroll-polyfill';
+smoothscroll.polyfill();
 
 const LogoImg = () => {
   return (
