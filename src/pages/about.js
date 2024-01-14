@@ -1,102 +1,104 @@
-import * as React from 'react'
+import React, { useState, useEffect, useRef } from 'react'
+import { motion } from 'framer-motion'
+import { useInView } from 'react-intersection-observer'
 import { StaticImage } from 'gatsby-plugin-image'
+import Img from 'gatsby-image'
 import Layout from '../components/layout'
 import * as styles from './about.module.scss'
 import classNames from 'classnames/bind'
 import Seo from '../components/seo'
 const cx = classNames.bind(styles)
 
-const AboutPage = () => {
+const anim = {
+  initial: { width: 0 },
+  open: {
+    width: 'auto',
+    transition: { duration: 0.4, ease: [0.23, 1, 0.32, 1] },
+  },
+  closed: { width: 0 },
+}
+
+const ProjectList = ({ project, data }) => {
+
+  const [isActive, setIsActive] = useState(false)
+  const { title1, title2, src } = project
+  // const posts = data.allMarkdownRemark.edges
+
   return (
-    <Layout className={cx('aboutPage')}>
-      {/* header */}
+    <div
+      onMouseEnter={() => {
+        setIsActive(true)
+      }}
+      onMouseLeave={() => {
+        setIsActive(false)
+      }}
+      className={cx('project')}
+    >
+      <p>{title1}</p>
 
-      <section className="section fluid">
-        <header className={cx('g-row', 'pageHeader')}>
-          <div className="col-12 col-md-auto">Xenon Histories</div>
-          <div className="col-12 col-lg-9">
-            <h1 className={cx('pageHeader__title')}>vanila ice cream van</h1>
-          </div>
-        </header>
-      </section>
-      {/* article */}
-      <div className="fluid">
-        <section className="section g-row">
-          <div className="col-12 col-md-auto">
-            <p className="mb-5">Achieve</p>
-          </div>
+      <motion.div
+        variants={anim}
+        animate={isActive ? 'open' : 'closed'}
+        className={cx('imgContainer')}
+      >
+        {/* {posts.map(post => (
+          <Img
+            fluid={
+              post.node.frontmatter.thumbnail?.childImageSharp?.fluid
+            }
+          />
+        ))} */}
+        <img src={src} alt={src} />
+      </motion.div>
 
-          <div className="col-12 col-md-3 col-lg-2">
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas
-              inventore possimus sed dolor, aspernatur culpa praesentium vel,
-              maiores quibusdam quod doloremque a perferendis reiciendis earum
-              blanditiis. Excepturi eligendi facere facilis.
-            </p>
-          </div>
-          <div className="col-12 col-md-3 col-lg-2">
-            <p>
-              우는 아직 별이 풀이 별 이국 헤는 봅니다. 쓸쓸함과 밤을 그러나
-              하나의 아침이 잔디가 다 까닭입니다. 다 않은 하나 된 봅니다. 둘
-              지나고 까닭이요, 이 노루, 토끼, 버리었습니다. 자랑처럼 밤을
-              계집애들의 봅니다. 그리워 이제 무성할 이름자 까닭입니다. 그러나
-              애기 언덕 나의 내린 추억과 봅니다. 나는 쉬이 너무나 별이 겨울이
-              계십니다. 어머니, 한 다 무성할 봅니다.
-            </p>
-          </div>
-          <div className="col-12 col-md-3 col-lg-2">
-            <p>
-              우는 아직 별이 풀이 별 이국 헤는 봅니다. 쓸쓸함과 밤을 그러나
-              하나의 아침이 잔디가 다 까닭입니다. 다 않은 하나 된 봅니다. 둘
-              지나고 까닭이요, 이 노루, 토끼, 버리었습니다. 자랑처럼 밤을
-              계집애들의 봅니다. 그리워 이제 무성할 이름자 까닭입니다. 그러나
-              애기 언덕 나의 내린 추억과 봅니다. 나는 쉬이 너무나 별이 겨울이
-              계십니다. 어머니, 한 다 무성할 봅니다. 써 그리고 한 내린 묻힌
-              봅니다. 걱정도 않은 동경과 밤을 애기 위에 아름다운 못 있습니다.
-              어머니 노루, 북간도에 까닭입니다. 옥 하나 가슴속에 불러 노새,
-              봅니다. 파란 이름과, 아이들의 내린 북간도에 봄이 벌레는 잠,
-              계십니다. 헤일 마디씩 덮어 듯합니다.
-            </p>
-          </div>
-        </section>
-        <section className="section g-row">
-          <div className="col-12 col-md-auto">
-            <p className="mb-5">Key Competencies And Skills</p>
-          </div>
+      <p>{title2}</p>
+    </div>
+  )
+}
 
-          <div className="col-12 col-md-3 col-lg-2">15</div>
-          <div className="col-12 col-md-3 col-lg-2">
-            <p>
-              우는 아직 별이 풀이 별 이국 헤는 봅니다. 쓸쓸함과 밤을 그러나
-              하나의 아침이 잔디가 다 까닭입니다. 다 않은 하나 된 봅니다. 둘
-              지나고 까닭이요, 이 노루, 토끼, 버리었습니다. 자랑처럼 밤을
-              계집애들의 봅니다. 그리워 이제 무성할 이름자 까닭입니다. 그러나
-              애기 언덕 나의 내린 추억과 봅니다. 나는 쉬이 너무나 별이 겨울이
-              계십니다. 어머니, 한 다 무성할 봅니다.
-            </p>
-          </div>
-          <div className="col-12 col-md-3 col-lg-2">
-            <p>-</p>
-          </div>
-        </section>
-      </div>
+function AboutPage() {
+  const projects = [
+    {
+      title1: 'Jomor',
+      title2: 'Design',
+      src: 'https://images.unsplash.com/photo-1480455624313-e29b44bbfde1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3270&q=80',
+    },
+    {
+      title1: 'La',
+      title2: 'Grange',
+      src: 'https://images.unsplash.com/photo-1704226769822-026a349945ba?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwyNXx8fGVufDB8fHx8fA%3D%3D',
+    },
 
-      <div className="fluid mt-8">
-        <div className="g-row">
-          <div className="col-12 px-0">
-            <div className={cx('myImgContainer')}>
-              <StaticImage
-                src="https://images.unsplash.com/photo-1480455624313-e29b44bbfde1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3270&q=80"
-                alt="author-image"
-                loading="lazy"
-                placeholder="tracedSVG"
-                layout="fullWidth"
-                className={cx('myImg')}
-              />
-            </div>
-          </div>
+    {
+      title1: 'Deux Huit',
+      title2: 'Huit',
+      src: 'https://images.unsplash.com/photo-1698365039593-5180c517bb96?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwyN3x8fGVufDB8fHx8fA%3D%3D',
+    },
+
+    {
+      title1: 'Nothing',
+      title2: 'Design Studio',
+      src: 'https://images.unsplash.com/photo-1704241260682-5bb0a120cdaa?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw0OXx8fGVufDB8fHx8fA%3D%3D',
+    },
+
+    {
+      title1: 'Mambo',
+      title2: 'Mambo',
+      src: '3d_render.png',
+    },
+  ]
+
+  return (
+    <Layout>
+      <main className={cx('main')}>
+        <div className={cx('gallery')}>
+          <p>Featured Work</p>
+
+          {projects.map(project => {
+            return <ProjectList project={project} />
+          })}
         </div>
-      </div>
+      </main>
     </Layout>
   )
 }
@@ -104,3 +106,33 @@ const AboutPage = () => {
 export const Head = () => <Seo title="ABOUT" />
 
 export default AboutPage
+
+
+export const pageQuery = graphql`
+  query {
+    allMarkdownRemark(sort: { order: DESC, fields: [frontmatter___date] }) {
+      edges {
+        node {
+          id
+          excerpt(format: PLAIN, pruneLength: 100, truncate: true)
+          fields {
+            slug
+          }
+          frontmatter {
+            date(formatString: "YYYY-MM-DD", locale: "ko-KR")
+            title
+            tags
+            thumbnail {
+              publicURL
+              childImageSharp {
+                fluid(maxWidth: 600) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`

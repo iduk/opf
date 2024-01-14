@@ -1,6 +1,5 @@
-import React, { useRef, useEffect } from 'react'
+import React, { useRef, useEffect, useState } from 'react'
 import { Link } from 'gatsby'
-import { StaticImage } from 'gatsby-plugin-image'
 import Layout from '../components/layout'
 import {
   motion,
@@ -18,12 +17,22 @@ import Amazon from '../assets/images/logo_amazon.svg'
 import Cisco from '../assets/images/logo_cisco.svg'
 import Netflix from '../assets/images/logo_netflix.svg'
 import Oracle from '../assets/images/logo_oracle.svg'
+import RevealContainer from '../components/revealContainer'
+import OpenfloorText from '../assets/images/openfloor-text.svg'
 import * as styles from './index.module.scss'
 import classNames from 'classnames/bind'
 import ParallaxText from '../components/parallaxText'
-import RevealContainer from '../components/revealContainer'
-
 const cx = classNames.bind(styles)
+
+const anim = {
+  initial: { width: 0, height: 0 },
+  open: {
+    width: 'auto',
+    height: 'auto',
+    transition: { duration: 0.4, ease: [0.23, 1, 0.32, 1] },
+  },
+  closed: { width: 0, height: 0 },
+}
 
 const workings = [
   { id: 1, title: 'Human Interface' },
@@ -39,66 +48,77 @@ const histories = [
     title: '올영 EZ (UX/UI/FRONT/MAINTEANENCE)',
     partner: '(주)CJ올리브영',
     solution: 'LMS',
+    src: 'https://images.unsplash.com/photo-1480455624313-e29b44bbfde1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3270&q=80',
   },
   {
     date: '22 Aug 2022',
     title: '올리브 라운지 (UX/UI/FRONT/MAINTEANENCE)',
     partner: '(주)CJ올리브영',
     solution: 'LMS',
+    src: 'https://images.unsplash.com/photo-1704226769822-026a349945ba?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwyNXx8fGVufDB8fHx8fA%3D%3D',
   },
   {
     date: '04 Sept 2022',
     title: '셀프 체크아웃 (DESIGN)',
     partner: '(주)CJ올리브영',
     solution: 'LMS',
+    src: 'https://images.unsplash.com/photo-1704226769822-026a349945ba?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwyNXx8fGVufDB8fHx8fA%3D%3D',
   },
   {
     date: '03 Feb 2022',
     title: 'PDA 2.0 (UX/UI/FRONT/BACKEND/MAINTEANENCE)',
     partner: '(주)CJ올리브영',
     solution: 'LMS',
+    src: 'https://images.unsplash.com/photo-1704226769822-026a349945ba?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwyNXx8fGVufDB8fHx8fA%3D%3D',
   },
   {
     date: '30 Jan 2022',
     title: 'SBI 저축은행 개인 뱅킹 (UX/UI/FRONT)',
     partner: 'SBI저축은행',
     solution: 'LMS',
+    src: 'https://images.unsplash.com/photo-1704226769822-026a349945ba?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwyNXx8fGVufDB8fHx8fA%3D%3D',
   },
   {
     date: '04 Sept 2022',
     title: '하나 손해 보험 고도화 (FRONT/BACKEND)',
     partner: '하나손해보험',
     solution: 'CRM',
+    src: 'https://images.unsplash.com/photo-1704226769822-026a349945ba?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwyNXx8fGVufDB8fHx8fA%3D%3D',
   },
   {
     date: '30 Jan 2022',
     title: '광주은행 개인 뱅킹 / 기업 뱅킹 (FRONT/BACKEND)',
     partner: '광주은행',
     solution: 'LMS',
+    src: 'https://images.unsplash.com/photo-1704226769822-026a349945ba?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwyNXx8fGVufDB8fHx8fA%3D%3D',
   },
   {
     date: '04 Sept 2022',
     title: '세탁 O2O 플랫폼 구축 (APP / DESKTOP / WEB / SERVER)',
     partner: '온디맨드랩',
     solution: 'CRM',
+    src: 'https://images.unsplash.com/photo-1704226769822-026a349945ba?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwyNXx8fGVufDB8fHx8fA%3D%3D',
   },
   {
     date: '04 Sept 2022',
     title: '배달 O2O 플랫폼 구축 (APP / DESKTOP / WEB / SERVER)',
     partner: '온디맨드랩',
     solution: 'CRM',
+    src: 'https://images.unsplash.com/photo-1704226769822-026a349945ba?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwyNXx8fGVufDB8fHx8fA%3D%3D',
   },
   {
     date: '30 Jan 2022',
     title: 'SPC 잠바주스 키오스크 플랫폼 구축 (APP / WEB / SERVER)',
     partner: 'SPC',
     solution: 'APP',
+    src: 'https://images.unsplash.com/photo-1704226769822-026a349945ba?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwyNXx8fGVufDB8fHx8fA%3D%3D',
   },
   {
     date: '04 Sept 2022',
     title: '삼성중공업 모바일 무도면 시스템 (APP / SERVER)',
     partner: '삼성중공업',
     solution: 'CRM',
+    src: 'https://images.unsplash.com/photo-1704226769822-026a349945ba?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwyNXx8fGVufDB8fHx8fA%3D%3D',
   },
 ]
 const projectList = [
@@ -156,6 +176,42 @@ function Text({ children, className, style }) {
     >
       {children}
     </motion.div>
+  )
+}
+
+function HistoriesList({ list }) {
+  const [isActive, setIsActive] = useState(false)
+  const { title, src, date, partner, solution } = list
+
+  return (
+    <Link className="g-row flex-between align-center">
+      <div className="col-lg-2 col-12">
+        <p>{date}</p>
+      </div>
+
+      <div
+        className={cx('historiesTitle', 'col-lg-6', 'col-12')}
+        onMouseEnter={() => {
+          setIsActive(true)
+        }}
+        onMouseLeave={() => {
+          setIsActive(false)
+        }}
+      >
+        <motion.div
+          variants={anim}
+          animate={isActive ? 'open' : 'closed'}
+          className={cx('imgContainer')}
+        >
+          <img src={src} />
+        </motion.div>
+        <p className="my-2 my-lg-0 h3" style={{ display: 'inline-block' }}>
+          {title}
+        </p>
+      </div>
+      <div className="col-lg-2 col-6">{partner}</div>
+      <div className="col-lg-2 col-6">{solution}</div>
+    </Link>
   )
 }
 
@@ -471,7 +527,13 @@ const IndexPage = () => {
               {workings.map(work => (
                 <li
                   key={work.id}
-                  className={cx('workingsItem', 'col-lg-4', 'col-sm-6',"col-12", 'px-xs-1')}
+                  className={cx(
+                    'workingsItem',
+                    'col-lg-4',
+                    'col-sm-6',
+                    'col-12',
+                    'px-xs-1'
+                  )}
                 >
                   <Link to={'.'}>
                     <h2 className="h2">{work.title}</h2>
@@ -480,19 +542,12 @@ const IndexPage = () => {
               ))}
             </ul>
             <div className={cx('floatingTypo')}>
-              <ParallaxText baseVelocity={-5}>
+              <ParallaxText baseVelocity={-1}>
                 Openfloor Makes Quality
               </ParallaxText>
-              <ParallaxText baseVelocity={5}>
+              <ParallaxText baseVelocity={1}>
                 Openfloor Makes Quality
               </ParallaxText>
-
-              {/* <ParallaxText baseVelocity={5}>
-                Openfloor Makes Quality
-              </ParallaxText>
-              <ParallaxText baseVelocity={-4}>
-                Openfloor Makes Quality
-              </ParallaxText> */}
             </div>
           </div>
         </article>
@@ -524,18 +579,7 @@ const IndexPage = () => {
               <ul className={cx('histories')}>
                 {histories.map((item, index) => (
                   <li key={index}>
-                    <Link to={'#'} className="g-row flex-between align-center">
-                      <div className="col-lg-2 col-12">
-                        <p>{item.date}</p>
-                      </div>
-                      <div className="col-lg-6 col-12">
-                        <p className="my-2 my-lg-0 h3">{item.title}</p>
-                      </div>
-                      <div className="col-lg-2 col-6">{item.partner}</div>
-                      <div className="col-lg-2 col-6">
-                        {item.solution}
-                      </div>
-                    </Link>
+                    <HistoriesList list={item} />
                   </li>
                 ))}
               </ul>
