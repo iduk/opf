@@ -16,6 +16,7 @@ html {
   line-height: normal;
   -webkit-text-size-adjust: 100%;
   -webkit-font-smoothing: antialiased;
+  scroll-behavior: smooth;
 }
 body {
   margin: 0;
@@ -26,6 +27,7 @@ body {
   color: var(--theme-text);
   line-height: 1.5;
   font-size: $body-font; 
+  scroll-behavior: smooth;
 }
 
 

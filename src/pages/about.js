@@ -106,33 +106,3 @@ function AboutPage() {
 export const Head = () => <Seo title="ABOUT" />
 
 export default AboutPage
-
-
-export const pageQuery = graphql`
-  query {
-    allMarkdownRemark(sort: { order: DESC, fields: [frontmatter___date] }) {
-      edges {
-        node {
-          id
-          excerpt(format: PLAIN, pruneLength: 100, truncate: true)
-          fields {
-            slug
-          }
-          frontmatter {
-            date(formatString: "YYYY-MM-DD", locale: "ko-KR")
-            title
-            tags
-            thumbnail {
-              publicURL
-              childImageSharp {
-                fluid(maxWidth: 600) {
-                  ...GatsbyImageSharpFluid
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-`
