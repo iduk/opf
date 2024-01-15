@@ -386,7 +386,7 @@ const IndexPage = () => {
               </h3>
             </div>
             <div className="col-lg-6 col-12 mt-3">
-              <p style={{ color: 'var(--theme-border)'}} className='mb-2'>
+              <p style={{ color: 'var(--gray-4)'}} className='mb-2'>
                 We focus on providing the best value for our results through
                 development experience and diverse capabilities in various
                 fields.

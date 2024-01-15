@@ -92,7 +92,7 @@ const Appbar = ({ siteTitle }) => {
     <>
       <motion.div className={cx('progressBar')} style={{ scaleX }} />
       <header>
-        <ThemeToggle />
+        {/* <ThemeToggle /> */}
         <div className={cx('navbar')}>
           <div className="container">
             <Link to={'/'} className={cx('logo')} title={siteTitle} tabIndex="0">
